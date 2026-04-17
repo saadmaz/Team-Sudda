@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Team Sudda design system — Navy + Yellow */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 60% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 60% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 60% 14%;
+
+    /* Brand */
+    --navy: 222 75% 15%;          /* #0A1F44 */
+    --navy-deep: 222 80% 10%;
+    --navy-light: 222 55% 24%;
+    --yellow: 49 100% 50%;        /* #FFD500 */
+    --yellow-soft: 49 100% 60%;
+    --whatsapp: 142 70% 45%;
+
+    --primary: 222 75% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 49 100% 50%;
+    --secondary-foreground: 222 75% 15%;
+
+    --muted: 220 25% 96%;
+    --muted-foreground: 222 20% 40%;
+
+    --accent: 49 100% 50%;
+    --accent-foreground: 222 75% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 49 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients & shadows */
+    --gradient-hero: linear-gradient(135deg, hsl(222 80% 10%) 0%, hsl(222 75% 18%) 50%, hsl(222 70% 22%) 100%);
+    --gradient-yellow: linear-gradient(135deg, hsl(49 100% 50%), hsl(45 100% 55%));
+    --gradient-overlay: linear-gradient(180deg, hsla(222,80%,10%,0) 0%, hsla(222,80%,10%,0.85) 100%);
+
+    --shadow-card: 0 10px 30px -12px hsla(222, 75%, 15%, 0.18);
+    --shadow-yellow: 0 12px 30px -10px hsla(49, 100%, 50%, 0.55);
+    --shadow-navy: 0 20px 50px -20px hsla(222, 75%, 15%, 0.45);
+
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 75% 15%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-14 sm:py-20 md:py-24; }
+  .eyebrow {
+    @apply inline-block text-[11px] font-bold tracking-[0.22em] uppercase text-[hsl(var(--yellow))];
+  }
+  .heading-xl { @apply text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05]; }
+  .heading-lg { @apply text-3xl sm:text-4xl md:text-[2.75rem] leading-tight; }
+  .heading-md { @apply text-2xl sm:text-3xl md:text-4xl leading-tight; }
+}
+
+@layer utilities {
+  .bg-navy { background-color: hsl(var(--navy)); }
+  .bg-navy-deep { background-color: hsl(var(--navy-deep)); }
+  .bg-yellow-brand { background-color: hsl(var(--yellow)); }
+  .text-yellow-brand { color: hsl(var(--yellow)); }
+  .text-navy { color: hsl(var(--navy)); }
+  .border-yellow-brand { border-color: hsl(var(--yellow)); }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-yellow { background: var(--gradient-yellow); }
+  .shadow-card-soft { box-shadow: var(--shadow-card); }
+  .shadow-yellow-glow { box-shadow: var(--shadow-yellow); }
+  .shadow-navy-glow { box-shadow: var(--shadow-navy); }
+}
