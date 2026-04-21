@@ -5,11 +5,8 @@ export const Footer = () => {
     <footer className="bg-navy-deep text-white/80">
       <div className="container-x py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <a href="#home" className="flex items-center text-white">
-            <span className="font-display font-extrabold text-xl">Team <span className="text-yellow-brand">Sudda</span></span>
-          </a>
           <p className="mt-4 text-sm leading-relaxed">
-            Sri Lanka's trusted cleaning team — making homes and businesses sparkle since 2017 with eco-friendly products and a friendly smile.
+            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since 2017 with eco-friendly products and a friendly smile.
           </p>
           <div className="mt-5 flex gap-3">
             {[Facebook, Instagram, MessageCircle].map((Icon, i) => (

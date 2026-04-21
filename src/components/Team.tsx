@@ -25,7 +25,7 @@ export const Team = () => {
             Meet Our Cleaning <span className="text-[hsl(var(--yellow))]">Professionals.</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Friendly, vetted, and trained — the people who make your space sparkle.
+            Friendly, vetted, and trained - the people who make your space sparkle.
           </p>
         </div>
 

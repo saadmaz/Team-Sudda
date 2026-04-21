@@ -20,7 +20,7 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
-            Trained, vetted specialists delivering reliable home, office and commercial cleaning across Sri Lanka — with eco‑friendly products and dependable service.
+            Trained, vetted specialists delivering reliable home, office and commercial cleaning across Sri Lanka - with eco‑friendly products and dependable service.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

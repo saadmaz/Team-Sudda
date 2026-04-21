@@ -22,7 +22,7 @@ export const About = () => {
             Dedicated to Quality <span className="text-[hsl(var(--yellow))]">Cleaning</span> Services
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Since 2017, Team Sudda has been Sri Lanka's trusted name in professional cleaning. From cozy homes in Colombo to corporate offices in Kandy, our trained, background-checked staff use eco-friendly products to deliver spotless results — every single time.
+            Since 2017, Team Sudda has been Sri Lanka's trusted name in professional cleaning. From cozy homes in Colombo to corporate offices in Kandy, our trained, background-checked staff use eco-friendly products to deliver spotless results - every single time.
           </p>
 
           <div className="mt-8 grid sm:grid-cols-2 gap-4">

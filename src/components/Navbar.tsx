@@ -28,11 +28,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container-x flex h-16 md:h-20 items-center justify-between">
-        <a href="#home" className="flex items-center text-white">
-          <span className="font-display font-extrabold text-lg md:text-xl tracking-tight">
-            Team <span className="text-yellow-brand">Sudda</span>
-          </span>
-        </a>
+        <div className="h-6 w-28" aria-hidden="true" />
 
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (

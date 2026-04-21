@@ -3,9 +3,9 @@ import { Phone } from "lucide-react";
 
 const faqs = [
   { q: "What cleaning services do you offer?", a: "We offer home, office, deep, post-renovation, sofa & carpet, sanitization, after-event and move-in/move-out cleaning across Sri Lanka." },
-  { q: "How quickly can you respond to a booking?", a: "Most bookings are confirmed within 1 hour and we can dispatch a team in as little as 24 hours — same-day service is often available in Colombo." },
+  { q: "How quickly can you respond to a booking?", a: "Most bookings are confirmed within 1 hour and we can dispatch a team in as little as 24 hours - same-day service is often available in Colombo." },
   { q: "Do you bring your own products and equipment?", a: "Yes. Our teams arrive fully equipped with eco-friendly, non-toxic cleaning products, vacuums, mops and microfiber tools." },
-  { q: "How do you price your services?", a: "Pricing is transparent and based on space size and service type. You'll always get a clear quote before any work begins — no hidden fees." },
+  { q: "How do you price your services?", a: "Pricing is transparent and based on space size and service type. You'll always get a clear quote before any work begins - no hidden fees." },
   { q: "Which areas in Sri Lanka do you serve?", a: "We currently serve Colombo, Gampaha, Kandy, Galle, Negombo and surrounding suburbs. Contact us to confirm coverage in your area." },
 ];
 
@@ -18,7 +18,7 @@ export const FAQ = () => {
           <h2 className="heading-lg font-display text-navy mt-3">
             Got Questions? <span className="text-[hsl(var(--yellow))]">We've Got Answers.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground">Still unsure? Reach out — our team is always happy to help.</p>
+          <p className="mt-4 text-muted-foreground">Still unsure? Reach out - our team is always happy to help.</p>
 
           <div className="mt-8 bg-yellow-brand text-navy rounded-3xl p-6 flex items-center gap-5">
             <div className="grid place-items-center h-14 w-14 rounded-2xl bg-navy text-yellow-brand shrink-0">

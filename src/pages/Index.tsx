@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Team Sudda — Professional Cleaning Services in Sri Lanka";
+    document.title = "Team Sudda - Professional Cleaning Services in Sri Lanka";
 
     const setMeta = (name: string, content: string, attr: "name" | "property" = "name") => {
       let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
@@ -26,9 +26,9 @@ const Index = () => {
       el.setAttribute("content", content);
     };
 
-    setMeta("description", "Team Sudda — Sri Lanka's trusted cleaning service. Professional home, office, deep & sanitization cleaning in Colombo and beyond. Eco-friendly, trained staff. Call for a free quote.");
+    setMeta("description", "Team Sudda - Sri Lanka's trusted cleaning service. Professional home, office, deep & sanitization cleaning in Colombo and beyond. Eco-friendly, trained staff. Call for a free quote.");
     setMeta("keywords", "cleaning service Sri Lanka, office cleaning Colombo, house cleaning Colombo, deep cleaning Sri Lanka, sanitization Colombo");
-    setMeta("og:title", "Team Sudda — Professional Cleaning Services in Sri Lanka", "property");
+    setMeta("og:title", "Team Sudda - Professional Cleaning Services in Sri Lanka", "property");
     setMeta("og:description", "Trained, eco-friendly cleaners for homes, offices and commercial spaces across Sri Lanka.", "property");
     setMeta("og:type", "website", "property");
 
