@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, Sparkles, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const links = [
@@ -28,10 +28,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container-x flex h-16 md:h-20 items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 text-white">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-yellow-brand text-navy">
-            <Sparkles className="h-5 w-5" strokeWidth={2.5} />
-          </span>
+        <a href="#home" className="flex items-center text-white">
           <span className="font-display font-extrabold text-lg md:text-xl tracking-tight">
             Team <span className="text-yellow-brand">Sudda</span>
           </span>

@@ -1,14 +1,11 @@
-import { Sparkles, Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 
 export const Footer = () => {
   return (
     <footer className="bg-navy-deep text-white/80">
       <div className="container-x py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <a href="#home" className="flex items-center gap-2 text-white">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-yellow-brand text-navy">
-              <Sparkles className="h-5 w-5" strokeWidth={2.5} />
-            </span>
+          <a href="#home" className="flex items-center text-white">
             <span className="font-display font-extrabold text-xl">Team <span className="text-yellow-brand">Sudda</span></span>
           </a>
           <p className="mt-4 text-sm leading-relaxed">

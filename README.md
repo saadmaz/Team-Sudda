@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Team Sudda
 
-TODO: Document your project here
+Project website for Team Sudda cleaning services.
