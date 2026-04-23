@@ -1,5 +1,17 @@
 import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 
+const socialLinks = [
+  { Icon: Facebook, href: "https://facebook.com/teamsudda", label: "Facebook" },
+  { Icon: Instagram, href: "https://instagram.com/teamsudda", label: "Instagram" },
+  { Icon: MessageCircle, href: "https://wa.me/94770000000", label: "WhatsApp" },
+];
+
+const usefulLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "FAQs", href: "#faq" },
+];
+
 export const Footer = () => {
   return (
     <footer className="bg-navy-deep text-white/80">
@@ -9,8 +21,8 @@ export const Footer = () => {
             Sri Lanka's trusted cleaning team - making homes and businesses sparkle since 2017 with eco-friendly products and a friendly smile.
           </p>
           <div className="mt-5 flex gap-3">
-            {[Facebook, Instagram, MessageCircle].map((Icon, i) => (
-              <a key={i} href="#" aria-label="social" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-yellow-brand hover:text-navy transition-colors">
+            {socialLinks.map(({ Icon, href, label }) => (
+              <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-yellow-brand hover:text-navy transition-colors">
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -29,8 +41,8 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold text-white text-base">Useful Links</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            {["Privacy Policy","Terms & Conditions","FAQs","Careers","Blog"].map(l => (
-              <li key={l}><a href="#" className="hover:text-yellow-brand transition-colors">{l}</a></li>
+            {usefulLinks.map(({ label, href }) => (
+              <li key={label}><a href={href} className="hover:text-yellow-brand transition-colors">{label}</a></li>
             ))}
           </ul>
         </div>
@@ -38,9 +50,9 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold text-white text-base">Get in Touch</h4>
           <ul className="mt-4 space-y-3 text-sm">
-            <li className="flex items-start gap-3"><Phone className="h-4 w-4 text-yellow-brand mt-0.5" /> +94 77 000 0000</li>
-            <li className="flex items-start gap-3"><MessageCircle className="h-4 w-4 text-yellow-brand mt-0.5" /> WhatsApp: +94 77 000 0000</li>
-            <li className="flex items-start gap-3"><Mail className="h-4 w-4 text-yellow-brand mt-0.5" /> hello@teamsudda.lk</li>
+            <li className="flex items-start gap-3"><Phone className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="tel:+94770000000" className="hover:text-yellow-brand transition-colors">+94 77 000 0000</a></li>
+            <li className="flex items-start gap-3"><MessageCircle className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="https://wa.me/94770000000" target="_blank" rel="noreferrer" className="hover:text-yellow-brand transition-colors">WhatsApp: +94 77 000 0000</a></li>
+            <li className="flex items-start gap-3"><Mail className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="mailto:hello@teamsudda.lk" className="hover:text-yellow-brand transition-colors">hello@teamsudda.lk</a></li>
             <li className="flex items-start gap-3"><MapPin className="h-4 w-4 text-yellow-brand mt-0.5" /> 12 Galle Road, Colombo 03, Sri Lanka</li>
           </ul>
         </div>

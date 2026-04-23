@@ -7,18 +7,61 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, Send } from "lucide-react";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
 export const Contact = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [service, setService] = useState("");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    const templateParams = {
+      from_name: data.get("name") as string,
+      from_email: data.get("email") as string,
+      phone: data.get("phone") as string,
+      service: service,
+      date: data.get("date") as string,
+      message: data.get("message") as string,
+    };
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      toast({ title: "Configuration error", description: "Email service is not configured. Please contact us via WhatsApp.", variant: "destructive" });
       setLoading(false);
-      toast({ title: "Booking request sent!", description: "Our team will confirm your booking within 1 hour." });
-      (e.target as HTMLFormElement).reset();
-    }, 700);
+      return;
+    }
+
+    try {
+      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: templateParams,
+        }),
+      });
+
+      if (res.ok) {
+        toast({ title: "Booking request sent!", description: "Our team will confirm your booking within 1 hour." });
+        form.reset();
+        setService("");
+      } else {
+        throw new Error("Send failed");
+      }
+    } catch {
+      toast({ title: "Something went wrong", description: "Please try WhatsApp or call us directly.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,15 +79,19 @@ export const Contact = () => {
                 <Input id="name" name="name" required placeholder="Your name" className="mt-1.5" />
               </div>
               <div>
-                <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" type="tel" required placeholder="+94 7X XXX XXXX" className="mt-1.5" />
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" name="email" type="email" required placeholder="you@example.com" className="mt-1.5" />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
+                <Label htmlFor="phone">Phone</Label>
+                <Input id="phone" name="phone" type="tel" required placeholder="+94 77 000 0000" className="mt-1.5" />
+              </div>
+              <div>
                 <Label htmlFor="service">Service Type</Label>
-                <Select name="service">
+                <Select name="service" value={service} onValueChange={setService}>
                   <SelectTrigger id="service" className="mt-1.5"><SelectValue placeholder="Select a service" /></SelectTrigger>
                   <SelectContent>
                     {["Home Cleaning","Office Cleaning","Deep Cleaning","Post-Renovation","Sofa & Carpet","Sanitization","After-Event","Move-In / Move-Out"].map(s => (
@@ -53,10 +100,11 @@ export const Contact = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div>
-                <Label htmlFor="date">Preferred Date</Label>
-                <Input id="date" name="date" type="date" required className="mt-1.5" />
-              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="date">Preferred Date</Label>
+              <Input id="date" name="date" type="date" required className="mt-1.5" />
             </div>
 
             <div>

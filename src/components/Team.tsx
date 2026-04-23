@@ -7,12 +7,12 @@ import t6 from "@/assets/team-6.jpg";
 
 
 const team = [
-  { img: t1, role: "Lead Cleaner" },
-  { img: t2, role: "Operations Manager" },
-  { img: t3, role: "Senior Supervisor" },
-  { img: t4, role: "Sanitization Specialist" },
-  { img: t5, role: "Deep Cleaning Specialist" },
-  { img: t6, role: "Customer Coordinator" },
+  { img: t1, name: "Nimal Perera", role: "Lead Cleaner" },
+  { img: t2, name: "Sanduni Fernando", role: "Operations Manager" },
+  { img: t3, name: "Kasun Silva", role: "Senior Supervisor" },
+  { img: t4, name: "Amaya Jayawardena", role: "Sanitization Specialist" },
+  { img: t5, name: "Ruwan Dissanayake", role: "Deep Cleaning Specialist" },
+  { img: t6, name: "Dilani Rathnayake", role: "Customer Coordinator" },
 ];
 
 export const Team = () => {
@@ -36,11 +36,11 @@ export const Team = () => {
               className="group relative bg-background rounded-3xl overflow-hidden shadow-card-soft border-t-4 border-transparent hover:border-yellow-brand transition-all duration-300 hover:-translate-y-2"
             >
               <div className="relative aspect-[4/5] bg-muted overflow-hidden">
-                <img src={m.img} alt={`Team Sudda ${m.role}`} width={640} height={800} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={m.img} alt={`${m.name} - ${m.role} at Team Sudda`} width={640} height={800} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5 text-center bg-navy text-white">
-                <h3 className="font-display font-bold text-lg">{m.role}</h3>
-                <p className="text-xs text-yellow-brand mt-1 uppercase tracking-wider">Team Sudda</p>
+                <h3 className="font-display font-bold text-lg">{m.name}</h3>
+                <p className="text-xs text-yellow-brand mt-1 uppercase tracking-wider">{m.role}</p>
               </div>
             </article>
           ))}
