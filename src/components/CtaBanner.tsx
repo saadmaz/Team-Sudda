@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Sparkles } from "lucide-react";
+import { CONTACT } from "@/lib/constants/contact";
 
 export const CtaBanner = () => {
   return (
@@ -17,7 +18,9 @@ export const CtaBanner = () => {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl"><a href="#contact">Get a Free Quote</a></Button>
           <Button asChild variant="whatsapp" size="xl">
-            <a href="https://wa.me/94770000000" target="_blank" rel="noreferrer"><MessageCircle className="h-5 w-5" /> WhatsApp Us</a>
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
+              <MessageCircle className="h-5 w-5" /> WhatsApp Us
+            </a>
           </Button>
         </div>
       </div>

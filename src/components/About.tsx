@@ -1,5 +1,6 @@
 import { Building2, Smile, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { STATS } from "@/lib/constants/stats";
 import aboutImg from "@/assets/about-team.jpg";
 
 export const About = () => {
@@ -11,7 +12,7 @@ export const About = () => {
             <img src={aboutImg} alt="Team Sudda cleaner at work in modern office" width={1024} height={1024} loading="lazy" className="w-full h-full object-cover" />
           </div>
           <div className="absolute -bottom-6 -right-4 md:-right-8 bg-yellow-brand text-navy rounded-2xl px-6 py-4 shadow-yellow-glow rotate-[-3deg]">
-            <div className="text-3xl font-display font-extrabold leading-none">8+</div>
+            <div className="text-3xl font-display font-extrabold leading-none">{STATS.yearsInBusiness}</div>
             <div className="text-xs font-bold uppercase tracking-wider mt-1">Years Trusted</div>
           </div>
         </div>
@@ -22,13 +23,13 @@ export const About = () => {
             Dedicated to Quality <span className="text-[hsl(var(--yellow))]">Cleaning</span> Services
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Since 2017, Team Sudda has been Sri Lanka's trusted name in professional cleaning. From cozy homes in Colombo to corporate offices in Kandy, our trained, background-checked staff use eco-friendly products to deliver spotless results - every single time.
+            Since {STATS.foundedYear}, Team Sudda has been Sri Lanka's trusted name in professional cleaning. From cozy homes in Colombo to corporate offices in Kandy, our trained, background-checked staff use eco-friendly products to deliver spotless results - every single time.
           </p>
 
           <div className="mt-8 grid sm:grid-cols-2 gap-4">
             {[
-              { icon: Building2, value: "300+", label: "Offices Cleaned" },
-              { icon: Smile, value: "100%", label: "Satisfaction Rate" },
+              { icon: Building2, value: STATS.officesCleaned, label: "Offices Cleaned" },
+              { icon: Smile, value: STATS.satisfactionRate, label: "Satisfaction Rate" },
             ].map(({ icon: Icon, value, label }) => (
               <div key={label} className="flex items-center gap-4 rounded-2xl border border-border bg-muted/40 p-5">
                 <div className="grid h-14 w-14 place-items-center rounded-xl bg-yellow-brand text-navy shrink-0">

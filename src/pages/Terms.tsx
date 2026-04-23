@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { CONTACT } from "@/lib/constants/contact";
 
 const Terms = () => {
   return (
@@ -84,9 +85,9 @@ const Terms = () => {
             <h2 className="heading-md font-display text-navy mb-3">10. Contact Us</h2>
             <p>If you have any questions about these Terms, please contact us:</p>
             <div className="mt-3 space-y-1">
-              <p><strong className="text-navy">Email:</strong> hello@teamsudda.lk</p>
-              <p><strong className="text-navy">Phone:</strong> +94 77 000 0000</p>
-              <p><strong className="text-navy">Address:</strong> 12 Galle Road, Colombo 03, Sri Lanka</p>
+              <p><strong className="text-navy">Email:</strong> {CONTACT.email}</p>
+              <p><strong className="text-navy">Phone:</strong> {CONTACT.phoneFormatted}</p>
+              <p><strong className="text-navy">Address:</strong> {CONTACT.address.full}</p>
             </div>
           </section>
 

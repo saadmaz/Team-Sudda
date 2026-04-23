@@ -1,9 +1,10 @@
 import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { CONTACT } from "@/lib/constants/contact";
 
 const socialLinks = [
-  { Icon: Facebook, href: "https://facebook.com/teamsudda", label: "Facebook" },
-  { Icon: Instagram, href: "https://instagram.com/teamsudda", label: "Instagram" },
-  { Icon: MessageCircle, href: "https://wa.me/94770000000", label: "WhatsApp" },
+  { Icon: Facebook, href: CONTACT.social.facebook, label: "Facebook" },
+  { Icon: Instagram, href: CONTACT.social.instagram, label: "Instagram" },
+  { Icon: MessageCircle, href: CONTACT.whatsappUrl, label: "WhatsApp" },
 ];
 
 const usefulLinks = [
@@ -32,7 +33,7 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold text-white text-base">Quick Links</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            {["Home","About","Services","Team","Contact"].map(l => (
+            {["Home", "About", "Services", "Team", "Contact"].map((l) => (
               <li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-yellow-brand transition-colors">{l}</a></li>
             ))}
           </ul>
@@ -50,10 +51,24 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold text-white text-base">Get in Touch</h4>
           <ul className="mt-4 space-y-3 text-sm">
-            <li className="flex items-start gap-3"><Phone className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="tel:+94770000000" className="hover:text-yellow-brand transition-colors">+94 77 000 0000</a></li>
-            <li className="flex items-start gap-3"><MessageCircle className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="https://wa.me/94770000000" target="_blank" rel="noreferrer" className="hover:text-yellow-brand transition-colors">WhatsApp: +94 77 000 0000</a></li>
-            <li className="flex items-start gap-3"><Mail className="h-4 w-4 text-yellow-brand mt-0.5" /><a href="mailto:hello@teamsudda.lk" className="hover:text-yellow-brand transition-colors">hello@teamsudda.lk</a></li>
-            <li className="flex items-start gap-3"><MapPin className="h-4 w-4 text-yellow-brand mt-0.5" /> 12 Galle Road, Colombo 03, Sri Lanka</li>
+            <li className="flex items-start gap-3">
+              <Phone className="h-4 w-4 text-yellow-brand mt-0.5" />
+              <a href={`tel:${CONTACT.phone}`} className="hover:text-yellow-brand transition-colors">{CONTACT.phoneFormatted}</a>
+            </li>
+            <li className="flex items-start gap-3">
+              <MessageCircle className="h-4 w-4 text-yellow-brand mt-0.5" />
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-yellow-brand transition-colors">
+                WhatsApp: {CONTACT.phoneFormatted}
+              </a>
+            </li>
+            <li className="flex items-start gap-3">
+              <Mail className="h-4 w-4 text-yellow-brand mt-0.5" />
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-yellow-brand transition-colors">{CONTACT.email}</a>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPin className="h-4 w-4 text-yellow-brand mt-0.5" />
+              <span>{CONTACT.address.full}</span>
+            </li>
           </ul>
         </div>
       </div>

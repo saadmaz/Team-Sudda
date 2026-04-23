@@ -6,10 +6,12 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, Send } from "lucide-react";
+import { CONTACT } from "@/lib/constants/contact";
+import { SERVICE_NAMES } from "@/lib/constants/services";
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
 
 export const Contact = () => {
   const { toast } = useToast();
@@ -27,7 +29,7 @@ export const Contact = () => {
       from_name: data.get("name") as string,
       from_email: data.get("email") as string,
       phone: data.get("phone") as string,
-      service: service,
+      service,
       date: data.get("date") as string,
       message: data.get("message") as string,
     };
@@ -87,14 +89,14 @@ export const Contact = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" type="tel" required placeholder="+94 77 000 0000" className="mt-1.5" />
+                <Input id="phone" name="phone" type="tel" required placeholder={CONTACT.phoneFormatted} className="mt-1.5" />
               </div>
               <div>
                 <Label htmlFor="service">Service Type</Label>
                 <Select name="service" value={service} onValueChange={setService}>
                   <SelectTrigger id="service" className="mt-1.5"><SelectValue placeholder="Select a service" /></SelectTrigger>
                   <SelectContent>
-                    {["Home Cleaning","Office Cleaning","Deep Cleaning","Post-Renovation","Sofa & Carpet","Sanitization","After-Event","Move-In / Move-Out"].map(s => (
+                    {SERVICE_NAMES.map((s) => (
                       <SelectItem key={s} value={s}>{s}</SelectItem>
                     ))}
                   </SelectContent>
@@ -117,7 +119,7 @@ export const Contact = () => {
                 <Send className="h-4 w-4" /> {loading ? "Sending..." : "Send Booking"}
               </Button>
               <Button asChild variant="whatsapp" size="lg" type="button">
-                <a href="https://wa.me/94770000000" target="_blank" rel="noreferrer">
+                <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
                   <MessageCircle className="h-4 w-4" /> WhatsApp
                 </a>
               </Button>

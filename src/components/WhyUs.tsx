@@ -1,18 +1,11 @@
+import { STATS, FEATURES } from "@/lib/constants/stats";
 import whyImg from "@/assets/why-choose.jpg";
 
-const features = [
-  { label: "Trained & Vetted Staff", value: 95 },
-  { label: "Eco-Friendly Products", value: 92 },
-  { label: "Punctual Service", value: 98 },
-  { label: "Transparent Pricing", value: 90 },
-  { label: "Insured & Reliable", value: 96 },
-];
-
-const stats = [
-  { value: "1,200+", label: "Projects Completed" },
-  { value: "500+", label: "Happy Clients" },
-  { value: "40+", label: "Expert Staff" },
-  { value: "8+", label: "Years Experience" },
+const whyStats = [
+  { value: STATS.projectsCompleted, label: "Projects Completed" },
+  { value: STATS.happyClients, label: "Happy Clients" },
+  { value: STATS.expertStaff, label: "Expert Staff" },
+  { value: STATS.yearsInBusiness, label: "Years Experience" },
 ];
 
 export const WhyUs = () => {
@@ -36,7 +29,7 @@ export const WhyUs = () => {
             </p>
 
             <div className="mt-8 space-y-5">
-              {features.map((f) => (
+              {FEATURES.map((f) => (
                 <div key={f.label}>
                   <div className="flex justify-between text-sm font-medium mb-2">
                     <span>{f.label}</span>
@@ -55,7 +48,7 @@ export const WhyUs = () => {
         </div>
 
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((s) => (
+          {whyStats.map((s) => (
             <div key={s.label} className="text-center bg-white/5 border border-white/10 rounded-2xl py-6 px-4 hover:border-yellow-brand transition-colors">
               <div className="text-3xl md:text-4xl font-display font-extrabold text-yellow-brand">{s.value}</div>
               <div className="mt-1 text-sm text-white/75">{s.label}</div>

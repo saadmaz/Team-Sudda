@@ -1,22 +1,5 @@
 import { Star, Quote } from "lucide-react";
-
-const items = [
-  {
-    name: "Dinusha R.",
-    role: "Homeowner, Colombo",
-    quote: "Team Sudda made my apartment spotless in just a few hours. The team was on time, polite and incredibly thorough. I've booked them monthly!",
-  },
-  {
-    name: "David P.",
-    role: "Office Manager, Kandy",
-    quote: "We switched to Team Sudda for our office and never looked back. Reliable, professional and our staff has noticed the difference daily.",
-  },
-  {
-    name: "Olivia S.",
-    role: "Restaurant Owner",
-    quote: "Their after-event cleanup is a lifesaver. They turned a chaotic post-event mess into a sparkling space overnight. Highly recommend!",
-  },
-];
+import { TESTIMONIALS } from "@/lib/constants/testimonials";
 
 export const Testimonials = () => {
   return (
@@ -31,7 +14,7 @@ export const Testimonials = () => {
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {items.map((t) => (
+          {TESTIMONIALS.map((t) => (
             <article key={t.name} className="relative bg-white text-navy rounded-2xl p-7 shadow-card-soft">
               <Quote className="absolute top-5 right-5 h-10 w-10 text-yellow-brand/40" />
               <div className="flex gap-1 text-yellow-brand">

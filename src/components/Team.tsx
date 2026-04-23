@@ -1,19 +1,4 @@
-import t1 from "@/assets/team-1.jpg";
-import t2 from "@/assets/team-2.jpg";
-import t3 from "@/assets/team-3.jpg";
-import t4 from "@/assets/team-4.jpg";
-import t5 from "@/assets/team-5.jpg";
-import t6 from "@/assets/team-6.jpg";
-
-
-const team = [
-  { img: t1, name: "Nimal Perera", role: "Lead Cleaner" },
-  { img: t2, name: "Sanduni Fernando", role: "Operations Manager" },
-  { img: t3, name: "Kasun Silva", role: "Senior Supervisor" },
-  { img: t4, name: "Amaya Jayawardena", role: "Sanitization Specialist" },
-  { img: t5, name: "Ruwan Dissanayake", role: "Deep Cleaning Specialist" },
-  { img: t6, name: "Dilani Rathnayake", role: "Customer Coordinator" },
-];
+import { TEAM } from "@/lib/constants/team";
 
 export const Team = () => {
   return (
@@ -30,9 +15,9 @@ export const Team = () => {
         </div>
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {team.map((m) => (
+          {TEAM.map((m) => (
             <article
-              key={m.role}
+              key={m.id}
               className="group relative bg-background rounded-3xl overflow-hidden shadow-card-soft border-t-4 border-transparent hover:border-yellow-brand transition-all duration-300 hover:-translate-y-2"
             >
               <div className="relative aspect-[4/5] bg-muted overflow-hidden">

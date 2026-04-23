@@ -1,5 +1,7 @@
 import { ArrowRight, MessageCircle, Star, ShieldCheck, Leaf, Users, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CONTACT } from "@/lib/constants/contact";
+import { STATS } from "@/lib/constants/stats";
 import heroImg from "@/assets/hero-team.jpg";
 
 export const Hero = () => {
@@ -28,10 +30,10 @@ export const Hero = () => {
               <a href="#contact">Get a Free Quote <ArrowRight className="ml-1 h-5 w-5" /></a>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <a href="tel:+94770000000"><Phone className="h-5 w-5" /> Call Us</a>
+              <a href={`tel:${CONTACT.phone}`}><Phone className="h-5 w-5" /> Call Us</a>
             </Button>
             <Button asChild variant="whatsapp" size="xl">
-              <a href="https://wa.me/94770000000" target="_blank" rel="noreferrer">
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
                 <MessageCircle className="h-5 w-5" /> WhatsApp
               </a>
             </Button>
@@ -43,7 +45,7 @@ export const Hero = () => {
                 <Star key={i} className="h-4 w-4 fill-yellow-brand text-yellow-brand" />
               ))}
             </div>
-            <span><strong className="text-white">5.0</strong> from 500+ verified clients</span>
+            <span><strong className="text-white">{STATS.averageRating}</strong> from {STATS.happyClients} verified clients</span>
           </div>
         </div>
 
@@ -75,7 +77,7 @@ export const Hero = () => {
       <div className="bg-navy-deep border-t border-white/10">
         <div className="container-x grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-yellow-brand/30">
           {[
-            { icon: Users, label: "500+ Happy Clients" },
+            { icon: Users, label: `${STATS.happyClients} Happy Clients` },
             { icon: Star, label: "5-Star Rated Service" },
             { icon: Leaf, label: "Eco-Friendly Products" },
           ].map(({ icon: Icon, label }) => (
