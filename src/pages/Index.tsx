@@ -2,8 +2,11 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
+import { Pricing } from "@/components/Pricing";
 import { WhyUs } from "@/components/WhyUs";
+import { Clients } from "@/components/Clients";
 import { Team } from "@/components/Team";
+import { GalleryPreview } from "@/components/GalleryPreview";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
@@ -48,8 +51,11 @@ const Index = () => {
         <Hero />
         <About />
         <Services />
+        <Pricing />
         <WhyUs />
+        <Clients />
         <Team />
+        <GalleryPreview />
         <Testimonials />
         <FAQ />
         <Contact />

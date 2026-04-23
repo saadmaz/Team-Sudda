@@ -1,0 +1,18 @@
+// Replace with your real corporate clients before launch
+export const CLIENTS: string[] = [
+  "People's Bank",
+  "John Keells Holdings",
+  "DHL Sri Lanka",
+  "National Water Supply Board",
+  "Ceylon Electricity Board",
+  "Inland Revenue Department",
+  "Bank of Ceylon",
+  "Finance Ministry",
+  "National Savings Bank",
+  "Commercial Bank",
+  "Ceylon Petroleum Corporation",
+  "Regional Development Bank",
+  "National Transport Commission",
+  "Department of Immigration",
+  "Colombo City Hotels",
+];

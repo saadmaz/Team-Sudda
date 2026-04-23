@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
 
@@ -8,9 +9,13 @@ const socialLinks = [
 ];
 
 const usefulLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Our Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
+  { label: "Book a Clean", href: "/book" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms" },
-  { label: "FAQs", href: "#faq" },
+  { label: "FAQs", href: "/#faq" },
 ];
 
 export const Footer = () => {
@@ -18,8 +23,11 @@ export const Footer = () => {
     <footer className="bg-navy-deep text-white/80">
       <div className="container-x py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
+          <Link to="/" className="font-display font-extrabold text-white text-xl hover:text-yellow-brand transition-colors">
+            Team Sudda
+          </Link>
           <p className="mt-4 text-sm leading-relaxed">
-            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since 2017 with eco-friendly products and a friendly smile.
+            Sri Lanka's trusted cleaning team — making homes and businesses sparkle since {new Date().getFullYear() - 8} with eco-friendly products and a friendly smile.
           </p>
           <div className="mt-5 flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (
@@ -34,7 +42,13 @@ export const Footer = () => {
           <h4 className="font-display font-bold text-white text-base">Quick Links</h4>
           <ul className="mt-4 space-y-2 text-sm">
             {["Home", "About", "Services", "Team", "Contact"].map((l) => (
-              <li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-yellow-brand transition-colors">{l}</a></li>
+              <li key={l}>
+                {l === "About" ? (
+                  <Link to="/about" className="hover:text-yellow-brand transition-colors">{l}</Link>
+                ) : (
+                  <a href={`/#${l.toLowerCase()}`} className="hover:text-yellow-brand transition-colors">{l}</a>
+                )}
+              </li>
             ))}
           </ul>
         </div>
@@ -43,7 +57,13 @@ export const Footer = () => {
           <h4 className="font-display font-bold text-white text-base">Useful Links</h4>
           <ul className="mt-4 space-y-2 text-sm">
             {usefulLinks.map(({ label, href }) => (
-              <li key={label}><a href={href} className="hover:text-yellow-brand transition-colors">{label}</a></li>
+              <li key={label}>
+                {href.startsWith("/") && !href.startsWith("/#") ? (
+                  <Link to={href} className="hover:text-yellow-brand transition-colors">{label}</Link>
+                ) : (
+                  <a href={href} className="hover:text-yellow-brand transition-colors">{label}</a>
+                )}
+              </li>
             ))}
           </ul>
         </div>
