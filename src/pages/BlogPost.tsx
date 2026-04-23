@@ -13,7 +13,7 @@ const BlogPost = () => {
   const article = BLOG_ARTICLES.find((a) => a.slug === slug);
   const related = BLOG_ARTICLES.filter((a) => a.slug !== slug).slice(0, 2);
 
-  const seoTitle = article ? `${article.title} — Team Sudda Blog` : "Article Not Found";
+  const seoTitle = article ? `${article.title} - Team Sudda Blog` : "Article Not Found";
   const seoDesc = article?.excerpt ?? "";
 
   useSEO({ title: seoTitle, description: seoDesc });

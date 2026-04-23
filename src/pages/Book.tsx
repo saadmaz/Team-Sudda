@@ -44,7 +44,7 @@ const STEPS = ["Choose Service", "Property Details", "Your Info", "Review & Book
 
 const Book = () => {
   useSEO({
-    title: "Book a Clean — Team Sudda",
+    title: "Book a Clean - Team Sudda",
     description: "Book your professional cleaning service in 4 easy steps. Team Sudda serves Colombo, Kandy, Gampaha, Galle and Negombo.",
   });
 
@@ -183,7 +183,7 @@ const Book = () => {
           {/* Step content */}
           <div className="bg-background border border-border rounded-3xl p-6 md:p-8 shadow-card-soft">
 
-            {/* Step 1 — Choose Service */}
+            {/* Step 1 - Choose Service */}
             {step === 1 && (
               <div>
                 <h2 className="font-display font-bold text-xl text-navy mb-6">What service do you need?</h2>
@@ -206,7 +206,7 @@ const Book = () => {
               </div>
             )}
 
-            {/* Step 2 — Property Details */}
+            {/* Step 2 - Property Details */}
             {step === 2 && (
               <div className="space-y-4">
                 <h2 className="font-display font-bold text-xl text-navy mb-6">Tell us about the property</h2>
@@ -231,7 +231,7 @@ const Book = () => {
               </div>
             )}
 
-            {/* Step 3 — Contact Info */}
+            {/* Step 3 - Contact Info */}
             {step === 3 && (
               <div className="space-y-4">
                 <h2 className="font-display font-bold text-xl text-navy mb-6">Your contact details</h2>
@@ -256,7 +256,7 @@ const Book = () => {
               </div>
             )}
 
-            {/* Step 4 — Review */}
+            {/* Step 4 - Review */}
             {step === 4 && (
               <div>
                 <h2 className="font-display font-bold text-xl text-navy mb-6">Review your booking</h2>
@@ -265,11 +265,11 @@ const Book = () => {
                     { label: "Service", value: data.service },
                     { label: "Date", value: data.date },
                     { label: "Address", value: data.address },
-                    { label: "Property", value: [data.propertySize, data.rooms].filter(Boolean).join(" · ") || "—" },
+                    { label: "Property", value: [data.propertySize, data.rooms].filter(Boolean).join(" · ") || "-" },
                     { label: "Name", value: data.name },
                     { label: "Email", value: data.email },
                     { label: "Phone", value: data.phone },
-                    { label: "Notes", value: data.message || "—" },
+                    { label: "Notes", value: data.message || "-" },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex gap-4 py-2 border-b border-border last:border-0">
                       <dt className="w-24 shrink-0 font-semibold text-navy">{label}</dt>

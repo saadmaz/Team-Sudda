@@ -8,9 +8,9 @@ import { BLOG_ARTICLES } from "@/lib/constants/blog";
 
 const Blog = () => {
   useSEO({
-    title: "Cleaning Tips & Insights — Team Sudda Blog",
+    title: "Cleaning Tips & Insights - Team Sudda Blog",
     description:
-      "Expert cleaning advice, eco-friendly tips and industry insights from Team Sudda — Sri Lanka's professional cleaning specialists.",
+      "Expert cleaning advice, eco-friendly tips and industry insights from Team Sudda - Sri Lanka's professional cleaning specialists.",
   });
 
   const featured = BLOG_ARTICLES[0];
@@ -28,7 +28,7 @@ const Blog = () => {
             Cleaning Tips & <span className="text-yellow-brand">Insights.</span>
           </h1>
           <p className="mt-5 text-white/70 max-w-xl mx-auto">
-            Expert advice on keeping your home and workplace spotless — from the Team Sudda professionals.
+            Expert advice on keeping your home and workplace spotless - from the Team Sudda professionals.
           </p>
         </div>
       </section>

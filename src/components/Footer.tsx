@@ -27,7 +27,7 @@ export const Footer = () => {
             Team Sudda
           </Link>
           <p className="mt-4 text-sm leading-relaxed">
-            Sri Lanka's trusted cleaning team — making homes and businesses sparkle since {new Date().getFullYear() - 8} with eco-friendly products and a friendly smile.
+            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since {new Date().getFullYear() - 8} with eco-friendly products and a friendly smile.
           </p>
           <div className="mt-5 flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (

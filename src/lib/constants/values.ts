@@ -11,7 +11,7 @@ export const VALUES: CompanyValue[] = [
   {
     icon: Heart,
     title: "Client-Oriented",
-    desc: "We treat every client's space as if it were our own — listening to your needs and acting on feedback to continuously improve.",
+    desc: "We treat every client's space as if it were our own - listening to your needs and acting on feedback to continuously improve.",
   },
   {
     icon: Leaf,
@@ -34,4 +34,4 @@ export const MISSION =
   "To be a national market leader in the provision of cleaning services, delivering reliable, quality, and cost-effective cleaning solutions to every client we serve.";
 
 export const VISION =
-  "A network of trusted cleaning professionals across Sri Lanka — all united by common values, eco-friendly practices, and a commitment to exceptional service.";
+  "A network of trusted cleaning professionals across Sri Lanka - all united by common values, eco-friendly practices, and a commitment to exceptional service.";

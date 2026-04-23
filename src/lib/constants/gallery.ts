@@ -25,7 +25,7 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
 export const GALLERY_PROJECTS: GalleryProject[] = [
   {
     id: 1,
-    title: "Corporate Office — Colombo 03",
+    title: "Corporate Office - Colombo 03",
     category: "Commercial",
     location: "Colombo",
     before: heroImg,
@@ -61,7 +61,7 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
   },
   {
     id: 5,
-    title: "Bank Branch — Gampaha",
+    title: "Bank Branch - Gampaha",
     category: "Commercial",
     location: "Gampaha",
     before: aboutImg,

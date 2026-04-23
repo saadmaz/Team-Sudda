@@ -18,7 +18,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "How do you price your services?",
-    a: "Pricing is based on space size, service type and number of cleaners required. You'll always receive a clear quote before any work begins — no hidden fees, ever.",
+    a: "Pricing is based on space size, service type and number of cleaners required. You'll always receive a clear quote before any work begins - no hidden fees, ever.",
   },
   {
     q: "Which areas in Sri Lanka do you serve?",
@@ -26,7 +26,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Is there a contract or long-term commitment?",
-    a: "No contracts and no lock-in. You can book a one-off session or arrange recurring visits — weekly, fortnightly or monthly — and cancel anytime without penalties.",
+    a: "No contracts and no lock-in. You can book a one-off session or arrange recurring visits - weekly, fortnightly or monthly - and cancel anytime without penalties.",
   },
   {
     q: "What payment methods do you accept?",

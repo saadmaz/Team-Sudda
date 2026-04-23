@@ -17,7 +17,7 @@ export const GalleryPreview = () => {
               Results That <span className="text-[hsl(var(--yellow))]">Speak for Themselves.</span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-lg">
-              From offices to homes, events to renovations — here's a glimpse of the spaces we've transformed.
+              From offices to homes, events to renovations - here's a glimpse of the spaces we've transformed.
             </p>
           </div>
           <Button asChild variant="outline" size="lg" className="shrink-0">

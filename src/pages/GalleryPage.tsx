@@ -8,9 +8,9 @@ import { GALLERY_PROJECTS, GALLERY_CATEGORIES, type GalleryCategory, type Galler
 
 const GalleryPage = () => {
   useSEO({
-    title: "Project Gallery — Team Sudda",
+    title: "Project Gallery - Team Sudda",
     description:
-      "Browse our portfolio of completed cleaning projects — commercial offices, homes, post-renovation and event cleanups across Sri Lanka.",
+      "Browse our portfolio of completed cleaning projects - commercial offices, homes, post-renovation and event cleanups across Sri Lanka.",
   });
 
   const [activeCategory, setActiveCategory] = useState<GalleryCategory | "All">("All");
@@ -31,7 +31,7 @@ const GalleryPage = () => {
         <div className="container-x text-center text-white">
           <span className="eyebrow">Our Work</span>
           <h1 className="heading-xl font-display font-extrabold mt-4">
-            Before & After — <span className="text-yellow-brand">Real Results.</span>
+            Before & After - <span className="text-yellow-brand">Real Results.</span>
           </h1>
           <p className="mt-5 text-white/70 max-w-xl mx-auto">
             Every project tells a story. Browse our completed jobs across Sri Lanka.

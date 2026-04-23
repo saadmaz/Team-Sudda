@@ -21,13 +21,13 @@ const LEADERS = [
   },
   {
     name: "Operations Director",
-    role: "Director — Operations & Finance",
+    role: "Director - Operations & Finance",
     since: "2019",
-    bio: "Oversees day-to-day operations, financial management and client relations. Ensures every job is delivered on time, to spec and within budget — the engine that keeps Team Sudda running smoothly.",
+    bio: "Oversees day-to-day operations, financial management and client relations. Ensures every job is delivered on time, to spec and within budget - the engine that keeps Team Sudda running smoothly.",
   },
   {
     name: "Development Director",
-    role: "Director — Marketing & Development",
+    role: "Director - Marketing & Development",
     since: "2020",
     bio: "Drives business development, marketing initiatives and technical operations. Responsible for expanding Team Sudda's reach into new regions and service categories.",
   },
@@ -43,9 +43,9 @@ const MILESTONES = [
 
 const About = () => {
   useSEO({
-    title: "About Us — Team Sudda | Professional Cleaning Sri Lanka",
+    title: "About Us - Team Sudda | Professional Cleaning Sri Lanka",
     description:
-      "Learn about Team Sudda — Sri Lanka's trusted cleaning company since 2017. Our mission, values, and the team behind every spotless space.",
+      "Learn about Team Sudda - Sri Lanka's trusted cleaning company since 2017. Our mission, values, and the team behind every spotless space.",
   });
 
   return (
@@ -60,7 +60,7 @@ const About = () => {
             Sri Lanka's Trusted <span className="text-yellow-brand">Cleaning</span> Partner Since {STATS.foundedYear}
           </h1>
           <p className="mt-6 text-white/75 max-w-2xl mx-auto text-lg leading-relaxed">
-            From a single team in Colombo to {STATS.expertStaff} trained specialists serving the island — here's the story behind every spotless space.
+            From a single team in Colombo to {STATS.expertStaff} trained specialists serving the island - here's the story behind every spotless space.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="xl">
@@ -102,7 +102,7 @@ const About = () => {
               Built on Trust, <span className="text-[hsl(var(--yellow))]">Proven by Results.</span>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Team Sudda was founded in {STATS.foundedYear} with a simple belief: every home and workplace deserves to be genuinely clean — not just surface-wiped. We started with a small team in Colombo and a commitment to three things: reliability, eco-friendly products, and background-checked staff.
+              Team Sudda was founded in {STATS.foundedYear} with a simple belief: every home and workplace deserves to be genuinely clean - not just surface-wiped. We started with a small team in Colombo and a commitment to three things: reliability, eco-friendly products, and background-checked staff.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Over {STATS.yearsInBusiness} years, that commitment has grown into {STATS.projectsCompleted} completed projects, {STATS.happyClients} happy clients and a team of {STATS.expertStaff} trained specialists serving Colombo, Kandy, Gampaha, Galle, Negombo and beyond.

@@ -1,6 +1,6 @@
 import { CLIENTS } from "@/lib/constants/clients";
 
-// Duplicate the list so the seamless loop works — items scroll off left, duplicates come in from right
+// Duplicate the list so the seamless loop works - items scroll off left, duplicates come in from right
 const ROW_A = [...CLIENTS, ...CLIENTS];
 const ROW_B = [...CLIENTS.slice(7), ...CLIENTS.slice(0, 7), ...CLIENTS.slice(7), ...CLIENTS.slice(0, 7)];
 
@@ -13,11 +13,11 @@ export const Clients = () => {
           Trusted by Leading <span className="text-[hsl(var(--yellow))]">Organisations.</span>
         </h2>
         <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-          From government departments to private enterprises — Sri Lanka's top organisations rely on Team Sudda.
+          From government departments to private enterprises - Sri Lanka's top organisations rely on Team Sudda.
         </p>
       </div>
 
-      {/* Row 1 — scrolls left */}
+      {/* Row 1 - scrolls left */}
       <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div className="flex animate-marquee gap-4 whitespace-nowrap">
           {ROW_A.map((client, i) => (
@@ -31,7 +31,7 @@ export const Clients = () => {
         </div>
       </div>
 
-      {/* Row 2 — scrolls right */}
+      {/* Row 2 - scrolls right */}
       <div className="relative flex overflow-hidden mt-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div className="flex animate-marquee-reverse gap-4 whitespace-nowrap">
           {ROW_B.map((client, i) => (
