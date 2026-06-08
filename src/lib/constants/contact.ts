@@ -1,8 +1,8 @@
 export const CONTACT = {
-  phone: "+94770000000",
-  phoneFormatted: "+94 77 000 0000",
+  phone: "+94741004296",
+  phoneFormatted: "+94 74 100 4296",
   email: "hello@teamsudda.lk",
-  whatsappUrl: "https://wa.me/94770000000",
+  whatsappUrl: "https://wa.me/94741004296",
   address: {
     street: "12 Galle Road",
     city: "Colombo 03",
