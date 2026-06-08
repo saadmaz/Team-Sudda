@@ -4,11 +4,11 @@ export const CONTACT = {
   email: "hello@teamsudda.lk",
   whatsappUrl: "https://wa.me/94741004296",
   address: {
-    street: "12 Galle Road",
+    street: "Schofield Place",
     city: "Colombo 03",
     country: "Sri Lanka",
     countryCode: "LK",
-    full: "12 Galle Road, Colombo 03, Sri Lanka",
+    full: "Schofield Place, Colombo 03, Sri Lanka",
   },
   social: {
     facebook: "https://facebook.com/teamsudda",
