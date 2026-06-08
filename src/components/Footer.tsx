@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
 import { STATS } from "@/lib/constants/stats";
 import { XIcon, TikTokIcon, WhatsAppIcon } from "@/components/icons/SocialIcons";
