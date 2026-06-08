@@ -1,7 +1,6 @@
 import { ArrowRight, MessageCircle, Star, ShieldCheck, Leaf, Users, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/constants/contact";
-import { STATS } from "@/lib/constants/stats";
 import heroImg from "@/assets/hero-team.jpg";
 
 export const Hero = () => {
@@ -40,12 +39,12 @@ export const Hero = () => {
           </div>
 
           <div className="mt-8 flex items-center gap-5 text-white/70 text-sm">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5" aria-label="5 out of 5 stars" role="img">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-yellow-brand text-yellow-brand" />
+                <Star key={i} className="h-4 w-4 fill-yellow-brand text-yellow-brand" aria-hidden="true" />
               ))}
             </div>
-            <span><strong className="text-white">{STATS.averageRating}</strong> from {STATS.happyClients} verified clients</span>
+            <span>5-Star rated by our clients across Sri Lanka</span>
           </div>
         </div>
 
@@ -77,7 +76,7 @@ export const Hero = () => {
       <div className="bg-navy-deep border-t border-white/10">
         <div className="container-x grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-yellow-brand/30">
           {[
-            { icon: Users, label: `${STATS.happyClients} Happy Clients` },
+            { icon: Users, label: "Trusted by Clients Island-Wide" },
             { icon: Star, label: "5-Star Rated Service" },
             { icon: Leaf, label: "Eco-Friendly Products" },
           ].map(({ icon: Icon, label }) => (

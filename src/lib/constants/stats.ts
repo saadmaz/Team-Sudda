@@ -1,12 +1,5 @@
 export const STATS = {
-  yearsInBusiness: "8+",
-  foundedYear: 2017,
-  projectsCompleted: "1,200+",
-  happyClients: "500+",
-  expertStaff: "40+",
-  officesCleaned: "300+",
-  satisfactionRate: "100%",
-  averageRating: 5.0,
+  foundedYear: 2025,
 } as const;
 
 export const FEATURES = [

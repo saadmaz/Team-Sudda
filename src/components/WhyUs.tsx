@@ -1,11 +1,12 @@
-import { STATS, FEATURES } from "@/lib/constants/stats";
+import { ShieldCheck, Leaf, Clock, BadgeCheck, Smile } from "lucide-react";
 import whyImg from "@/assets/why-choose.jpg";
 
-const whyStats = [
-  { value: STATS.projectsCompleted, label: "Projects Completed" },
-  { value: STATS.happyClients, label: "Happy Clients" },
-  { value: STATS.expertStaff, label: "Expert Staff" },
-  { value: STATS.yearsInBusiness, label: "Years Experience" },
+const FEATURES = [
+  { icon: ShieldCheck, title: "Trained & Vetted Staff", desc: "Every cleaner is background-checked and professionally trained before their first job." },
+  { icon: Leaf, title: "Eco-Friendly Products", desc: "We use non-toxic, environmentally safe products that are gentle on your space and your family." },
+  { icon: Clock, title: "Punctual Service", desc: "We show up on time, every time. No waiting around - your schedule is respected." },
+  { icon: BadgeCheck, title: "Transparent Pricing", desc: "Clear quotes upfront with no hidden fees. You know exactly what you're paying for." },
+  { icon: Smile, title: "Satisfaction Guaranteed", desc: "Not happy with any area? We'll return to re-clean it at no extra charge within 24 hours." },
 ];
 
 export const WhyUs = () => {
@@ -28,32 +29,20 @@ export const WhyUs = () => {
               We combine reliability, eco-friendly products and meticulous attention to detail to deliver an unmatched cleaning experience.
             </p>
 
-            <div className="mt-8 space-y-5">
-              {FEATURES.map((f) => (
-                <div key={f.label}>
-                  <div className="flex justify-between text-sm font-medium mb-2">
-                    <span>{f.label}</span>
-                    <span className="text-yellow-brand">{f.value}%</span>
+            <ul className="mt-8 space-y-4">
+              {FEATURES.map(({ icon: Icon, title, desc }) => (
+                <li key={title} className="flex items-start gap-4">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-yellow-brand text-navy shrink-0 mt-0.5">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-yellow-brand rounded-full transition-all duration-1000"
-                      style={{ width: `${f.value}%` }}
-                    />
+                  <div>
+                    <div className="font-semibold text-white">{title}</div>
+                    <div className="text-sm text-white/65 mt-0.5 leading-relaxed">{desc}</div>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {whyStats.map((s) => (
-            <div key={s.label} className="text-center bg-white/5 border border-white/10 rounded-2xl py-6 px-4 hover:border-yellow-brand transition-colors">
-              <div className="text-3xl md:text-4xl font-display font-extrabold text-yellow-brand">{s.value}</div>
-              <div className="mt-1 text-sm text-white/75">{s.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

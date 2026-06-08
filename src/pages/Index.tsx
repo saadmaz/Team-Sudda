@@ -53,7 +53,7 @@ const Index = () => {
         <Pricing />
         <WhyUs />
         <Clients />
-<GalleryPreview />
+        <GalleryPreview />
         <Testimonials />
         <FAQ />
         <Contact />
