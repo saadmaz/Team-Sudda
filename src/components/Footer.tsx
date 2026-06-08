@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
+import { STATS } from "@/lib/constants/stats";
 
 const socialLinks = [
   { Icon: Facebook, href: CONTACT.social.facebook, label: "Facebook" },
@@ -27,7 +28,7 @@ export const Footer = () => {
             Team Sudda
           </Link>
           <p className="mt-4 text-sm leading-relaxed">
-            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since {new Date().getFullYear() - 8} with eco-friendly products and a friendly smile.
+            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since {STATS.foundedYear} with eco-friendly products and a friendly smile.
           </p>
           <div className="mt-5 flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (
@@ -41,7 +42,7 @@ export const Footer = () => {
         <div>
           <h4 className="font-display font-bold text-white text-base">Quick Links</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            {["Home", "About", "Services", "Team", "Contact"].map((l) => (
+            {["Home", "About", "Services", "Contact"].map((l) => (
               <li key={l}>
                 {l === "About" ? (
                   <Link to="/about" className="hover:text-yellow-brand transition-colors">{l}</Link>

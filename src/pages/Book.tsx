@@ -11,10 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useSEO } from "@/hooks/useSEO";
 import { SERVICES } from "@/lib/constants/services";
 import { CONTACT } from "@/lib/constants/contact";
-
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+import { sendEmail, isEmailJSConfigured } from "@/lib/emailjs";
 
 interface BookingData {
   service: string;
@@ -57,46 +54,37 @@ const Book = () => {
   const update = (key: keyof BookingData, value: string) =>
     setData((d) => ({ ...d, [key]: value }));
 
+  const today = new Date().toISOString().split("T")[0];
+
+  const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const isValidPhone = (v: string) => /^[\d\s\+\-\(\)]{7,15}$/.test(v.trim());
+
   const canNext = () => {
     if (step === 1) return data.service !== "";
-    if (step === 2) return data.address !== "" && data.date !== "";
-    if (step === 3) return data.name !== "" && data.email !== "" && data.phone !== "";
+    if (step === 2) return data.address !== "" && data.date !== "" && data.date >= today;
+    if (step === 3) return data.name !== "" && isValidEmail(data.email) && isValidPhone(data.phone);
     return true;
   };
 
   const handleSubmit = async () => {
     setLoading(true);
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+    if (!isEmailJSConfigured()) {
       toast({ title: "Configuration error", description: "Email service not configured. Please contact us via WhatsApp.", variant: "destructive" });
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: {
-            from_name: data.name,
-            from_email: data.email,
-            phone: data.phone,
-            service: data.service,
-            date: data.date,
-            message: `Address: ${data.address}\nProperty size: ${data.propertySize}\nRooms: ${data.rooms}\n\n${data.message}`,
-          },
-        }),
+      await sendEmail({
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        service: data.service,
+        date: data.date,
+        message: `Address: ${data.address}\nProperty size: ${data.propertySize}\nRooms: ${data.rooms}\n\n${data.message}`,
       });
-
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        throw new Error();
-      }
+      setSubmitted(true);
     } catch {
       toast({ title: "Something went wrong", description: "Please try WhatsApp or call us directly.", variant: "destructive" });
     } finally {
@@ -226,7 +214,7 @@ const Book = () => {
                 </div>
                 <div>
                   <Label htmlFor="date">Preferred Date *</Label>
-                  <Input id="date" type="date" value={data.date} onChange={(e) => update("date", e.target.value)} className="mt-1.5" required />
+                  <Input id="date" type="date" value={data.date} min={today} onChange={(e) => update("date", e.target.value)} className="mt-1.5" required />
                 </div>
               </div>
             )}
@@ -242,11 +230,11 @@ const Book = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="email">Email *</Label>
-                    <Input id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" className="mt-1.5" required />
+                    <Input id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" className="mt-1.5" required />
                   </div>
                   <div>
                     <Label htmlFor="phone">Phone *</Label>
-                    <Input id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder={CONTACT.phoneFormatted} className="mt-1.5" required />
+                    <Input id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder={CONTACT.phoneFormatted} pattern="[\d\s\+\-\(\)]{7,15}" className="mt-1.5" required />
                   </div>
                 </div>
                 <div>

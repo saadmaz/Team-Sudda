@@ -1,4 +1,3 @@
-// Replace with your real corporate clients before launch
 export const CLIENTS: string[] = [
   "People's Bank",
   "John Keells Holdings",

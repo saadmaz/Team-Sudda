@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -13,7 +14,14 @@ const GalleryPage = () => {
       "Browse our portfolio of completed cleaning projects - commercial offices, homes, post-renovation and event cleanups across Sri Lanka.",
   });
 
-  const [activeCategory, setActiveCategory] = useState<GalleryCategory | "All">("All");
+  const [searchParams] = useSearchParams();
+  const initialCategory = (() => {
+    const param = searchParams.get("category");
+    if (param && (GALLERY_CATEGORIES as readonly string[]).includes(param)) return param as GalleryCategory;
+    return "All";
+  })();
+
+  const [activeCategory, setActiveCategory] = useState<GalleryCategory | "All">(initialCategory);
   const [lightbox, setLightbox] = useState<GalleryProject | null>(null);
   const [lightboxView, setLightboxView] = useState<"before" | "after">("after");
 
@@ -110,6 +118,7 @@ const GalleryPage = () => {
                 className="w-full aspect-video object-cover"
               />
               <button
+                aria-label="Close lightbox"
                 onClick={() => setLightbox(null)}
                 className="absolute top-3 right-3 h-9 w-9 rounded-full bg-navy/80 text-white grid place-items-center hover:bg-navy transition-colors"
               >
@@ -120,6 +129,7 @@ const GalleryPage = () => {
                 {(["before", "after"] as const).map((v) => (
                   <button
                     key={v}
+                    aria-pressed={lightboxView === v}
                     onClick={() => setLightboxView(v)}
                     className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors ${
                       lightboxView === v ? "bg-yellow-brand text-navy" : "text-white hover:text-yellow-brand"

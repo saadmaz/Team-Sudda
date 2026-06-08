@@ -8,10 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, Send } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
 import { SERVICE_NAMES } from "@/lib/constants/services";
-
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+import { sendEmail, isEmailJSConfigured } from "@/lib/emailjs";
 
 export const Contact = () => {
   const { toast } = useToast();
@@ -34,31 +31,17 @@ export const Contact = () => {
       message: data.get("message") as string,
     };
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+    if (!isEmailJSConfigured()) {
       toast({ title: "Configuration error", description: "Email service is not configured. Please contact us via WhatsApp.", variant: "destructive" });
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: templateParams,
-        }),
-      });
-
-      if (res.ok) {
-        toast({ title: "Booking request sent!", description: "Our team will confirm your booking within 1 hour." });
-        form.reset();
-        setService("");
-      } else {
-        throw new Error("Send failed");
-      }
+      await sendEmail(templateParams);
+      toast({ title: "Booking request sent!", description: "Our team will confirm your booking within 1 hour." });
+      form.reset();
+      setService("");
     } catch {
       toast({ title: "Something went wrong", description: "Please try WhatsApp or call us directly.", variant: "destructive" });
     } finally {
@@ -89,7 +72,7 @@ export const Contact = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" type="tel" required placeholder={CONTACT.phoneFormatted} className="mt-1.5" />
+                <Input id="phone" name="phone" type="tel" required placeholder={CONTACT.phoneFormatted} pattern="[\d\s\+\-\(\)]{7,15}" className="mt-1.5" />
               </div>
               <div>
                 <Label htmlFor="service">Service Type</Label>
@@ -106,7 +89,7 @@ export const Contact = () => {
 
             <div>
               <Label htmlFor="date">Preferred Date</Label>
-              <Input id="date" name="date" type="date" required className="mt-1.5" />
+              <Input id="date" name="date" type="date" required min={new Date().toISOString().split("T")[0]} className="mt-1.5" />
             </div>
 
             <div>

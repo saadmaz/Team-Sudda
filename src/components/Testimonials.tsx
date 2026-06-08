@@ -17,9 +17,9 @@ export const Testimonials = () => {
           {TESTIMONIALS.map((t) => (
             <article key={t.name} className="relative bg-white text-navy rounded-2xl p-7 shadow-card-soft">
               <Quote className="absolute top-5 right-5 h-10 w-10 text-yellow-brand/40" />
-              <div className="flex gap-1 text-yellow-brand">
+              <div className="flex gap-1 text-yellow-brand" aria-label="5 out of 5 stars" role="img">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
+                  <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
               <p className="mt-4 text-muted-foreground leading-relaxed">"{t.quote}"</p>

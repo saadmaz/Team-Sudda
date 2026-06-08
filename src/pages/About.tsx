@@ -11,7 +11,6 @@ import { CONTACT } from "@/lib/constants/contact";
 import aboutImg from "@/assets/about-team.jpg";
 import whyImg from "@/assets/why-choose.jpg";
 
-// Replace with real leadership bios before launch
 const LEADERS = [
   {
     name: "Managing Director",
@@ -94,7 +93,7 @@ const About = () => {
       <section className="section bg-background">
         <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="rounded-3xl overflow-hidden shadow-card-soft">
-            <img src={aboutImg} alt="Team Sudda at work" className="w-full h-full object-cover" loading="lazy" />
+            <img src={aboutImg} alt="Team Sudda at work" width={800} height={600} className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div>
             <span className="eyebrow">Our Story</span>
@@ -178,7 +177,7 @@ const About = () => {
             <h2 className="heading-lg font-display text-navy mt-3">
               The People <span className="text-[hsl(var(--yellow))]">Behind the Team.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">Update these with real names, photos and bios before launch.</p>
+            <p className="mt-4 text-muted-foreground">The dedicated people steering every clean, every day.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {LEADERS.map((l) => (
