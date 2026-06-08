@@ -13,5 +13,8 @@ export const CONTACT = {
   social: {
     facebook: "https://facebook.com/teamsudda",
     instagram: "https://instagram.com/teamsudda",
+    tiktok: "https://tiktok.com/@teamsudda",
+    linkedin: "https://linkedin.com/company/teamsudda",
+    x: "https://x.com/teamsudda",
   },
 } as const;

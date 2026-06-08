@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
 import { STATS } from "@/lib/constants/stats";
+import { XIcon, TikTokIcon, WhatsAppIcon } from "@/components/icons/SocialIcons";
 
 const socialLinks = [
   { Icon: Facebook, href: CONTACT.social.facebook, label: "Facebook" },
   { Icon: Instagram, href: CONTACT.social.instagram, label: "Instagram" },
-  { Icon: MessageCircle, href: CONTACT.whatsappUrl, label: "WhatsApp" },
+  { Icon: TikTokIcon, href: CONTACT.social.tiktok, label: "TikTok" },
+  { Icon: Linkedin, href: CONTACT.social.linkedin, label: "LinkedIn" },
+  { Icon: XIcon, href: CONTACT.social.x, label: "X" },
+  { Icon: WhatsAppIcon, href: CONTACT.whatsappUrl, label: "WhatsApp" },
 ];
 
 const usefulLinks = [
@@ -30,7 +34,7 @@ export const Footer = () => {
           <p className="mt-4 text-sm leading-relaxed">
             Sri Lanka's trusted cleaning team - making homes and businesses sparkle since {STATS.foundedYear} with eco-friendly products and a friendly smile.
           </p>
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex flex-wrap gap-2">
             {socialLinks.map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-yellow-brand hover:text-navy transition-colors">
                 <Icon className="h-4 w-4" />
