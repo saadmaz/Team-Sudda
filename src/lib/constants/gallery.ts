@@ -1,4 +1,3 @@
-// Replace placeholder images with real before/after job photos before launch
 import heroImg from "@/assets/hero-team.jpg";
 import aboutImg from "@/assets/about-team.jpg";
 import whyImg from "@/assets/why-choose.jpg";

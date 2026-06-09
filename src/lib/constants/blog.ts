@@ -92,7 +92,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "4. Transparent pricing. Reputable companies will give you a clear quote before work begins. Avoid any service that is vague about costs or adds unexpected charges after the fact. A pre-visit assessment or a detailed online quote process is a good sign.",
       "5. Reviews and references. Look beyond the company's own website. Check Google Reviews, social media, and ask for references from similar clients (e.g., if you're an office, ask for references from other offices). Consistent positive reviews over a long period are a strong indicator of reliability.",
       "6. Communication and responsiveness. How quickly do they respond to enquiries? Do they confirm bookings clearly? A company that is hard to reach before you've booked will be even harder to reach if something goes wrong after.",
-      "Team Sudda has been operating since 2017 and has built our reputation on all six of these principles. We're always happy to answer questions and provide references. Your trust is something we work hard to earn - and keep.",
+      "Team Sudda has been operating since 2025 and has built our reputation on all six of these principles. We're always happy to answer questions and provide references. Your trust is something we work hard to earn - and keep.",
     ],
   },
 ];

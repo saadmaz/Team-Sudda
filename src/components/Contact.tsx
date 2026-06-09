@@ -113,7 +113,7 @@ export const Contact = () => {
         <div className="rounded-3xl overflow-hidden shadow-card-soft min-h-[400px] bg-navy">
           <iframe
             title="Team Sudda location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126740.41897767928!2d79.78165149726562!3d6.92139640000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1700000000000"
+            src="https://maps.google.com/maps?q=Schofield+Place,+Colombo+03,+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full min-h-[400px] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
