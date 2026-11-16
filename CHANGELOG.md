@@ -19,8 +19,9 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 - Floating WhatsApp button and TikTok, LinkedIn and X social links.
 - Per-page SEO metadata, canonical URLs, Open Graph tags and JSON-LD structured data.
 - Vercel configuration with single-page-app routing, security headers and long-term asset caching.
-- Continuous integration: lint, type check, tests and production build on every push and pull request.
-- Project documentation, contribution guidelines, security policy, code of conduct and issue templates.
+- Continuous integration on every push and pull request: lint, type check, tests and production build.
+- Project governance: proprietary licence, security policy, contribution guidelines, code of conduct, issue forms, pull request template, CODEOWNERS and Dependabot.
+- Standard documentation layout shared by every STTPS repository: architecture, configuration, deployment, decision records (ADRs) and release and rollback runbooks, indexed in `docs/README.md`.
 
 ### Fixed
 

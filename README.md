@@ -6,11 +6,12 @@
 
 The official website of Team Sudda: home, office and deep-cleaning services across Colombo, Sri Lanka.
 
-[![Website](https://img.shields.io/badge/website-teamsudda.lk-0F766E?style=flat-square&labelColor=0B1728)](https://teamsudda.lk)
+[![Website](https://img.shields.io/badge/website-teamsudda.lk-374151?style=flat-square&labelColor=111827)](https://teamsudda.lk)
 [![CI](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml)
-![License](https://img.shields.io/badge/license-proprietary-0B1728?style=flat-square)
+[![Version](https://img.shields.io/badge/version-v1.0.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Team-Sudda/releases)
+![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
-[**teamsudda.lk**](https://teamsudda.lk) · [Report a bug](https://github.com/saadmaz/Team-Sudda/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Team-Sudda/issues/new?template=feature_request.yml)
+[**teamsudda.lk**](https://teamsudda.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Team-Sudda/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Team-Sudda/issues/new?template=feature_request.yml)
 
 </div>
 
@@ -20,13 +21,14 @@ The official website of Team Sudda: home, office and deep-cleaning services acro
 
 - [About](#about)
 - [Features](#features)
+- [Architecture](#architecture)
 - [Tech stack](#tech-stack)
 - [Getting started](#getting-started)
 - [Configuration](#configuration)
 - [Project structure](#project-structure)
-- [Content management](#content-management)
 - [Quality checks](#quality-checks)
 - [Deployment](#deployment)
+- [Documentation](#documentation)
 - [Releases and versioning](#releases-and-versioning)
 - [Contributing](#contributing)
 - [Security](#security)
@@ -39,6 +41,7 @@ Team Sudda is a professional cleaning team serving homes and businesses across C
 |                  |                                                                   |
 | ---------------- | ----------------------------------------------------------------- |
 | **Organisation** | Tank Sudda (Pvt) Ltd                                              |
+| **Status**       | Live                                                              |
 | **Website**      | [teamsudda.lk](https://teamsudda.lk)                              |
 | **Contact**      | [hello@teamsudda.lk](mailto:hello@teamsudda.lk) · +94 74 100 4296 |
 | **Maintainer**   | [Saad Mazhar](https://github.com/saadmaz)                         |
@@ -53,6 +56,12 @@ Team Sudda is a professional cleaning team serving homes and businesses across C
 - **SEO:** Per-page titles, descriptions, canonical URLs, Open Graph tags and JSON-LD structured data.
 - **Always-on contact:** Floating WhatsApp button and click-to-call on every page.
 - **Legal pages:** Privacy Policy and Terms.
+
+## Architecture
+
+A React single-page application built with Vite and hosted on Vercel. React Router renders each page client-side, `vercel.json` provides the SPA fallback and security headers, and the booking and contact forms send email through EmailJS.
+
+The full picture, with diagrams, is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Significant decisions are recorded as [ADRs](docs/adr/README.md).
 
 ## Tech stack
 
@@ -100,15 +109,9 @@ The site runs at **http://localhost:8080**.
 
 ## Configuration
 
-The booking and contact forms send email through [EmailJS](https://www.emailjs.com). Copy `.env.example` to `.env` and set:
+Three public, domain-restricted EmailJS values (`VITE_EMAILJS_*`) enable form delivery. All copy and business data lives in `src/lib/constants/`.
 
-| Variable                   | Purpose                                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service that delivers the message                                                               |
-| `VITE_EMAILJS_TEMPLATE_ID` | Template using `{{from_name}}`, `{{from_email}}`, `{{phone}}`, `{{service}}`, `{{date}}`, `{{message}}` |
-| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key                                                                                      |
-
-These values are public by design (they are compiled into the browser bundle). Restrict the EmailJS account to the `teamsudda.lk` domain in the EmailJS dashboard. If they are missing, the forms show an error asking the visitor to get in touch on WhatsApp instead.
+Every variable, where it is set and which are secret: [docs/CONFIGURATION.md](docs/CONFIGURATION.md). How to update content is in [docs/CONTENT.md](docs/CONTENT.md).
 
 ## Project structure
 
@@ -130,45 +133,38 @@ These values are public by design (they are compiled into the browser bundle). R
 └── vite.config.ts           # Build configuration
 ```
 
-## Content management
-
-All copy and business data lives in [`src/lib/constants/`](src/lib/constants), so routine updates don't touch page code.
-
-| Task                                  | Where                                                                                                  |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Phone, email, address or social links | `src/lib/constants/contact.ts`                                                                         |
-| Services                              | `src/lib/constants/services.ts`                                                                        |
-| Pricing plans                         | `src/lib/constants/pricing.ts`                                                                         |
-| Team members                          | `src/lib/constants/team.ts`                                                                            |
-| Testimonials and client logos         | `testimonials.ts`, `clients.ts`                                                                        |
-| FAQ                                   | `src/lib/constants/faqs.ts`                                                                            |
-| Blog posts                            | `src/lib/constants/blog.ts`                                                                            |
-| Add a page                            | Create it in `src/pages/`, register it in `src/App.tsx` above the catch-all route, and call `useSEO()` |
-
 ## Quality checks
 
-Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml): lint, type check, tests and a production build. Run the same checks locally before opening a pull request:
+Every push and pull request to `main` runs the [CI workflow](.github/workflows/ci.yml): lint, formatting, type check, tests and a production build. Run the same checks locally before opening a pull request:
 
 ```sh
-npm run lint && npm run typecheck && npm test && npm run build
+npm run lint && npm run format:check && npm run typecheck && npm test && npm run build
 ```
 
 ## Deployment
 
-The site is hosted on **Vercel**, connected to this repository. Every push to `main` deploys to production, and every pull request gets a preview URL.
+Vercel deploys every push to `main` to production and gives every pull request a preview URL.
 
-| Setting               | Value                                                             |
-| --------------------- | ----------------------------------------------------------------- |
-| Framework preset      | Vite                                                              |
-| Build command         | `npm run build`                                                   |
-| Output directory      | `dist`                                                            |
-| Environment variables | The three `VITE_EMAILJS_*` values, set for Production and Preview |
+Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
-[`vercel.json`](vercel.json) adds the single-page-app fallback (so deep links such as `/about` load directly), security headers and long-term caching for hashed assets.
+## Documentation
+
+All documentation lives in [`docs/`](docs/README.md), using the same layout in every STTPS repository.
+
+| Document                                  | Covers                                              |
+| ----------------------------------------- | --------------------------------------------------- |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md)   | How the system is built and how data flows          |
+| [CONFIGURATION.md](docs/CONFIGURATION.md) | Environment variables and configuration files       |
+| [DEPLOYMENT.md](docs/DEPLOYMENT.md)       | Hosting, the delivery pipeline and first-time setup |
+| [CONTENT.md](docs/CONTENT.md)             | Updating copy, business data, imagery and articles  |
+| [adr/](docs/adr/README.md)                | Architecture decision records                       |
+| [runbooks/](docs/runbooks/README.md)      | Release and rollback procedures                     |
+
+Product and reference documents for this project are listed in the [documentation index](docs/README.md).
 
 ## Releases and versioning
 
-The project follows [Semantic Versioning](https://semver.org). Each release is tagged `vX.Y.Z` and published on the [Releases](https://github.com/saadmaz/Team-Sudda/releases) page. Notable changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+The project follows [Semantic Versioning](https://semver.org). Each release is tagged `vX.Y.Z` and published on the [Releases](https://github.com/saadmaz/Team-Sudda/releases) page. Notable changes are recorded in [CHANGELOG.md](CHANGELOG.md), and the release procedure is in [docs/runbooks/release.md](docs/runbooks/release.md).
 
 ## Contributing
 

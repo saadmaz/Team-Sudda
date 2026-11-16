@@ -58,6 +58,20 @@ Follow [Conventional Commits](https://www.conventionalcommits.org):
 - **Secrets.** Never commit API keys, tokens, passwords or service-account files. Use the hosting provider's secret store or GitHub Actions secrets, and keep `.env.example` up to date with variable names only.
 - **Dependencies.** Add a dependency only when it earns its weight, and keep the lockfile committed.
 
+## Documentation and decisions
+
+Every repository uses the same `docs/` layout, indexed in [docs/README.md](docs/README.md):
+
+| Path                    | Holds                                               |
+| ----------------------- | --------------------------------------------------- |
+| `docs/ARCHITECTURE.md`  | How the system is built and how data flows          |
+| `docs/CONFIGURATION.md` | Environment variables and settings                  |
+| `docs/DEPLOYMENT.md`    | Hosting, the delivery pipeline and first-time setup |
+| `docs/adr/`             | Architecture decision records                       |
+| `docs/runbooks/`        | Step-by-step operational procedures                 |
+
+Update the relevant document in the same pull request as the change. Record any significant technical decision as a new ADR (see [docs/adr/README.md](docs/adr/README.md)).
+
 ## Releases
 
 Releases follow [Semantic Versioning](https://semver.org):
@@ -66,18 +80,7 @@ Releases follow [Semantic Versioning](https://semver.org):
 - **Minor:** New features, screens or pages.
 - **Patch:** Fixes, copy and small visual changes.
 
-To cut a release:
-
-1. Move the `Unreleased` entries in `CHANGELOG.md` under a new version heading with today's date.
-2. Bump `version` in `package.json`.
-3. Commit as `chore(release): vX.Y.Z`, then tag and push:
-
-   ```sh
-   git tag -a vX.Y.Z -m "vX.Y.Z"
-   git push origin main --follow-tags
-   ```
-
-4. Publish a GitHub release for the tag using the changelog entry as the notes.
+Follow [docs/runbooks/release.md](docs/runbooks/release.md) to cut a release.
 
 ## Questions
 

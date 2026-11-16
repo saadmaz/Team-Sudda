@@ -13,7 +13,7 @@ Only the version currently deployed to production, built from the `main` branch,
 
 Please **do not** open a public issue, pull request or discussion for a security problem.
 
-Report it privately by email to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)** with the subject line `Security report`, or use GitHub's [private vulnerability reporting](https://github.com/saadmaz/Team-Sudda/security/advisories/new). Include:
+Report it privately by email to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)** with the subject line `Security report`. Include:
 
 - a description of the issue and its potential impact,
 - the affected URL, screen, endpoint or file,

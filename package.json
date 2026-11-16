@@ -1,7 +1,7 @@
 {
   "name": "team-sudda-website",
   "version": "1.0.0",
-  "description": "Official website of Team Sudda: professional home, office and deep-cleaning services in Colombo, Sri Lanka.",
+  "description": "Website for Team Sudda, home and office cleaning services in Colombo, Sri Lanka: services, pricing and booking.",
   "homepage": "https://teamsudda.lk",
   "repository": {
     "type": "git",
