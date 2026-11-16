@@ -2,7 +2,7 @@
 
 # Team Sudda
 
-**Professional cleaning, done properly.**
+**Professional cleaning services for homes and workplaces.**
 
 The official website of Team Sudda: home, office and deep-cleaning services across Colombo, Sri Lanka.
 
