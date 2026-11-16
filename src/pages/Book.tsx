@@ -57,7 +57,7 @@ const Book = () => {
   const today = new Date().toISOString().split("T")[0];
 
   const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const isValidPhone = (v: string) => /^[\d\s\+\-\(\)]{7,15}$/.test(v.trim());
+  const isValidPhone = (v: string) => /^[\d\s+\-()]{7,15}$/.test(v.trim());
 
   const canNext = () => {
     if (step === 1) return data.service !== "";
