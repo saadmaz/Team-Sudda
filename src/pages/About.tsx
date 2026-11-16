@@ -50,11 +50,14 @@ const About = () => {
             Sri Lanka's Trusted <span className="text-yellow-brand">Cleaning</span> Partner
           </h1>
           <p className="mt-6 text-white/75 max-w-2xl mx-auto text-lg leading-relaxed">
-            Built on reliability, eco-friendly products and background-checked staff - here's the story behind every spotless space.
+            Built on reliability, eco-friendly products and background-checked staff - here's the
+            story behind every spotless space.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="xl">
-              <Link to="/book">Book a Clean <ArrowRight className="ml-1 h-5 w-5" /></Link>
+              <Link to="/book">
+                Book a Clean <ArrowRight className="ml-1 h-5 w-5" />
+              </Link>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
               <a href={`tel:${CONTACT.phone}`}>Call Us</a>
@@ -67,7 +70,14 @@ const About = () => {
       <section className="section bg-background">
         <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="rounded-3xl overflow-hidden shadow-card-soft">
-            <img src={aboutImg} alt="Team Sudda at work" width={800} height={600} className="w-full h-full object-cover" loading="lazy" />
+            <img
+              src={aboutImg}
+              alt="Team Sudda at work"
+              width={800}
+              height={600}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
           <div>
             <span className="eyebrow">Our Story</span>
@@ -75,10 +85,15 @@ const About = () => {
               Built on Trust, <span className="text-[hsl(var(--yellow))]">Proven by Results.</span>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Team Sudda was founded in {STATS.foundedYear} with a simple belief: every home and workplace deserves to be genuinely clean - not just surface-wiped. We started with a small team in Colombo and a commitment to three things: reliability, eco-friendly products, and background-checked staff.
+              Team Sudda was founded in {STATS.foundedYear} with a simple belief: every home and
+              workplace deserves to be genuinely clean - not just surface-wiped. We started with a
+              small team in Colombo and a commitment to three things: reliability, eco-friendly
+              products, and background-checked staff.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              That commitment drives every job we take on - from cozy homes in Colombo to corporate offices across the island. Trained, vetted specialists. Eco-friendly products. Dependable service, every time.
+              That commitment drives every job we take on - from cozy homes in Colombo to corporate
+              offices across the island. Trained, vetted specialists. Eco-friendly products.
+              Dependable service, every time.
             </p>
           </div>
         </div>
@@ -96,11 +111,15 @@ const About = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-yellow-brand transition-colors">
-              <div className="text-yellow-brand font-display font-extrabold text-xs uppercase tracking-[0.2em] mb-4">Mission</div>
+              <div className="text-yellow-brand font-display font-extrabold text-xs uppercase tracking-[0.2em] mb-4">
+                Mission
+              </div>
               <p className="text-white/85 text-lg leading-relaxed">{MISSION}</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-yellow-brand transition-colors">
-              <div className="text-yellow-brand font-display font-extrabold text-xs uppercase tracking-[0.2em] mb-4">Vision</div>
+              <div className="text-yellow-brand font-display font-extrabold text-xs uppercase tracking-[0.2em] mb-4">
+                Vision
+              </div>
               <p className="text-white/85 text-lg leading-relaxed">{VISION}</p>
             </div>
           </div>
@@ -118,7 +137,10 @@ const About = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="group bg-background border border-border rounded-2xl p-6 hover:border-yellow-brand hover:shadow-yellow-glow transition-all duration-300 hover:-translate-y-1">
+              <div
+                key={title}
+                className="group bg-background border border-border rounded-2xl p-6 hover:border-yellow-brand hover:shadow-yellow-glow transition-all duration-300 hover:-translate-y-1"
+              >
                 <div className="grid h-14 w-14 place-items-center rounded-xl bg-yellow-brand text-navy mb-5 group-hover:scale-110 transition-transform">
                   <Icon className="h-7 w-7" />
                 </div>
@@ -138,15 +160,24 @@ const About = () => {
             <h2 className="heading-lg font-display text-navy mt-3">
               The People <span className="text-[hsl(var(--yellow))]">Behind the Team.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">The dedicated people steering every clean, every day.</p>
+            <p className="mt-4 text-muted-foreground">
+              The dedicated people steering every clean, every day.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {LEADERS.map((l) => (
-              <div key={l.role} className="bg-background rounded-3xl p-8 shadow-card-soft border-t-4 border-yellow-brand">
+              <div
+                key={l.role}
+                className="bg-background rounded-3xl p-8 shadow-card-soft border-t-4 border-yellow-brand"
+              >
                 <div className="h-16 w-16 rounded-2xl bg-navy grid place-items-center mb-5">
-                  <span className="text-yellow-brand text-2xl font-display font-extrabold">{l.name[0]}</span>
+                  <span className="text-yellow-brand text-2xl font-display font-extrabold">
+                    {l.name[0]}
+                  </span>
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-yellow-brand mb-1">Since {l.since}</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-yellow-brand mb-1">
+                  Since {l.since}
+                </div>
                 <h3 className="font-display font-bold text-lg text-navy">{l.name}</h3>
                 <p className="text-sm text-yellow-brand font-medium mb-3">{l.role}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{l.bio}</p>
@@ -161,14 +192,17 @@ const About = () => {
         <div className="absolute inset-0 bg-yellow-brand/5" />
         <div className="container-x relative text-center">
           <h2 className="heading-lg font-display text-white">
-            Ready to Experience the <span className="text-yellow-brand">Team Sudda</span> Difference?
+            Ready to Experience the <span className="text-yellow-brand">Team Sudda</span>{" "}
+            Difference?
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="xl">
               <Link to="/book">Book a Clean</Link>
             </Button>
             <Button asChild variant="whatsapp" size="xl">
-              <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">WhatsApp Us</a>
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
+                WhatsApp Us
+              </a>
             </Button>
           </div>
         </div>

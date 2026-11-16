@@ -28,7 +28,8 @@ const Blog = () => {
             Cleaning Tips & <span className="text-yellow-brand">Insights.</span>
           </h1>
           <p className="mt-5 text-white/70 max-w-xl mx-auto">
-            Expert advice on keeping your home and workplace spotless - from the Team Sudda professionals.
+            Expert advice on keeping your home and workplace spotless - from the Team Sudda
+            professionals.
           </p>
         </div>
       </section>
@@ -56,8 +57,16 @@ const Blog = () => {
             </h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
             <div className="mt-5 flex items-center gap-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {featured.readTime}</span>
-              <span>{new Date(featured.date).toLocaleDateString("en-LK", { day: "numeric", month: "long", year: "numeric" })}</span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> {featured.readTime}
+              </span>
+              <span>
+                {new Date(featured.date).toLocaleDateString("en-LK", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
             </div>
             <div className="mt-6 flex items-center gap-2 text-navy font-semibold text-sm group-hover:text-yellow-brand transition-colors">
               Read Article <ArrowRight className="h-4 w-4" />
@@ -74,7 +83,9 @@ const Blog = () => {
               className="group bg-background rounded-2xl border border-border shadow-card-soft overflow-hidden hover:border-yellow-brand transition-colors flex flex-col"
             >
               <div className="bg-navy aspect-video flex items-center justify-center p-6">
-                <span className="text-yellow-brand text-xs font-bold uppercase tracking-widest">{article.category}</span>
+                <span className="text-yellow-brand text-xs font-bold uppercase tracking-widest">
+                  {article.category}
+                </span>
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <span className="inline-block bg-yellow-brand/10 text-yellow-brand text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full w-fit mb-3">
@@ -85,8 +96,15 @@ const Blog = () => {
                 </h3>
                 <p className="mt-2 text-xs text-muted-foreground line-clamp-2">{article.excerpt}</p>
                 <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {article.readTime}</span>
-                  <span>{new Date(article.date).toLocaleDateString("en-LK", { day: "numeric", month: "short" })}</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" /> {article.readTime}
+                  </span>
+                  <span>
+                    {new Date(article.date).toLocaleDateString("en-LK", {
+                      day: "numeric",
+                      month: "short",
+                    })}
+                  </span>
                 </div>
               </div>
             </Link>

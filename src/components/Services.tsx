@@ -10,7 +10,8 @@ export const Services = () => {
             Everything We Clean - <span className="text-[hsl(var(--yellow))]">Done Right.</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            From a quick refresh to a full deep clean, our specialist teams handle every space with care and precision.
+            From a quick refresh to a full deep clean, our specialist teams handle every space with
+            care and precision.
           </p>
         </div>
 

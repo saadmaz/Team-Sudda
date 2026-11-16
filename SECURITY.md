@@ -4,10 +4,10 @@
 
 Only the version currently deployed to production, built from the `main` branch, receives security fixes.
 
-| Version | Supported |
-| --- | --- |
-| Latest release on `main` | Yes |
-| Older releases | No |
+| Version                  | Supported |
+| ------------------------ | --------- |
+| Latest release on `main` | Yes       |
+| Older releases           | No        |
 
 ## Reporting a vulnerability
 
@@ -22,11 +22,11 @@ Report it privately by email to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk
 
 ### What to expect
 
-| Stage | Target |
-| --- | --- |
-| Acknowledgement | Within 3 business days |
-| Initial assessment | Within 7 business days |
-| Fix or mitigation | Based on severity; critical issues are prioritised immediately |
+| Stage              | Target                                                         |
+| ------------------ | -------------------------------------------------------------- |
+| Acknowledgement    | Within 3 business days                                         |
+| Initial assessment | Within 7 business days                                         |
+| Fix or mitigation  | Based on severity; critical issues are prioritised immediately |
 
 We will keep you informed throughout and let you know when the issue is resolved.
 

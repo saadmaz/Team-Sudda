@@ -9,14 +9,14 @@ This is a private, proprietary repository: see [LICENSE](LICENSE). Access is lim
 1. **Open or pick an issue.** Use the bug report or change request template so the problem and expected result are clear.
 2. **Branch from `main`.** Use a short, descriptive name with a type prefix:
 
-   | Prefix | Use for |
-   | --- | --- |
-   | `feat/` | New features, screens or pages |
-   | `fix/` | Bug fixes |
-   | `content/` | Copy, imagery or articles |
-   | `style/` | Visual or design changes |
-   | `chore/` | Dependencies, tooling, configuration |
-   | `docs/` | Documentation |
+   | Prefix     | Use for                              |
+   | ---------- | ------------------------------------ |
+   | `feat/`    | New features, screens or pages       |
+   | `fix/`     | Bug fixes                            |
+   | `content/` | Copy, imagery or articles            |
+   | `style/`   | Visual or design changes             |
+   | `chore/`   | Dependencies, tooling, configuration |
+   | `docs/`    | Documentation                        |
 
 3. **Make the change** and run the checks locally:
 
@@ -37,18 +37,18 @@ Follow [Conventional Commits](https://www.conventionalcommits.org):
 <type>(<optional scope>): <summary in the imperative mood>
 ```
 
-| Type | Meaning |
-| --- | --- |
-| `feat` | A new feature |
-| `fix` | A bug fix |
-| `perf` | A performance improvement |
+| Type       | Meaning                                                 |
+| ---------- | ------------------------------------------------------- |
+| `feat`     | A new feature                                           |
+| `fix`      | A bug fix                                               |
+| `perf`     | A performance improvement                               |
 | `refactor` | Code change that neither fixes a bug nor adds a feature |
-| `style` | Visual or formatting change with no behaviour change |
-| `content` | Copy, imagery or article content |
-| `docs` | Documentation only |
-| `test` | Adding or updating tests |
-| `ci` | Continuous integration or deployment workflows |
-| `chore` | Build, tooling or dependency changes |
+| `style`    | Visual or formatting change with no behaviour change    |
+| `content`  | Copy, imagery or article content                        |
+| `docs`     | Documentation only                                      |
+| `test`     | Adding or updating tests                                |
+| `ci`       | Continuous integration or deployment workflows          |
+| `chore`    | Build, tooling or dependency changes                    |
 
 ## Code standards
 

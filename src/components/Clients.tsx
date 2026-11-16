@@ -2,7 +2,12 @@ import { CLIENTS } from "@/lib/constants/clients";
 
 // Duplicate the list so the seamless loop works - items scroll off left, duplicates come in from right
 const ROW_A = [...CLIENTS, ...CLIENTS];
-const ROW_B = [...CLIENTS.slice(7), ...CLIENTS.slice(0, 7), ...CLIENTS.slice(7), ...CLIENTS.slice(0, 7)];
+const ROW_B = [
+  ...CLIENTS.slice(7),
+  ...CLIENTS.slice(0, 7),
+  ...CLIENTS.slice(7),
+  ...CLIENTS.slice(0, 7),
+];
 
 export const Clients = () => {
   return (
@@ -13,7 +18,8 @@ export const Clients = () => {
           Trusted by Leading <span className="text-[hsl(var(--yellow))]">Organisations.</span>
         </h2>
         <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-          From government departments to private enterprises - Sri Lanka's top organisations rely on Team Sudda.
+          From government departments to private enterprises - Sri Lanka's top organisations rely on
+          Team Sudda.
         </p>
       </div>
 

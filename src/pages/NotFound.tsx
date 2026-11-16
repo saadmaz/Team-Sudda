@@ -15,7 +15,9 @@ const NotFound = () => {
         </p>
         <div className="mt-8">
           <Button asChild variant="hero" size="lg">
-            <Link to="/"><ArrowLeft className="h-4 w-4 mr-2" /> Back to Home</Link>
+            <Link to="/">
+              <ArrowLeft className="h-4 w-4 mr-2" /> Back to Home
+            </Link>
           </Button>
         </div>
       </div>

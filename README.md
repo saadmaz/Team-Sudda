@@ -36,12 +36,12 @@ The official website of Team Sudda: home, office and deep-cleaning services acro
 
 Team Sudda is a professional cleaning team serving homes and businesses across Colombo. This repository powers [teamsudda.lk](https://teamsudda.lk): the services, pricing and booking flow customers use to arrange a clean.
 
-| | |
-| --- | --- |
-| **Organisation** | Tank Sudda (Pvt) Ltd |
-| **Website** | [teamsudda.lk](https://teamsudda.lk) |
-| **Contact** | [hello@teamsudda.lk](mailto:hello@teamsudda.lk) · +94 74 100 4296 |
-| **Maintainer** | [Saad Mazhar](https://github.com/saadmaz) |
+|                  |                                                                   |
+| ---------------- | ----------------------------------------------------------------- |
+| **Organisation** | Tank Sudda (Pvt) Ltd                                              |
+| **Website**      | [teamsudda.lk](https://teamsudda.lk)                              |
+| **Contact**      | [hello@teamsudda.lk](mailto:hello@teamsudda.lk) · +94 74 100 4296 |
+| **Maintainer**   | [Saad Mazhar](https://github.com/saadmaz)                         |
 
 ## Features
 
@@ -56,16 +56,16 @@ Team Sudda is a professional cleaning team serving homes and businesses across C
 
 ## Tech stack
 
-| Layer | Technology |
-| --- | --- |
-| Framework | React 18 single-page app with React Router 6 |
-| Language | TypeScript |
-| Build | Vite 5 with SWC |
-| Styling | Tailwind CSS 3 and Radix-based UI primitives |
-| Motion | Framer Motion |
-| Forms | React Hook Form + Zod, delivered through EmailJS |
-| Hosting | Vercel |
-| Tooling | npm, Vitest, Testing Library, ESLint |
+| Layer     | Technology                                       |
+| --------- | ------------------------------------------------ |
+| Framework | React 18 single-page app with React Router 6     |
+| Language  | TypeScript                                       |
+| Build     | Vite 5 with SWC                                  |
+| Styling   | Tailwind CSS 3 and Radix-based UI primitives     |
+| Motion    | Framer Motion                                    |
+| Forms     | React Hook Form + Zod, delivered through EmailJS |
+| Hosting   | Vercel                                           |
+| Tooling   | npm, Vitest, Testing Library, ESLint             |
 
 ## Getting started
 
@@ -88,25 +88,25 @@ The site runs at **http://localhost:8080**.
 
 ### Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the development server with hot reload |
-| `npm run build` | Production build into `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Lint with ESLint |
-| `npm run typecheck` | Type-check the project with `tsc` |
-| `npm test` | Run the test suite once |
-| `npm run test:watch` | Run tests in watch mode |
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `npm run dev`        | Start the development server with hot reload |
+| `npm run build`      | Production build into `dist/`                |
+| `npm run preview`    | Serve the production build locally           |
+| `npm run lint`       | Lint with ESLint                             |
+| `npm run typecheck`  | Type-check the project with `tsc`            |
+| `npm test`           | Run the test suite once                      |
+| `npm run test:watch` | Run tests in watch mode                      |
 
 ## Configuration
 
 The booking and contact forms send email through [EmailJS](https://www.emailjs.com). Copy `.env.example` to `.env` and set:
 
-| Variable | Purpose |
-| --- | --- |
-| `VITE_EMAILJS_SERVICE_ID` | EmailJS service that delivers the message |
+| Variable                   | Purpose                                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service that delivers the message                                                               |
 | `VITE_EMAILJS_TEMPLATE_ID` | Template using `{{from_name}}`, `{{from_email}}`, `{{phone}}`, `{{service}}`, `{{date}}`, `{{message}}` |
-| `VITE_EMAILJS_PUBLIC_KEY` | EmailJS public key |
+| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key                                                                                      |
 
 These values are public by design (they are compiled into the browser bundle). Restrict the EmailJS account to the `teamsudda.lk` domain in the EmailJS dashboard. If they are missing, the forms show an error asking the visitor to get in touch on WhatsApp instead.
 
@@ -134,16 +134,16 @@ These values are public by design (they are compiled into the browser bundle). R
 
 All copy and business data lives in [`src/lib/constants/`](src/lib/constants), so routine updates don't touch page code.
 
-| Task | Where |
-| --- | --- |
-| Phone, email, address or social links | `src/lib/constants/contact.ts` |
-| Services | `src/lib/constants/services.ts` |
-| Pricing plans | `src/lib/constants/pricing.ts` |
-| Team members | `src/lib/constants/team.ts` |
-| Testimonials and client logos | `testimonials.ts`, `clients.ts` |
-| FAQ | `src/lib/constants/faqs.ts` |
-| Blog posts | `src/lib/constants/blog.ts` |
-| Add a page | Create it in `src/pages/`, register it in `src/App.tsx` above the catch-all route, and call `useSEO()` |
+| Task                                  | Where                                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Phone, email, address or social links | `src/lib/constants/contact.ts`                                                                         |
+| Services                              | `src/lib/constants/services.ts`                                                                        |
+| Pricing plans                         | `src/lib/constants/pricing.ts`                                                                         |
+| Team members                          | `src/lib/constants/team.ts`                                                                            |
+| Testimonials and client logos         | `testimonials.ts`, `clients.ts`                                                                        |
+| FAQ                                   | `src/lib/constants/faqs.ts`                                                                            |
+| Blog posts                            | `src/lib/constants/blog.ts`                                                                            |
+| Add a page                            | Create it in `src/pages/`, register it in `src/App.tsx` above the catch-all route, and call `useSEO()` |
 
 ## Quality checks
 
@@ -157,11 +157,11 @@ npm run lint && npm run typecheck && npm test && npm run build
 
 The site is hosted on **Vercel**, connected to this repository. Every push to `main` deploys to production, and every pull request gets a preview URL.
 
-| Setting | Value |
-| --- | --- |
-| Framework preset | Vite |
-| Build command | `npm run build` |
-| Output directory | `dist` |
+| Setting               | Value                                                             |
+| --------------------- | ----------------------------------------------------------------- |
+| Framework preset      | Vite                                                              |
+| Build command         | `npm run build`                                                   |
+| Output directory      | `dist`                                                            |
 | Environment variables | The three `VITE_EMAILJS_*` values, set for Production and Preview |
 
 [`vercel.json`](vercel.json) adds the single-page-app fallback (so deep links such as `/about` load directly), security headers and long-term caching for hashed assets.

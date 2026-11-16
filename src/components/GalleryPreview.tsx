@@ -17,11 +17,14 @@ export const GalleryPreview = () => {
               Results That <span className="text-[hsl(var(--yellow))]">Speak for Themselves.</span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-lg">
-              From offices to homes, events to renovations - here's a glimpse of the spaces we've transformed.
+              From offices to homes, events to renovations - here's a glimpse of the spaces we've
+              transformed.
             </p>
           </div>
           <Button asChild variant="outline" size="lg" className="shrink-0">
-            <Link to="/gallery">View All Projects <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link to="/gallery">
+              View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
 
@@ -55,7 +58,9 @@ export const GalleryPreview = () => {
                 <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-yellow-brand mb-1">
                   {project.category}
                 </span>
-                <h3 className="text-white font-display font-bold text-sm leading-tight">{project.title}</h3>
+                <h3 className="text-white font-display font-bold text-sm leading-tight">
+                  {project.title}
+                </h3>
               </div>
             </Link>
           ))}
