@@ -45,7 +45,7 @@ export const SERVICES: Service[] = [
   {
     icon: ShieldCheck,
     title: "Sanitization",
-    desc: "Hospital-grade disinfection that kills 99.9% of germs and viruses.",
+    desc: "Disinfection of high-touch surfaces in homes, offices and shared spaces.",
   },
   {
     icon: PartyPopper,

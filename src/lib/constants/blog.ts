@@ -11,7 +11,7 @@ export interface BlogArticle {
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "science-behind-sanitization",
-    title: "The Science Behind Sanitization - How We Kill 99.9% of Germs",
+    title: "Cleaning, Disinfecting and Sanitizing: What's the Difference?",
     date: "2025-03-10",
     category: "Sanitization",
     readTime: "4 min read",
@@ -19,9 +19,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Not all cleaning is the same. Discover the difference between cleaning, disinfecting, and sanitizing - and why it matters for your home or office.",
     body: [
       "When we talk about cleaning, most people picture wiping surfaces and vacuuming floors. But true sanitization goes far deeper than that. There are three distinct levels: cleaning (removing visible dirt), disinfecting (killing most pathogens), and sanitizing (reducing microbes to safe levels as defined by health standards).",
-      "At Team Sudda, our sanitization service uses hospital-grade, EPA-approved disinfectants that target bacteria, viruses, and fungi simultaneously. These products are carefully chosen to be effective yet safe - non-toxic to humans and pets once dry, and biodegradable so they don't harm the environment.",
+      "Disinfectant only works properly on a surface that has already been cleaned. Dirt, grease and residue shield germs from the product, which is why our teams always clean first and disinfect second. We follow the manufacturer's dilution and contact-time instructions for every product we use, because a disinfectant wiped off too early does very little.",
       "High-touch surfaces are the biggest risk areas: door handles, light switches, countertops, toilet flush levers, and keyboard keys. Our technicians follow a strict protocol, working from clean zones to dirty zones to avoid cross-contamination - the same approach used in clinical environments.",
-      "The 99.9% figure you see on disinfectant labels refers to a specific log reduction in bacterial count. Starting with one million bacteria, a 99.9% kill rate leaves 1,000 - which sounds like a lot, but is considered safe for most surfaces. Our process achieves a 5-log reduction, meaning fewer than 10 organisms remain.",
+      "Be careful with big numbers. The percentage printed on a disinfectant label describes what that product achieved in laboratory testing under set conditions. It is not a promise about a whole room, and no honest cleaning company can guarantee a germ-free space. What a good service can promise is the right products, used correctly, on the surfaces that matter most.",
       "Whether you're protecting a family home, a busy office, or a restaurant kitchen, professional sanitization is not a luxury - it's a health investment. If you'd like to schedule a sanitization session, contact us for a free assessment of your space.",
     ],
   },
@@ -55,7 +55,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Commercial cleaning involves higher traffic areas, industrial-grade equipment, and strict compliance requirements. An office building with 200 employees generates far more biological waste, food debris, and airborne particles than a three-bedroom home. Commercial contracts typically require daily or overnight cleaning to maintain standards without disrupting operations.",
       "The chemicals used in commercial cleaning are often stronger, with different dilution rates and application methods. Industrial floor polishers, ride-on scrubbers, and HEPA-filter vacuums are standard in commercial settings - equipment that would be impractical and overkill in a home environment.",
       "Residential cleaning, on the other hand, demands a more personal approach. Our residential teams are trained in the use of eco-friendly, family-safe products. They work around your schedule, your pets, and your personal belongings. The relationship is more intimate - clients often request the same team members for consistency.",
-      "Another key difference is accountability. Commercial clients typically require documented cleaning logs, supervisor sign-offs, and SLA (Service Level Agreement) compliance. Our commercial division provides all of these as standard, which is why we're trusted by organisations like government departments, banks, and hospitality businesses across Sri Lanka.",
+      "Another key difference is accountability. Commercial clients typically require documented cleaning logs, supervisor sign-offs, and SLA (Service Level Agreement) compliance. Our commercial service is built around exactly this: a set checklist for every site, a team lead who signs off the work, and a clear way to raise anything that was missed.",
       "Whether you need daily office maintenance or a one-off home deep-clean, Team Sudda has the expertise and equipment to handle it properly. Contact us to discuss which service level is right for your space.",
     ],
   },
@@ -79,20 +79,20 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "how-to-choose-cleaning-company",
     title: "How to Choose the Right Cleaning Company in Sri Lanka",
-    date: "2024-12-20",
+    date: "2025-01-10",
     category: "Tips",
     readTime: "5 min read",
     excerpt:
       "With dozens of cleaning services available, how do you know which one is trustworthy? Here are the six things you should always check before booking.",
     body: [
       "Letting strangers into your home or office is a significant act of trust. Choosing the right cleaning company isn't just about price - it's about reliability, safety, and consistency. Here are the six most important factors to evaluate.",
-      "1. Vetting and background checks. Ask the company directly: are your staff background-checked? A reputable company will have a clear answer. At Team Sudda, every team member undergoes identity verification and reference checks before joining our team.",
-      "2. Insurance and bonding. Accidents happen - a broken vase, a scratched floor, an equipment malfunction. A professional cleaning company should carry public liability insurance. Ask to see their certificate. If they can't produce one, walk away.",
+      "1. Vetting and background checks. Ask the company directly: are your staff background-checked? A reputable company will have a clear answer. At Team Sudda, every cleaner is trained in our process before working on site.",
+      "2. Insurance and bonding. Accidents happen - a broken vase, a scratched floor, an equipment malfunction. Ask how the company handles damage and complaints before you book. A professional company will explain the process clearly and put it in writing.",
       "3. Products used. Ask what cleaning agents they use and whether they're safe for children and pets. Eco-friendly isn't just a buzzword - it's a genuine health and safety consideration. Companies that use harsh chemicals without disclosure are a red flag.",
       "4. Transparent pricing. Reputable companies will give you a clear quote before work begins. Avoid any service that is vague about costs or adds unexpected charges after the fact. A pre-visit assessment or a detailed online quote process is a good sign.",
       "5. Reviews and references. Look beyond the company's own website. Check Google Reviews, social media, and ask for references from similar clients (e.g., if you're an office, ask for references from other offices). Consistent positive reviews over a long period are a strong indicator of reliability.",
       "6. Communication and responsiveness. How quickly do they respond to enquiries? Do they confirm bookings clearly? A company that is hard to reach before you've booked will be even harder to reach if something goes wrong after.",
-      "Team Sudda has been operating since 2025 and has built our reputation on all six of these principles. We're always happy to answer questions and provide references. Your trust is something we work hard to earn - and keep.",
+      "Team Sudda has been operating since 2025, and we built the company around these six principles. We're always happy to answer questions before you book. Your trust is something we work hard to earn - and keep.",
     ],
   },
 ];

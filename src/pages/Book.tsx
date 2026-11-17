@@ -43,7 +43,7 @@ const Book = () => {
   useSEO({
     title: "Book a Clean - Team Sudda",
     description:
-      "Book your professional cleaning service in 4 easy steps. Team Sudda serves Colombo, Kandy, Gampaha, Galle and Negombo.",
+      "Book a home or office clean in 4 steps. Team Sudda serves Colombo and Greater Colombo.",
   });
 
   const { toast } = useToast();
@@ -112,7 +112,8 @@ const Book = () => {
             </div>
             <h1 className="heading-md font-display text-navy">Booking Request Sent!</h1>
             <p className="mt-4 text-muted-foreground">
-              Thanks {data.name}! Our team will confirm your {data.service} booking within 1 hour.
+              Thanks {data.name}! Our team will contact you to confirm the quotation and date for
+              your {data.service}.
             </p>
             <p className="mt-2 text-muted-foreground text-sm">
               We'll reach you at <strong>{data.email}</strong> or <strong>{data.phone}</strong>.
@@ -358,7 +359,7 @@ const Book = () => {
                   <Link to="/terms" className="underline hover:text-navy">
                     Terms & Conditions
                   </Link>
-                  . We'll confirm your booking within 1 hour.
+                  . We'll contact you to confirm the quotation and date.
                 </p>
               </div>
             )}

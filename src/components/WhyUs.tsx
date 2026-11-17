@@ -4,8 +4,8 @@ import whyImg from "@/assets/why-choose.jpg";
 const FEATURES = [
   {
     icon: ShieldCheck,
-    title: "Trained & Vetted Staff",
-    desc: "Every cleaner is background-checked and professionally trained before their first job.",
+    title: "Trained, Supervised Teams",
+    desc: "Our cleaners work to a set process, with a team lead checking the job before we leave.",
   },
   {
     icon: Leaf,
@@ -53,8 +53,8 @@ export const WhyUs = () => {
               The Right Choice for a <span className="text-yellow-brand">Cleaner Space.</span>
             </h2>
             <p className="mt-4 text-white/70">
-              We combine reliability, eco-friendly products and meticulous attention to detail to
-              deliver an unmatched cleaning experience.
+              Clear quotations, a set cleaning process and a team that owns the result. That is what
+              we mean by cleaning done properly.
             </p>
 
             <ul className="mt-8 space-y-4">

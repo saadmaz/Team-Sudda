@@ -68,7 +68,7 @@ const BlogPost = () => {
           <div className="flex-1">
             <h3 className="font-display font-bold text-xl">Ready for a Professional Clean?</h3>
             <p className="mt-2 text-white/70 text-sm">
-              Team Sudda serves Colombo, Kandy, Gampaha, Galle and Negombo. Get a free quote today.
+              Team Sudda serves Colombo and Greater Colombo. Get a free quote today.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">

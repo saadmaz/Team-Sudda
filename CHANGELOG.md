@@ -31,6 +31,17 @@
 
 ## [Unreleased]
 
+### Changed
+
+- The client section now shows the STTPS group companies Team Sudda cleans for (Tank Sudda, STOPWASH and Polish Station), replacing a list of organisations that were not Team Sudda clients.
+- Service area copy now says Colombo and Greater Colombo, and booking messages no longer promise confirmation within one hour.
+- The sanitisation article now explains how disinfection works, without unverifiable kill-rate claims.
+
+### Removed
+
+- Unverified claims: 99.9%, EPA-approved and hospital-grade disinfection, 5-star rating, insured and background-checked staff, "Sri Lanka's #1" and the feature percentages.
+- Placeholder testimonials and gallery projects that reused stock photos. Both sections stay hidden until real reviews and on-site photos are added.
+
 ## [1.2.1] - 2026-11-17
 
 ### Fixed
