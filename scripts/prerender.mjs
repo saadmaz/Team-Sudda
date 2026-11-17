@@ -78,9 +78,20 @@ ${ALL_ROUTES.map(
 </urlset>
 `;
 await writeFile(join(dist, "sitemap.xml"), sitemap);
-// Empty app shell for URLs that aren't pre-rendered, so the browser renders them
-// from scratch instead of hydrating the homepage markup.
-await writeFile(join(dist, "app-shell.html"), template);
+// 404 page: Cloudflare serves it, with a 404 status, for any URL without a file.
+{
+  const { html } = await render("/404");
+  const head = {
+    title: "Page Not Found | Team Sudda",
+    description: "This page does not exist. Find cleaning services, guides and contact details.",
+    canonical: `${SITE_URL}/404`,
+  };
+  const page = applyHead(template, head)
+    .replace(/<link rel="canonical"[^>]*>\s*/, "")
+    .replace("</head>", '    <meta name="robots" content="noindex" />\n  </head>')
+    .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+  await writeFile(join(dist, "404.html"), page);
+}
 await rm(ssrDir, { recursive: true, force: true });
 
-console.log(`Pre-rendered ${count} pages and wrote sitemap.xml`);
+console.log(`Pre-rendered ${count} pages, 404.html and sitemap.xml`);

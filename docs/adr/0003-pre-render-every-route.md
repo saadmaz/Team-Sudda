@@ -20,4 +20,4 @@ Keep the client-only single-page app; migrate to Next.js or Astro; inject only p
 
 ## Rationale
 
-The site grew from one page to more than 50 service, industry, area and guide pages, which only help search if crawlers and link previews can see their content and metadata. Pre-rendering gets that without a server or a framework migration. The existing React components, router and Vercel hosting stay as they are, and the build fails if a page is missing metadata or a heading.
+The site grew from one page to more than 50 service, industry, area and guide pages, which only help search if crawlers and link previews can see their content and metadata. Pre-rendering gets that without a server or a framework migration. The existing React components, router and static hosting stay as they are, and the build fails if a page is missing metadata or a heading.

@@ -15,8 +15,9 @@ An architecture decision record (ADR) captures one significant technical decisio
 
 ## Index
 
-| ADR                                               | Decision                          | Status   |
-| ------------------------------------------------- | --------------------------------- | -------- |
-| [0001](0001-single-page-application-on-vercel.md) | Single-page application on Vercel | Accepted |
-| [0002](0002-form-delivery-through-emailjs.md)     | Form delivery through EmailJS     | Accepted |
-| [0003](0003-pre-render-every-route.md)            | Pre-render every route            | Accepted |
+| ADR                                               | Decision                          | Status                                                   |
+| ------------------------------------------------- | --------------------------------- | -------------------------------------------------------- |
+| [0001](0001-single-page-application-on-vercel.md) | Single-page application on Vercel | Superseded in part by [0004](0004-host-on-cloudflare.md) |
+| [0002](0002-form-delivery-through-emailjs.md)     | Form delivery through EmailJS     | Accepted                                                 |
+| [0003](0003-pre-render-every-route.md)            | Pre-render every route            | Accepted                                                 |
+| [0004](0004-host-on-cloudflare.md)                | Host on Cloudflare Workers        | Accepted                                                 |

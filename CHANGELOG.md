@@ -31,6 +31,17 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-11-17
+
+### Changed
+
+- Hosting moved from Vercel to Cloudflare Workers. The site deploys from the GitHub Deploy workflow with wrangler. Wrangler attaches `teamsudda.lk`, `www.teamsudda.lk` and `dev.teamsudda.lk` as custom domains, and security headers and redirects now live in `public/_headers` and `public/_redirects`.
+- Unknown URLs now return a pre-rendered 404 page with a real 404 status instead of the app shell.
+
+### Removed
+
+- `vercel.json` and every Vercel reference.
+
 ## [1.3.0] - 2026-11-17
 
 ### Added
@@ -127,7 +138,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...v1.2.0

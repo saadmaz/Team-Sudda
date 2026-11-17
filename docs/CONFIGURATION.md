@@ -21,7 +21,9 @@ These values are public by design (they are compiled into the browser bundle). R
 
 | File                 | Controls                                       |
 | -------------------- | ---------------------------------------------- |
-| `vercel.json`        | SPA fallback, security headers and caching     |
+| `wrangler.jsonc`     | Cloudflare hosting, custom domains, 404 page   |
+| `public/_headers`    | Security headers and asset caching             |
+| `public/_redirects`  | Permanent redirects                            |
 | `vite.config.ts`     | Dev server and build configuration             |
 | `tailwind.config.ts` | Design tokens and Tailwind plugins             |
 | `index.html`         | Default title, description and social metadata |
