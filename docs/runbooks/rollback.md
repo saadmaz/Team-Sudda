@@ -4,15 +4,14 @@
 
 <sub><a href="../../README.md">Project README</a> · <a href="../README.md">Documentation index</a></sub>
 
-> [!WARNING]
 > Use this when a deploy has broken production. Restore service first, then fix the cause.
 
-## Fastest: promote the previous deployment
+## Fastest: roll back to the previous version
 
-1. Open the Vercel dashboard → the project → **Deployments**.
-2. Find the last good production deployment and choose **Instant Rollback**.
+1. Open the Cloudflare dashboard → Workers & Pages → `team-sudda-website` → **Deployments**.
+2. Find the last good version and choose **Rollback**.
 
-From a terminal: `npx vercel rollback <deployment-url>`.
+From a terminal: `npx wrangler@4 rollback` (to the previous version) or `npx wrangler@4 rollback <version-id>`.
 
 ## Then: make `main` match production
 
@@ -22,6 +21,6 @@ Revert the bad change on `main` so the next deploy does not reintroduce it:
 git revert <bad-commit-sha>
 ```
 
-Open the revert as a pull request and merge it once CI passes. Vercel resumes automatic production deploys after the next merge.
+Open the revert as a pull request and merge it once CI passes. The Deploy workflow deploys the reverted `main` automatically.
 
 Afterwards, record what happened and the fix in the pull request that resolves the root cause.

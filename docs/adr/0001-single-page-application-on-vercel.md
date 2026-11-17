@@ -4,9 +4,9 @@
 
 <sub><a href="../../README.md">Project README</a> · <a href="../README.md">Documentation index</a></sub>
 
-| Status   | Date       |
-| -------- | ---------- |
-| Accepted | 2026-04-18 |
+| Status                                                                 | Date       |
+| ---------------------------------------------------------------------- | ---------- |
+| Superseded in part by [ADR-0004](0004-host-on-cloudflare.md) (hosting) | 2026-04-18 |
 
 ## Decision
 

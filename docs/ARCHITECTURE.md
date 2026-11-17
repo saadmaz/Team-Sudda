@@ -8,7 +8,7 @@
 
 ## Overview
 
-teamsudda.lk is a React application built with Vite and hosted on Vercel. At build time every public route is pre-rendered to static HTML with its own metadata, so visitors and search engines get the full page immediately; React then hydrates it in the browser. Forms send email through EmailJS; the site has no backend of its own.
+teamsudda.lk is a React application built with Vite and hosted on Cloudflare Workers as static assets. At build time every public route is pre-rendered to static HTML with its own metadata, so visitors and search engines get the full page immediately; React then hydrates it in the browser. Forms send email through EmailJS; the site has no backend of its own.
 
 ```mermaid
 flowchart LR
@@ -16,8 +16,8 @@ flowchart LR
   Build --> SSR["vite build --ssr<br/>src/entry-server.tsx"]
   SSR --> Pre["scripts/prerender.mjs<br/>HTML per route + sitemap.xml"]
   Client --> Pre
-  Pre --> Vercel["Vercel edge"]
-  Visitor((Visitor)) --> Vercel
+  Pre --> CF["Cloudflare edge<br/>wrangler deploy"]
+  Visitor((Visitor)) --> CF
   Visitor -- forms --> EmailJS["EmailJS"] --> Inbox["hello@teamsudda.lk"]
 ```
 
@@ -37,7 +37,9 @@ flowchart LR
 | `src/lib/routes.ts`         | The list of public routes used for pre-rendering, the sitemap and tests             |
 | `src/hooks/usePageMeta.ts`  | Per-page title, description, canonical URL and JSON-LD, in the browser and at build |
 | `src/entry-server.tsx`      | Server render entry used by the pre-render script                                   |
-| `scripts/prerender.mjs`     | Writes one HTML file per route and `sitemap.xml` into `dist/`                       |
-| `vercel.json`               | Clean URLs, SPA fallback, security headers and asset caching                        |
+| `scripts/prerender.mjs`     | Writes one HTML file per route, `404.html` and `sitemap.xml`                        |
+| `wrangler.jsonc`            | Cloudflare hosting: asset directory, clean URLs, 404 page and custom domains        |
+| `public/_headers`           | Security headers and long-term caching for hashed assets                            |
+| `public/_redirects`         | Permanent redirects                                                                 |
 
 Significant decisions are recorded in [adr/](adr/README.md).

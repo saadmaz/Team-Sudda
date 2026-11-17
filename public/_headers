@@ -1,0 +1,11 @@
+# Response headers for Cloudflare static assets.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Hashed build output never changes, so browsers can cache it forever.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

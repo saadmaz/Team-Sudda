@@ -1,0 +1,3 @@
+# Permanent redirects for Cloudflare static assets.
+/guides /blog 301
+/guides/* /blog/:splat 301

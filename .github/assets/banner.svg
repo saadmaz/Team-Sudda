@@ -31,7 +31,7 @@
   <text x="122.0" y="260.5" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#0b0b0b">Website</text>
   <rect x="184" y="238" width="82" height="34" rx="17" fill="none" stroke="#ffd000" stroke-opacity="0.55"/>
   <text x="225.0" y="260.5" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e5e7eb">React</text>
-  <rect x="278" y="238" width="91" height="34" rx="17" fill="none" stroke="#ffd000" stroke-opacity="0.55"/>
-  <text x="323.5" y="260.5" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e5e7eb">Vercel</text>
+  <rect x="278" y="238" width="116" height="34" rx="17" fill="none" stroke="#ffd000" stroke-opacity="0.55"/>
+  <text x="336.0" y="260.5" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e5e7eb">Cloudflare</text>
   </g>
 </svg>
