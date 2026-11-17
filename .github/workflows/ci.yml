@@ -21,6 +21,8 @@ jobs:
     name: Verify
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    env:
+      TZ: Asia/Colombo
 
     steps:
       - name: Check out
