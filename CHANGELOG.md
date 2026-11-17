@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-11-17
+
 ### Changed
 
 - The client section now shows the STTPS group companies Team Sudda cleans for (Tank Sudda, STOPWASH and Polish Station), replacing a list of organisations that were not Team Sudda clients.
@@ -109,7 +111,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...v1.1.4
