@@ -72,17 +72,17 @@ Team Sudda is a professional cleaning team serving homes and businesses across C
 ## Features
 
 <table>
-<tr><td width="50%" valign="top"><strong>Service catalogue</strong><br/>Home, office, deep, post-renovation, sofa and carpet, sanitisation, after-event and move-in/move-out cleaning.</td><td width="50%" valign="top"><strong>Transparent pricing</strong><br/>Basic, Standard and Business plans.</td></tr>
-<tr><td width="50%" valign="top"><strong>Online booking</strong><br/>A validated booking form at <code>/book</code>, delivered by email through EmailJS.</td><td width="50%" valign="top"><strong>Trust signals</strong><br/>Team profiles, client logos, testimonials, gallery and FAQ.</td></tr>
-<tr><td width="50%" valign="top"><strong>Blog</strong><br/>Cleaning guides with individual article pages.</td><td width="50%" valign="top"><strong>SEO</strong><br/>Per-page titles, descriptions, canonical URLs, Open Graph tags and JSON-LD structured data.</td></tr>
-<tr><td width="50%" valign="top"><strong>Always-on contact</strong><br/>Floating WhatsApp button and click-to-call on every page.</td><td width="50%" valign="top"><strong>Legal pages</strong><br/>Privacy Policy and Terms.</td></tr>
+<tr><td width="50%" valign="top"><strong>Service catalogue</strong><br/>8 home and 5 business services, each with its own page, checklist and FAQ, plus 8 industry and 8 service-area pages.</td><td width="50%" valign="top"><strong>The Team Sudda Standard</strong><br/>Process, commitments and pricing approach published on How We Work and Pricing.</td></tr>
+<tr><td width="50%" valign="top"><strong>Enquiry forms</strong><br/>Home booking, business site survey, careers, contact and feedback, delivered by email through EmailJS.</td><td width="50%" valign="top"><strong>Trust signals</strong><br/>STTPS group clients, plus testimonials and gallery that appear once real content is added.</td></tr>
+<tr><td width="50%" valign="top"><strong>Guides</strong><br/>Plain-language cleaning guides with individual article pages.</td><td width="50%" valign="top"><strong>SEO</strong><br/>Every route pre-rendered with its own metadata and structured data, plus a generated sitemap.</td></tr>
+<tr><td width="50%" valign="top"><strong>Always-on contact</strong><br/>Call, WhatsApp and quote bar on phones; WhatsApp button and click-to-call on desktop.</td><td width="50%" valign="top"><strong>Analytics</strong><br/>Optional Google Analytics 4 with lead and contact events.</td></tr>
 </table>
 
 <p align="right"><a href="#readme-top">Back to top ↑</a></p>
 
 ## Architecture
 
-A React single-page application built with Vite and hosted on Vercel. React Router renders each page client-side, `vercel.json` provides the SPA fallback and security headers, and the booking and contact forms send email through EmailJS.
+A React application built with Vite and hosted on Vercel. Every public route is pre-rendered to static HTML at build time and hydrated in the browser, `vercel.json` provides clean URLs and security headers, and the forms send email through EmailJS.
 
 ```mermaid
 flowchart LR
@@ -111,16 +111,15 @@ flowchart LR
 <details>
 <summary><strong>Full stack breakdown</strong></summary>
 
-| Layer     | Technology                                       |
-| --------- | ------------------------------------------------ |
-| Framework | React 18 single-page app with React Router 6     |
-| Language  | TypeScript                                       |
-| Build     | Vite 5 with SWC                                  |
-| Styling   | Tailwind CSS 3 and Radix-based UI primitives     |
-| Motion    | Framer Motion                                    |
-| Forms     | React Hook Form + Zod, delivered through EmailJS |
-| Hosting   | Vercel                                           |
-| Tooling   | npm, Vitest, Testing Library, ESLint             |
+| Layer     | Technology                                     |
+| --------- | ---------------------------------------------- |
+| Framework | React 18 with React Router 6, pre-rendered     |
+| Language  | TypeScript                                     |
+| Build     | Vite 5 with SWC                                |
+| Styling   | Tailwind CSS 3 and Radix-based UI primitives   |
+| Forms     | Schema-driven forms, delivered through EmailJS |
+| Hosting   | Vercel                                         |
+| Tooling   | npm, Vitest, Testing Library, ESLint           |
 
 </details>
 
@@ -164,7 +163,7 @@ The site runs at **http://localhost:8080**.
 
 ## Configuration
 
-Three public, domain-restricted EmailJS values (`VITE_EMAILJS_*`) enable form delivery. All copy and business data lives in `src/lib/constants/`.
+Three public, domain-restricted EmailJS values (`VITE_EMAILJS_*`) enable form delivery, and an optional `VITE_GA_MEASUREMENT_ID` enables analytics. Copy and business data live in `src/lib/content/` and `src/lib/constants/`.
 
 <details>
 <summary><strong>Environment variables</strong></summary>

@@ -65,6 +65,17 @@ const PrivacyPolicy = () => {
               information may only be shared with members of our cleaning team who need it to carry
               out your service booking.
             </p>
+            <p className="mt-3">
+              We use a small number of service providers to run this website: EmailJS delivers the
+              details you send through our forms to our inbox, Vercel hosts the site, and, where
+              enabled, Google Analytics measures how the site is used. Google Analytics uses cookies
+              and collects information such as pages visited and the type of device used. It does
+              not receive the contents of the forms you submit.
+            </p>
+            <p className="mt-3">
+              If you apply for a job through our careers page, we use your details only to assess
+              your application and contact you about it.
+            </p>
           </section>
 
           <section>

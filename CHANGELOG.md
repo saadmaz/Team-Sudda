@@ -31,6 +31,28 @@
 
 ## [Unreleased]
 
+### Added
+
+- A multi-page site: separate For Homes and For Business sections, a page for each of 13 services (checklist, exclusions, frequency and FAQs), 8 industry pages, 8 service-area pages, How We Work (the Team Sudda Standard), Pricing, Careers, FAQ and a quote chooser.
+- Five enquiry forms: home booking, business site survey, careers application, contact and feedback, with step-by-step validation, a review step, spam protection and a WhatsApp fallback if sending fails.
+- A new homepage with a homes and business split, commitments, the six-step process, a comparison with a typical cleaning service and the industries served.
+- Dropdown navigation, a call, WhatsApp and quote bar on phones, and a skip-to-content link.
+- Pre-rendered HTML for every page with its own title, description, canonical URL, social preview tags and structured data, plus a generated `sitemap.xml`.
+- Optional Google Analytics 4 with lead and contact events, enabled by `VITE_GA_MEASUREMENT_ID`.
+- Guides on in-house versus contract cleaning, an office cleaning checklist and how often to deep clean a home.
+
+### Changed
+
+- The About page now presents the STTPS group, and the values, mission and vision were rewritten around the Team Sudda Standard.
+- The footer lists every service, industry and area.
+- The privacy policy now names the service providers the site uses and covers job applications.
+- The main JavaScript bundle is smaller (460 kB to 288 kB) because pages load on demand.
+
+### Removed
+
+- The eco-friendly cleaning article and product claims that could not be confirmed.
+- Unused toast, tooltip, select and data-fetching code and their dependencies.
+
 ### Changed
 
 - The client section now shows the STTPS group companies Team Sudda cleans for (Tank Sudda, STOPWASH and Polish Station), replacing a list of organisations that were not Team Sudda clients.
