@@ -1,25 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { useSEO } from "@/hooks/useSEO";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { BLOG_ARTICLES } from "@/lib/constants/blog";
 
 const Blog = () => {
-  useSEO({
-    title: "Cleaning Tips & Insights - Team Sudda Blog",
+  usePageMeta({
+    title: "Cleaning Guides",
     description:
-      "Expert cleaning advice, eco-friendly tips and industry insights from Team Sudda - Sri Lanka's professional cleaning specialists.",
+      "Plain-language cleaning advice from Team Sudda: how to prepare for a clean, what disinfection really does and how to choose a cleaning company.",
+    path: "/blog",
   });
 
   const featured = BLOG_ARTICLES[0];
   const rest = BLOG_ARTICLES.slice(1);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <div className="bg-background">
       {/* Header */}
       <section className="gradient-hero pt-28 pb-16">
         <div className="container-x text-center text-white">
@@ -111,9 +107,6 @@ const Blog = () => {
           ))}
         </div>
       </div>
-
-      <Footer />
-      <WhatsAppFab />
     </div>
   );
 };

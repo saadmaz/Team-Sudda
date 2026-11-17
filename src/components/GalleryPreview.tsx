@@ -7,6 +7,8 @@ import { GALLERY_PROJECTS, GALLERY_CATEGORIES } from "@/lib/constants/gallery";
 const PREVIEW_PROJECTS = GALLERY_PROJECTS.slice(0, 4);
 
 export const GalleryPreview = () => {
+  if (PREVIEW_PROJECTS.length === 0) return null;
+
   return (
     <section className="section bg-muted/40">
       <div className="container-x">

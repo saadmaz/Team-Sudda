@@ -1,4 +1,4 @@
-import { Heart, Leaf, Star, TrendingUp } from "lucide-react";
+import { ClipboardCheck, Eye, Handshake, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface CompanyValue {
@@ -9,29 +9,29 @@ export interface CompanyValue {
 
 export const VALUES: CompanyValue[] = [
   {
-    icon: Heart,
-    title: "Client-Oriented",
-    desc: "We treat every client's space as if it were our own - listening to your needs and acting on feedback to continuously improve.",
+    icon: ClipboardCheck,
+    title: "Do it properly",
+    desc: "A written checklist, the right order and the right products. The job is finished when it's done right, not when time runs out.",
   },
   {
-    icon: Leaf,
-    title: "Eco-Friendly",
-    desc: "We carefully select the best natural, non-toxic cleaning products that are safe for your family, pets, and the environment.",
+    icon: Eye,
+    title: "Say it straight",
+    desc: "Clear quotations, honest timings and plain answers. If something can't be done, or a stain won't come out, we tell you.",
   },
   {
-    icon: Star,
-    title: "Excellence",
-    desc: "Our staff are trained to the highest standards and stay up-to-date with modern cleaning technologies and best practices.",
+    icon: Handshake,
+    title: "Own the result",
+    desc: "If something was missed, we come back and fix it. Business clients get a named contact who answers for the standard.",
   },
   {
     icon: TrendingUp,
-    title: "Growth",
-    desc: "We build long-term relationships with clients and communities, continuously expanding our team and service coverage across Sri Lanka.",
+    title: "Build people",
+    desc: "Cleaning is skilled work. We train our people, give them a path to lead, and treat the work with respect.",
   },
 ];
 
 export const MISSION =
-  "To be a national market leader in the provision of cleaning services, delivering reliable, quality, and cost-effective cleaning solutions to every client we serve.";
+  "To make professional cleaning dependable: a clear standard, delivered by trained and supervised teams, for every home and workplace we serve.";
 
 export const VISION =
-  "A network of trusted cleaning professionals across Sri Lanka - all united by common values, eco-friendly practices, and a commitment to exceptional service.";
+  "To set the standard for cleaning and facility care in Sri Lanka, so that “done properly” is what people expect, and what they get.";

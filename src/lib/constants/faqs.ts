@@ -10,11 +10,11 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "How quickly can you respond to a booking?",
-    a: "Most bookings are confirmed within 1 hour and we can dispatch a team in as little as 24 hours. Same-day service is often available in Colombo.",
+    a: "We reply to every request as quickly as we can during working hours, agree the quotation with you and then confirm the date. Short-notice jobs in Colombo are possible when a team is available.",
   },
   {
     q: "Do you bring your own products and equipment?",
-    a: "Yes. Our teams arrive fully equipped with eco-friendly, non-toxic cleaning products, vacuums, mops and microfiber tools. You don't need to provide anything.",
+    a: "Yes. Our teams arrive with cleaning products, vacuums, mops and microfibre cloths. You don't need to provide anything.",
   },
   {
     q: "How do you price your services?",
@@ -22,7 +22,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Which areas in Sri Lanka do you serve?",
-    a: "We currently serve Colombo, Gampaha, Kandy, Galle, Negombo and surrounding suburbs. Contact us to confirm coverage in your area.",
+    a: "Our core service area is Colombo and Greater Colombo. Jobs further out are confirmed case by case, so send us your town and we will tell you before arranging anything.",
   },
   {
     q: "Is there a contract or long-term commitment?",
