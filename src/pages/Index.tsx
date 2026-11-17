@@ -46,13 +46,20 @@ const Index = () => {
 
       {/* Commitments strip */}
       <section className="bg-navy-deep border-t border-white/10">
-        <div className="container-x grid grid-cols-2 lg:grid-cols-5 gap-px bg-white/10">
-          {COMMITMENTS.map(({ icon: Icon, title }) => (
-            <div key={title} className="flex items-center gap-3 bg-navy-deep py-5 px-3 text-white">
-              <Icon className="h-5 w-5 text-yellow-brand shrink-0" />
-              <span className="font-semibold text-sm">{title}</span>
-            </div>
-          ))}
+        <div className="container-x">
+          <ul className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-white/10">
+            {COMMITMENTS.map(({ icon: Icon, title }, i) => (
+              <li
+                key={title}
+                className={`flex items-center gap-3 bg-navy-deep py-5 px-4 text-white ${
+                  i === COMMITMENTS.length - 1 ? "col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <Icon className="h-5 w-5 text-yellow-brand shrink-0" />
+                <span className="font-semibold text-sm">{title}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

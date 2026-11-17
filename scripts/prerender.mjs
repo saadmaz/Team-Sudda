@@ -78,6 +78,9 @@ ${ALL_ROUTES.map(
 </urlset>
 `;
 await writeFile(join(dist, "sitemap.xml"), sitemap);
+// Empty app shell for URLs that aren't pre-rendered, so the browser renders them
+// from scratch instead of hydrating the homepage markup.
+await writeFile(join(dist, "app-shell.html"), template);
 await rm(ssrDir, { recursive: true, force: true });
 
 console.log(`Pre-rendered ${count} pages and wrote sitemap.xml`);
