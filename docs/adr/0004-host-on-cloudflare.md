@@ -12,12 +12,12 @@ Supersedes the hosting part of [ADR-0001](0001-single-page-application-on-vercel
 
 ## Decision
 
-Serve the pre-rendered site from Cloudflare Workers static assets, configured in `wrangler.jsonc`, and deploy it from the GitHub Deploy workflow with `wrangler deploy`. `main` deploys to production (`teamsudda.lk`, `www.teamsudda.lk`); `develop` deploys to a separate Worker for `dev.teamsudda.lk`. Response headers and redirects live in `public/_headers` and `public/_redirects`.
+Serve the pre-rendered site from Cloudflare Workers static assets, configured in `wrangler.jsonc`, and build and deploy it with Cloudflare Workers Builds connected to this repository. `main` deploys to production (`teamsudda.lk`, `www.teamsudda.lk`); `develop` deploys to a separate Worker for `dev.teamsudda.lk`. Response headers and redirects live in `public/_headers` and `public/_redirects`.
 
 ## Alternatives considered
 
-Stay on Vercel; Cloudflare Pages; Cloudflare's own Git integration (Workers Builds) instead of GitHub Actions.
+Stay on Vercel; Cloudflare Pages; deploying from GitHub Actions with wrangler and an API token.
 
 ## Rationale
 
-The `teamsudda.lk` DNS zone is already on Cloudflare, so hosting there puts DNS, certificates, the CDN and the site in one account. Wrangler creates the custom-domain DNS records itself. Static asset requests on Workers are free and served from Cloudflare's edge. Workers is Cloudflare's recommended platform for new static sites. Deploying from GitHub Actions keeps the build, the environment variables and the smoke test next to CI, and works the same for production and development.
+The `teamsudda.lk` DNS zone is already on Cloudflare, so hosting there puts DNS, certificates, the CDN and the site in one account. Wrangler creates the custom-domain DNS records itself. Static asset requests on Workers are free and served from Cloudflare's edge. Workers is Cloudflare's recommended platform for new static sites. Workers Builds needs no API token in GitHub. The GitHub Deploy workflow still waits for each Cloudflare build and smoke-tests the live site.

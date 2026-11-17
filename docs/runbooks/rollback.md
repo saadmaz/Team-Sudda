@@ -21,6 +21,6 @@ Revert the bad change on `main` so the next deploy does not reintroduce it:
 git revert <bad-commit-sha>
 ```
 
-Open the revert as a pull request and merge it once CI passes. The Deploy workflow deploys the reverted `main` automatically.
+Open the revert as a pull request and merge it once CI passes. Cloudflare Workers Builds deploys the reverted `main` automatically.
 
 Afterwards, record what happened and the fix in the pull request that resolves the root cause.

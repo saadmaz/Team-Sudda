@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Deploys now run through Cloudflare Workers Builds connected to the repository. The GitHub Deploy workflow waits for the Cloudflare build and smoke-tests the live site instead of deploying.
+
 ## [1.3.1] - 2026-11-17
 
 ### Changed
