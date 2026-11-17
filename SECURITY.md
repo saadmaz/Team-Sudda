@@ -1,59 +1,102 @@
-# Security Policy
+<a id="top"></a>
 
-<!-- nav -->
-<p align="center"><a href="README.md">README</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <strong>Security</strong> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+<div align="center">
 
-## Supported versions
+<img src=".github/assets/security.svg" alt="Team Sudda: Security Policy" width="100%">
 
-Only the version currently deployed to production, built from the `main` branch, receives security fixes.
+<br/>
 
-| Version                  | Supported |
-| ------------------------ | --------- |
-| Latest release on `main` | Yes       |
-| Older releases           | No        |
+<p><strong>We take the security of Team Sudda Website and the people who use it seriously. Thank you for helping keep them safe.</strong></p>
+
+<a href="README.md"><img alt="README" src="https://img.shields.io/badge/README-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="CONTRIBUTING.md"><img alt="Contributing" src="https://img.shields.io/badge/Contributing-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/Code%20of%20Conduct-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="SECURITY.md"><img alt="Security" src="https://img.shields.io/badge/Security-ffd000?style=for-the-badge&labelColor=111827"></a>
+<a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/License-374151?style=for-the-badge&labelColor=111827"></a>
+
+</div>
+
+---
+
+> [!CAUTION]
+> Never report a security problem in a public issue, pull request or discussion. Report it privately as described below.
 
 ## Reporting a vulnerability
 
-> [!CAUTION]
-> Never report a security problem in a public issue, pull request or discussion.
+|              |                                                                                                                                                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Email**    | [hello@teamsudda.lk](mailto:hello@teamsudda.lk?subject=Security%20report) with the subject line `Security report` or GitHub's [private vulnerability reporting](https://github.com/saadmaz/Team-Sudda/security/advisories/new) |
+| **Include**  | What the issue is and its impact · the affected URL, screen, endpoint or file · steps to reproduce or a proof of concept · any suggested fix                                                                                   |
+| **Language** | English                                                                                                                                                                                                                        |
 
-Report it privately by email to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)** with the subject line `Security report`. Include:
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
-- a description of the issue and its potential impact,
-- the affected URL, screen, endpoint or file,
-- steps to reproduce, or a proof of concept,
-- any suggested fix.
+## What happens next
 
-### What to expect
+```mermaid
+flowchart LR
+  A["Report received"] --> B["Acknowledged<br/>within 3 business days"]
+  B --> C["Assessed<br/>within 7 business days"]
+  C --> D["Fixed or mitigated<br/>by severity"]
+  D --> E["Reporter told<br/>and credited if wished"]
+```
 
-| Stage              | Target                                                         |
-| ------------------ | -------------------------------------------------------------- |
-| Acknowledgement    | Within 3 business days                                         |
-| Initial assessment | Within 7 business days                                         |
-| Fix or mitigation  | Based on severity; critical issues are prioritised immediately |
+| Stage              | Target                                                     |
+| ------------------ | ---------------------------------------------------------- |
+| Acknowledgement    | Within **3 business days**                                 |
+| Initial assessment | Within **7 business days**                                 |
+| Fix or mitigation  | Based on severity; critical issues are handled immediately |
 
-We will keep you informed throughout and let you know when the issue is resolved.
+We keep you informed throughout and tell you when the issue is resolved.
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
+
+## Supported versions
+
+| Version                                          | Supported |
+| ------------------------------------------------ | :-------: |
+| Latest release on `main`, deployed to production |    Yes    |
+| Older releases                                   |    No     |
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Scope
 
-In scope:
+<table>
+<tr>
+<th width="50%">In scope</th>
+<th width="50%">Out of scope</th>
+</tr>
+<tr>
+<td valign="top">
+<ul>
+<li>teamsudda.lk and its subdomains</li>
+<li>the website and its forms</li>
+<li>the source code in this repository</li>
+</ul>
+</td>
+<td valign="top">
+<ul>
+<li>denial-of-service and volumetric attacks</li>
+<li>social engineering of Team Sudda staff or customers</li>
+<li>automated scanner findings without a demonstrated impact</li>
+<li>third-party services such as Cloudflare, Firebase or the hosting provider (report those to the provider)</li>
+</ul>
+</td>
+</tr>
+</table>
 
-- teamsudda.lk and its subdomains,
-- the website and its forms,
-- the source code in this repository.
-
-Out of scope:
-
-- denial-of-service and volumetric attacks,
-- social engineering of Team Sudda staff or customers,
-- findings from automated scanners without a demonstrated impact,
-- third-party services (for example Cloudflare, Firebase or the hosting provider). Report those to the provider directly.
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Handling secrets
 
 > [!IMPORTANT]
-> Credentials, API keys and service-account files are never committed to this repository. They live in the hosting provider's secret store or in GitHub Actions secrets. If you find a secret in the code or its history, report it as a vulnerability.
+> Credentials, API keys and service-account files are never committed to this repository. They live in the hosting provider's secret store or in GitHub Environments. If you find a secret in the code or its history, report it as a vulnerability.
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Safe harbour
 
-We will not pursue action against anyone who reports a vulnerability in good faith, avoids privacy violations and service disruption, does not access or modify other people's data, and gives us reasonable time to fix the issue before disclosing it.
+> [!NOTE]
+> We will not pursue action against anyone who reports a vulnerability in good faith, avoids privacy violations and service disruption, does not access or modify other people's data, and gives us reasonable time to fix the issue before disclosing it.
