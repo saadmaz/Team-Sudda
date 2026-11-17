@@ -8,7 +8,7 @@ The official website of Team Sudda: home, office and deep-cleaning services acro
 
 [![Website](https://img.shields.io/badge/website-teamsudda.lk-374151?style=flat-square&labelColor=111827)](https://teamsudda.lk)
 [![CI](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.0.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Team-Sudda/releases)
+[![Version](https://img.shields.io/badge/version-v1.1.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Team-Sudda/releases)
 ![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
 [**teamsudda.lk**](https://teamsudda.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Team-Sudda/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Team-Sudda/issues/new?template=feature_request.yml)
@@ -143,9 +143,14 @@ npm run lint && npm run format:check && npm run typecheck && npm test && npm run
 
 ## Deployment
 
-Vercel deploys every push to `main` to production and gives every pull request a preview URL.
+| Environment | Branch    | URL                                          |
+| ----------- | --------- | -------------------------------------------- |
+| Development | `develop` | [dev.teamsudda.lk](https://dev.teamsudda.lk) |
+| Production  | `main`    | [teamsudda.lk](https://teamsudda.lk)         |
 
-Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
+Vercel builds and serves each branch; the Deploy workflow verifies the build and the live URL. Work merges into `develop` and deploys to development; a release pull request from `develop` into `main` deploys to production.
+
+Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
 ## Documentation
 

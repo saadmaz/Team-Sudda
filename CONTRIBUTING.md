@@ -7,7 +7,7 @@ This is a private, proprietary repository: see [LICENSE](LICENSE). Access is lim
 ## Workflow
 
 1. **Open or pick an issue.** Use the bug report or change request template so the problem and expected result are clear.
-2. **Branch from `main`.** Use a short, descriptive name with a type prefix:
+2. **Branch from `develop`.** Use a short, descriptive name with a type prefix:
 
    | Prefix     | Use for                              |
    | ---------- | ------------------------------------ |
@@ -24,10 +24,19 @@ This is a private, proprietary repository: see [LICENSE](LICENSE). Access is lim
    npm run lint && npm run typecheck && npm test && npm run build
    ```
 
-4. **Open a pull request** into `main` and complete the checklist in the template. CI must pass before merging.
-5. **Squash and merge** once reviewed. Delete the branch afterwards.
+4. **Open a pull request** into `develop` and complete the checklist in the template. CI must pass before merging.
+5. **Squash and merge** once reviewed. The change deploys to the development environment. Delete the branch afterwards.
+6. **Release** by opening a pull request from `develop` into `main` (see [docs/runbooks/release.md](docs/runbooks/release.md)). Merging it deploys to production.
 
-`main` is always deployable and deploys to production. Never push directly to `main`, and never force-push to it.
+## Branches and environments
+
+| Branch                 | Environment | Purpose                                                |
+| ---------------------- | ----------- | ------------------------------------------------------ |
+| `develop`              | Development | Integration branch; every merge deploys to development |
+| `main`                 | Production  | Released code only; every merge deploys to production  |
+| `feat/*`, `fix/*`, ... | None        | Short-lived work branches, merged into `develop`       |
+
+Never push directly to `develop` or `main`, and never force-push to either.
 
 ## Commit messages
 
