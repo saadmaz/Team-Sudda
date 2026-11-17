@@ -143,9 +143,14 @@ npm run lint && npm run format:check && npm run typecheck && npm test && npm run
 
 ## Deployment
 
-Vercel deploys every push to `main` to production and gives every pull request a preview URL.
+| Environment | Branch    | URL                                          |
+| ----------- | --------- | -------------------------------------------- |
+| Development | `develop` | [dev.teamsudda.lk](https://dev.teamsudda.lk) |
+| Production  | `main`    | [teamsudda.lk](https://teamsudda.lk)         |
 
-Setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
+Vercel builds and serves each branch; the Deploy workflow verifies the build and the live URL. Work merges into `develop` and deploys to development; a release pull request from `develop` into `main` deploys to production.
+
+Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). To release or roll back, follow the [runbooks](docs/runbooks/README.md).
 
 ## Documentation
 

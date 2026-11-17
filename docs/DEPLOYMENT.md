@@ -2,6 +2,27 @@
 
 > How teamsudda.lk reaches production. Part of the [project documentation](README.md).
 
+## Environments
+
+| Environment   | Branch    | URL                                          | Deploys                                                                      |
+| ------------- | --------- | -------------------------------------------- | ---------------------------------------------------------------------------- |
+| `development` | `develop` | [dev.teamsudda.lk](https://dev.teamsudda.lk) | Automatically on every merge into `develop`                                  |
+| `production`  | `main`    | [teamsudda.lk](https://teamsudda.lk)         | Automatically when `develop` is promoted to `main` by a release pull request |
+
+Vercel builds and serves each branch; the Deploy workflow verifies the build and the live URL. Each environment is a GitHub Environment with its own variables (`APP_URL` and host settings) and secrets, so one workflow serves both. Production accepts deployments from `main` only; development from `develop` only.
+
+Development deploys are switched on per repository by setting the `DEVELOPMENT_ENABLED` repository variable to `true` once the development host exists. Until then, `develop` is built and tested by CI but not deployed.
+
+### Setting up development
+
+Vercel: assign `dev.teamsudda.lk` to the `develop` branch (Settings → Domains → Git branch).
+
+### Promotion
+
+1. Feature branches merge into `develop` and deploy to development.
+2. When development is verified, open a release pull request from `develop` into `main` (see [runbooks/release.md](runbooks/release.md)).
+3. Merging it deploys to production.
+
 The site is hosted on **Vercel**, connected to this repository. Every push to `main` deploys to production, and every pull request gets a preview URL.
 
 | Setting               | Value                                                             |

@@ -1,12 +1,12 @@
-# Continuous integration: the merge gate for every pull request into main.
+# Continuous integration: the merge gate for every pull request into develop and main.
 # Production deployment is handled separately (see docs/DEPLOYMENT.md).
 name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
   workflow_dispatch:
 
 concurrency:
