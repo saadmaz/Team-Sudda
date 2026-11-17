@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-11-17
+
 ### Fixed
 
 - Canonical, Open Graph and preview-image URLs now use `www.teamsudda.lk`, the address the site is served from, so search engines and social platforms no longer hit a redirect.
@@ -96,7 +98,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.2...v1.1.3
