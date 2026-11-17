@@ -26,7 +26,7 @@ export const PRICING: PricingTier[] = [
       "8-hour session",
       "General home cleaning",
       "Kitchen & bathroom clean",
-      "Eco-friendly products included",
+      "Products and equipment included",
       "Vacuuming & mopping",
     ],
     cta: "Book Basic",

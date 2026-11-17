@@ -15,6 +15,7 @@ import {
   type FormValues,
 } from "@/lib/forms";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 const inputCls =
   "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent";
@@ -237,6 +238,7 @@ export const EnquiryForm = ({
     try {
       await submitEnquiry({ formName, steps, values, topicField, dateField });
       setStatus("sent");
+      track("generate_lead", { form_name: formName });
     } catch (err) {
       setStatus(err instanceof FormConfigError ? "config" : "error");
     }

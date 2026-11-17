@@ -4,10 +4,17 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { MobileCtaBar } from "./MobileCtaBar";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 /** Scrolls to the top on navigation, or to the #hash target when there is one. */
 const ScrollManager = () => {
   const { pathname, hash } = useLocation();
+  useEffect(() => {
+    initAnalytics();
+    // Let the page set its title first.
+    const t = window.setTimeout(() => trackPageView(pathname), 0);
+    return () => window.clearTimeout(t);
+  }, [pathname]);
   useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
