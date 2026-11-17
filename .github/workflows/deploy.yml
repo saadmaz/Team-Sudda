@@ -1,8 +1,7 @@
-# Records each release to its GitHub environment: main -> production,
-# develop -> development (once the DEVELOPMENT_ENABLED repository variable is
-# "true"). Vercel builds and serves the site directly from this
-# repository; this workflow waits for that build of the exact commit, fails if
-# it fails, then smoke-tests the live URL.
+# Builds the site and deploys it to Cloudflare Workers (static assets):
+# main -> production (teamsudda.lk, www.teamsudda.lk),
+# develop -> development (dev.teamsudda.lk), once the DEVELOPMENT_ENABLED
+# repository variable is "true". Then smoke-tests the live URL.
 name: Deploy
 
 on:
@@ -16,52 +15,69 @@ concurrency:
 
 permissions:
   contents: read
-  checks: read
-  statuses: read
 
 jobs:
   deploy:
     if: github.ref_name == 'main' || vars.DEVELOPMENT_ENABLED == 'true'
     name: ${{ github.ref_name == 'main' && 'Production' || 'Development' }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 20
     environment:
       name: ${{ github.ref_name == 'main' && 'production' || 'development' }}
       url: ${{ vars.APP_URL }}
     env:
       APP_URL: ${{ vars.APP_URL }}
-      GH_TOKEN: ${{ github.token }}
+      TZ: Asia/Colombo
 
     steps:
-      - name: Wait for the Vercel build
-        run: |
-          for i in $(seq 1 100); do
-            state=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/statuses" --jq '[.[] | select(.context == "Vercel")][0].state // ""')
-            case "$state" in
-              success) echo "Vercel build succeeded."; exit 0 ;;
-              failure|error|cancelled|timed_out|action_required)
-                echo "::error::Vercel build finished with: $state"; exit 1 ;;
-            esac
-            echo "Waiting for Vercel (${state:-not started})..."
-            sleep 15
-          done
-          echo "::error::Timed out waiting for the Vercel build"
-          exit 1
+      - name: Check out
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ vars.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ vars.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ vars.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: ${{ github.ref_name == 'main' && 'deploy' || 'deploy --env development' }}
 
       - name: Smoke test
         run: |
-          for i in $(seq 1 10); do
-            code=$(curl -s -o /dev/null -D headers.txt -w "%{http_code}" --max-time 30 -L "$APP_URL/" || echo 000)
-            echo "$APP_URL -> $code"
-            [ "$code" = "200" ] && exit 0
-            # Cloudflare bot protection challenges requests from CI data centres;
-            # a challenge proves the site is up and served by Cloudflare.
-            if [ "$code" = "403" ] && grep -qi '^cf-mitigated: challenge' headers.txt; then
-              echo "::notice::$APP_URL is up (Cloudflare challenged the CI runner)"
-              exit 0
-            fi
-            sleep 15
-          done
-          cat headers.txt
-          echo "::error::$APP_URL did not return 200"
-          exit 1
+          check() {
+            for i in $(seq 1 10); do
+              code=$(curl -s -o /dev/null -D headers.txt -w "%{http_code}" --max-time 30 "$APP_URL$1" || echo 000)
+              echo "$APP_URL$1 -> $code"
+              [ "$code" = "$2" ] && return 0
+              # Cloudflare bot protection may challenge requests from CI data centres;
+              # a challenge proves the site is up and served by Cloudflare.
+              if [ "$code" = "403" ] && grep -qi '^cf-mitigated: challenge' headers.txt; then
+                echo "::notice::$APP_URL$1 is up (Cloudflare challenged the CI runner)"
+                return 0
+              fi
+              sleep 15
+            done
+            cat headers.txt
+            echo "::error::$APP_URL$1 did not return $2"
+            return 1
+          }
+          check / 200
+          check /services/office-cleaning 200
+          check /sitemap.xml 200
+          check /this-page-does-not-exist 404

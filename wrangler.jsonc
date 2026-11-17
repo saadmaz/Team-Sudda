@@ -1,0 +1,35 @@
+// Cloudflare Workers static-assets hosting for teamsudda.lk.
+// `npm run build` writes the pre-rendered site to dist/; `wrangler deploy` uploads it.
+// Production: `wrangler deploy`. Development: `wrangler deploy --env development`.
+{
+  "name": "team-sudda-website",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    // /about serves about.html; /about.html redirects to /about.
+    "html_handling": "auto-trailing-slash",
+    // Unknown URLs get dist/404.html with a 404 status.
+    "not_found_handling": "404-page",
+  },
+  // Custom domains on the teamsudda.lk zone. Wrangler creates the DNS records
+  // and certificates on deploy.
+  "routes": [
+    { "pattern": "teamsudda.lk", "custom_domain": true },
+    { "pattern": "www.teamsudda.lk", "custom_domain": true },
+  ],
+  "workers_dev": false,
+  "observability": { "enabled": true },
+
+  "env": {
+    "development": {
+      "name": "team-sudda-website-dev",
+      "assets": {
+        "directory": "./dist",
+        "html_handling": "auto-trailing-slash",
+        "not_found_handling": "404-page",
+      },
+      "routes": [{ "pattern": "dev.teamsudda.lk", "custom_domain": true }],
+      "workers_dev": false,
+    },
+  },
+}

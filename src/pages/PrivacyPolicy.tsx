@@ -67,7 +67,7 @@ const PrivacyPolicy = () => {
             </p>
             <p className="mt-3">
               We use a small number of service providers to run this website: EmailJS delivers the
-              details you send through our forms to our inbox, Vercel hosts the site, and, where
+              details you send through our forms to our inbox, Cloudflare hosts the site, and, where
               enabled, Google Analytics measures how the site is used. Google Analytics uses cookies
               and collects information such as pages visited and the type of device used. It does
               not receive the contents of the forms you submit.

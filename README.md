@@ -82,13 +82,13 @@ Team Sudda is a professional cleaning team serving homes and businesses across C
 
 ## Architecture
 
-A React application built with Vite and hosted on Vercel. Every public route is pre-rendered to static HTML at build time and hydrated in the browser, `vercel.json` provides clean URLs and security headers, and the forms send email through EmailJS.
+A React application built with Vite and hosted on Cloudflare Workers as static assets. Every public route is pre-rendered to static HTML at build time and hydrated in the browser, `wrangler.jsonc` and `public/_headers` set up clean URLs, the 404 page and security headers, and the forms send email through EmailJS.
 
 ```mermaid
 flowchart LR
-  Visitor((Visitor)) --> Vercel["Vercel edge<br/>index.html + hashed assets"]
+  Visitor((Visitor)) --> CF["Cloudflare edge<br/>pre-rendered HTML + hashed assets"]
   Visitor -- booking / contact --> EmailJS["EmailJS"] --> Inbox["hello@teamsudda.lk"]
-  Repo["GitHub main"] -- Vercel Git integration --> Vercel
+  Repo["GitHub main"] -- Deploy workflow (wrangler) --> CF
 ```
 
 > [!TIP]
@@ -104,7 +104,7 @@ flowchart LR
 <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white">
 <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white">
 <img alt="Vitest" src="https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white">
-<img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white">
+<img alt="Cloudflare" src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white">
 <img alt="npm" src="https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white">
 </p>
 
@@ -118,7 +118,7 @@ flowchart LR
 | Build     | Vite 5 with SWC                                |
 | Styling   | Tailwind CSS 3 and Radix-based UI primitives   |
 | Forms     | Schema-driven forms, delivered through EmailJS |
-| Hosting   | Vercel                                         |
+| Hosting   | Cloudflare Workers (static assets)             |
 | Tooling   | npm, Vitest, Testing Library, ESLint           |
 
 </details>
@@ -202,7 +202,7 @@ Where each value is set, and which are secret: [docs/CONFIGURATION.md](docs/CONF
 │   │   └── emailjs.ts       # Email delivery for forms
 │   ├── pages/               # One component per route
 │   └── test/                # Vitest setup and tests
-├── vercel.json              # SPA routing, security headers and caching
+├── wrangler.jsonc           # Cloudflare hosting, domains and 404 handling
 └── vite.config.ts           # Build configuration
 ```
 
@@ -238,7 +238,7 @@ flowchart LR
   M -- auto deploy --> PROD(["Production"])
 ```
 
-Vercel builds and serves each branch; the Deploy workflow verifies the build and the live URL. Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+The Deploy workflow builds each branch and deploys it to Cloudflare with wrangler, then smoke-tests the live URL. Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 > [!TIP]
 > To ship or undo a release, follow the [release](docs/runbooks/release.md) and [rollback](docs/runbooks/rollback.md) runbooks.
