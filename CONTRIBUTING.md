@@ -1,101 +1,182 @@
-# Contributing
+<a id="top"></a>
 
-<!-- nav -->
-<p align="center"><a href="README.md">README</a> · <strong>Contributing</strong> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <a href="SECURITY.md">Security</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+<div align="center">
 
-Thanks for helping build Team Sudda Website. This guide covers how changes move from an idea to production.
+<img src=".github/assets/contributing.svg" alt="Team Sudda: Contributing" width="100%">
+
+<br/>
+
+<p><strong>Thanks for helping build Team Sudda Website. This guide is the single source of truth for how work is planned, built, reviewed and released.</strong></p>
+
+<a href="README.md"><img alt="README" src="https://img.shields.io/badge/README-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="CONTRIBUTING.md"><img alt="Contributing" src="https://img.shields.io/badge/Contributing-ffd000?style=for-the-badge&labelColor=111827"></a>
+<a href="CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/Code%20of%20Conduct-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="SECURITY.md"><img alt="Security" src="https://img.shields.io/badge/Security-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/Changelog-374151?style=for-the-badge&labelColor=111827"></a>
+<a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/License-374151?style=for-the-badge&labelColor=111827"></a>
+
+</div>
+
+---
 
 > [!NOTE]
-> This is a private, proprietary repository: see [LICENSE](LICENSE). Access is limited to Team Sudda team members and invited collaborators.
+> The source code is publicly visible, but it is proprietary (see [LICENSE](LICENSE.md)). Code contributions are accepted from Team Sudda team members and invited collaborators only. Anyone is welcome to report a bug or suggest a change by opening an issue.
 
-## Workflow
+<details>
+<summary><strong>Contents</strong></summary>
 
-1. **Open or pick an issue.** Use the bug report or change request template so the problem and expected result are clear.
-2. **Branch from `develop`.** Use a short, descriptive name with a type prefix:
+1. [Workflow at a glance](#workflow-at-a-glance)
+2. [Branches and environments](#branches-and-environments)
+3. [Naming branches](#naming-branches)
+4. [Commit messages](#commit-messages)
+5. [Pull requests](#pull-requests)
+6. [Code standards](#code-standards)
+7. [Documentation and decisions](#documentation-and-decisions)
+8. [Releases](#releases)
+9. [Getting help](#getting-help)
 
-   | Prefix     | Use for                              |
-   | ---------- | ------------------------------------ |
-   | `feat/`    | New features, screens or pages       |
-   | `fix/`     | Bug fixes                            |
-   | `content/` | Copy, imagery or articles            |
-   | `style/`   | Visual or design changes             |
-   | `chore/`   | Dependencies, tooling, configuration |
-   | `docs/`    | Documentation                        |
+</details>
 
-3. **Make the change** and run the checks locally:
+## Workflow at a glance
 
-   ```sh
-   npm run lint && npm run typecheck && npm test && npm run build
-   ```
+| Step  | What to do                                                         | Done when                                 |
+| :---: | ------------------------------------------------------------------ | ----------------------------------------- |
+| **1** | Open or pick an issue, using the bug report or change request form | The problem and expected result are clear |
+| **2** | Branch from `develop` with a type prefix                           | A short-lived branch exists               |
+| **3** | Make the change and run the checks locally                         | Every check passes                        |
+| **4** | Open a pull request into `develop` and complete the checklist      | CI is green and the change is reviewed    |
+| **5** | Squash and merge                                                   | The change deploys to development         |
+| **6** | Release by pull request from `develop` into `main`                 | The change deploys to production          |
 
-4. **Open a pull request** into `develop` and complete the checklist in the template. CI must pass before merging.
-5. **Squash and merge** once reviewed. The change deploys to the development environment. Delete the branch afterwards.
-6. **Release** by opening a pull request from `develop` into `main` (see [docs/runbooks/release.md](docs/runbooks/release.md)). Merging it deploys to production.
+```sh
+npm run lint && npm run typecheck && npm test && npm run build
+```
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Branches and environments
 
-| Branch                 | Environment | Purpose                                                |
-| ---------------------- | ----------- | ------------------------------------------------------ |
-| `develop`              | Development | Integration branch; every merge deploys to development |
-| `main`                 | Production  | Released code only; every merge deploys to production  |
-| `feat/*`, `fix/*`, ... | None        | Short-lived work branches, merged into `develop`       |
+```mermaid
+flowchart LR
+  F["feature/* · fix/*"] -- pull request --> D["develop"]
+  D -- auto deploy --> DEV(["Development"])
+  D -- release pull request --> M["main"]
+  M -- auto deploy --> PROD(["Production"])
+```
+
+| Branch                 | Environment | Purpose                                                | Lifetime            |
+| ---------------------- | ----------- | ------------------------------------------------------ | ------------------- |
+| `main`                 | Production  | Released code only                                     | Permanent           |
+| `develop`              | Development | Integration branch; every merge deploys to development | Permanent           |
+| `feat/*`, `fix/*`, ... | None        | One change each, merged into `develop`                 | Deleted after merge |
 
 > [!IMPORTANT]
-> Never push directly to `develop` or `main`, and never force-push to either.
+> Never push directly to `develop` or `main`, and never force-push to either. Every change arrives through a pull request.
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
+
+## Naming branches
+
+| Prefix     | Use for                              | Example                     |
+| ---------- | ------------------------------------ | --------------------------- |
+| `feat/`    | New features, screens or pages       | `feat/online-payments`      |
+| `fix/`     | Bug fixes                            | `fix/booking-date-timezone` |
+| `content/` | Copy, imagery or articles            | `content/monsoon-care-post` |
+| `style/`   | Visual or design changes             | `style/footer-spacing`      |
+| `chore/`   | Dependencies, tooling, configuration | `chore/upgrade-vite`        |
+| `docs/`    | Documentation                        | `docs/deployment-guide`     |
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Commit messages
 
-Follow [Conventional Commits](https://www.conventionalcommits.org):
+Commits follow [Conventional Commits](https://www.conventionalcommits.org):
 
-```
+```text
 <type>(<optional scope>): <summary in the imperative mood>
 ```
 
-| Type       | Meaning                                                 |
-| ---------- | ------------------------------------------------------- |
-| `feat`     | A new feature                                           |
-| `fix`      | A bug fix                                               |
-| `perf`     | A performance improvement                               |
-| `refactor` | Code change that neither fixes a bug nor adds a feature |
-| `style`    | Visual or formatting change with no behaviour change    |
-| `content`  | Copy, imagery or article content                        |
-| `docs`     | Documentation only                                      |
-| `test`     | Adding or updating tests                                |
-| `ci`       | Continuous integration or deployment workflows          |
-| `chore`    | Build, tooling or dependency changes                    |
+| Type       | Meaning                                | Type      | Meaning                                          |
+| ---------- | -------------------------------------- | --------- | ------------------------------------------------ |
+| `feat`     | A new feature                          | `style`   | Visual or formatting change, no behaviour change |
+| `fix`      | A bug fix                              | `content` | Copy, imagery or article content                 |
+| `perf`     | A performance improvement              | `docs`    | Documentation only                               |
+| `refactor` | Restructure without changing behaviour | `test`    | Adding or updating tests                         |
+| `ci`       | Workflows and pipelines                | `chore`   | Build, tooling or dependencies                   |
+
+<details>
+<summary><strong>Good and bad examples</strong></summary>
+
+| Good                                              | Why it is not                                 |
+| ------------------------------------------------- | --------------------------------------------- |
+| `feat(booking): let customers pick a time window` | `update booking` (no type, vague)             |
+| `fix(invoice): round totals to the nearest cent`  | `fixed bug` (no scope, no detail)             |
+| `docs(deploy): document the rollback steps`       | `docs: Updated the docs.` (past tense, vague) |
+
+</details>
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
+
+## Pull requests
+
+Every pull request uses the template and must satisfy this checklist before merge:
+
+- [ ] CI is green (the same checks as above)
+- [ ] The change is checked on a phone-width screen as well as desktop
+- [ ] No secrets, credentials or personal data are added
+- [ ] Documentation is updated in the same pull request
+- [ ] `CHANGELOG.md` has an entry under `Unreleased` for user-facing changes
+
+> [!TIP]
+> Keep pull requests small and focused. One change per pull request is reviewed faster and rolls back cleanly.
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Code standards
 
-- **TypeScript.** Prefer precise types; no `any` without a written reason.
-- **Formatting.** Prettier and ESLint are the source of truth. Format before committing.
-- **Accessibility.** Every image needs meaningful `alt` text (or `alt=""` if decorative). Interactive elements must be keyboard-reachable with a visible focus state. Keep text contrast at WCAG AA or better.
-- **Secrets.** Never commit API keys, tokens, passwords or service-account files. Use the hosting provider's secret store or GitHub Actions secrets, and keep `.env.example` up to date with variable names only.
-- **Dependencies.** Add a dependency only when it earns its weight, and keep the lockfile committed.
+<table>
+<tr>
+<td width="50%" valign="top"><strong>TypeScript</strong><br/>Prefer precise types. No <code>any</code> without a written reason.</td>
+<td width="50%" valign="top"><strong>Formatting</strong><br/>Prettier and ESLint are the source of truth. Format before committing.</td>
+</tr>
+<tr>
+<td valign="top"><strong>Accessibility</strong><br/>Meaningful <code>alt</code> text, keyboard-reachable controls with visible focus, and WCAG AA contrast.</td>
+<td valign="top"><strong>Secrets</strong><br/>Never commit keys, tokens, passwords or service-account files. Keep <code>.env.example</code> current with names only.</td>
+</tr>
+<tr>
+<td valign="top"><strong>Dependencies</strong><br/>Add a dependency only when it earns its weight. Keep the lockfile committed.</td>
+<td valign="top"><strong>Tests</strong><br/>Cover new behaviour and bug fixes with tests where the project has them.</td>
+</tr>
+</table>
+
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Documentation and decisions
 
-Every repository uses the same `docs/` layout, indexed in [docs/README.md](docs/README.md):
+| Path                                             | Holds                                                    |
+| ------------------------------------------------ | -------------------------------------------------------- |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)   | How the system is built and how data flows               |
+| [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md) | Environment variables and settings                       |
+| [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)       | Environments, hosting, the pipeline and first-time setup |
+| [`docs/adr/`](docs/adr/README.md)                | Architecture decision records                            |
+| [`docs/runbooks/`](docs/runbooks/README.md)      | Step-by-step operational procedures                      |
 
-| Path                    | Holds                                               |
-| ----------------------- | --------------------------------------------------- |
-| `docs/ARCHITECTURE.md`  | How the system is built and how data flows          |
-| `docs/CONFIGURATION.md` | Environment variables and settings                  |
-| `docs/DEPLOYMENT.md`    | Hosting, the delivery pipeline and first-time setup |
-| `docs/adr/`             | Architecture decision records                       |
-| `docs/runbooks/`        | Step-by-step operational procedures                 |
+Record any significant technical decision as a new ADR, using [the template](docs/adr/TEMPLATE.md).
 
-Update the relevant document in the same pull request as the change. Record any significant technical decision as a new ADR (see [docs/adr/README.md](docs/adr/README.md)).
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
 ## Releases
 
-Releases follow [Semantic Versioning](https://semver.org):
+| Version part | Changes when                                                   | Example         |
+| ------------ | -------------------------------------------------------------- | --------------- |
+| **Major**    | A redesign, or a breaking change to data, APIs or integrations | `1.4.2 → 2.0.0` |
+| **Minor**    | New features, screens or pages                                 | `1.4.2 → 1.5.0` |
+| **Patch**    | Fixes, copy and small visual changes                           | `1.4.2 → 1.4.3` |
 
-- **Major:** A redesign or a breaking change to data, APIs or integrations.
-- **Minor:** New features, screens or pages.
-- **Patch:** Fixes, copy and small visual changes.
+Releases follow [Semantic Versioning](https://semver.org). The step-by-step procedure is in [docs/runbooks/release.md](docs/runbooks/release.md).
 
-Follow [docs/runbooks/release.md](docs/runbooks/release.md) to cut a release.
+<p align="right"><a href="#top">Back to top ↑</a></p>
 
-## Questions
+## Getting help
 
-Contact [hello@teamsudda.lk](mailto:hello@teamsudda.lk).
+Questions about contributing go to [hello@teamsudda.lk](mailto:hello@teamsudda.lk). For a security problem, follow the [Security Policy](SECURITY.md) instead.
