@@ -153,7 +153,7 @@ const About = () => {
             href="https://sttps.co"
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-1 font-semibold text-navy hover:text-yellow-brand"
+            className="mt-8 inline-flex items-center gap-1 font-semibold text-navy hover:text-yellow-ink"
           >
             Visit STTPS <ArrowUpRight className="h-4 w-4" />
           </a>

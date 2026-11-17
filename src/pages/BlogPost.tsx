@@ -103,10 +103,10 @@ const BlogPost = () => {
                   to={`/blog/${a.slug}`}
                   className="group bg-muted/40 rounded-2xl p-6 border border-border hover:border-yellow-brand transition-colors"
                 >
-                  <span className="text-[10px] font-bold text-yellow-brand uppercase tracking-widest">
+                  <span className="text-[10px] font-bold text-yellow-ink uppercase tracking-widest">
                     {a.category}
                   </span>
-                  <h3 className="mt-2 font-display font-bold text-navy group-hover:text-yellow-brand transition-colors leading-snug">
+                  <h3 className="mt-2 font-display font-bold text-navy group-hover:text-yellow-ink transition-colors leading-snug">
                     {a.title}
                   </h3>
                   <div className="mt-3 flex items-center gap-1 text-sm text-navy font-medium">

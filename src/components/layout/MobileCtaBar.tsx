@@ -20,7 +20,7 @@ export const MobileCtaBar = () => (
       rel="noreferrer"
       className="flex flex-col items-center gap-1 py-2.5 text-white text-xs font-semibold"
     >
-      <MessageCircle className="h-5 w-5 text-[hsl(var(--whatsapp))]" /> WhatsApp
+      <MessageCircle className="h-5 w-5 text-whatsapp" /> WhatsApp
     </a>
     <Link
       to="/quote"

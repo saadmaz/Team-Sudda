@@ -19,8 +19,7 @@ const buttonVariants = cva(
         heroOutline:
           "border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-navy font-bold transition-all",
         navy: "bg-navy text-white hover:bg-navy/90 font-bold transition-all",
-        whatsapp:
-          "bg-[hsl(var(--whatsapp))] text-white hover:brightness-110 font-bold transition-all",
+        whatsapp: "bg-whatsapp text-white hover:brightness-90 font-bold transition-all",
       },
       size: {
         default: "h-10 px-4 py-2",

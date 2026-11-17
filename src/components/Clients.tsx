@@ -10,7 +10,7 @@ export const Clients = () => {
         <div className="mb-8 text-center">
           <span className="eyebrow">Who We Clean For</span>
           <h2 className="heading-lg font-display text-navy mt-3">
-            Trusted Across the <span className="text-[hsl(var(--yellow))]">STTPS Group.</span>
+            Trusted Across the <span className="text-yellow-ink">STTPS Group.</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
             We look after the sites of our sister companies, and we bring the same group standard to

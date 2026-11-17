@@ -6,7 +6,7 @@ export interface FAQ {
 export const FAQS: FAQ[] = [
   {
     q: "What cleaning services do you offer?",
-    a: "We offer home, office, deep, post-renovation, sofa & carpet, sanitization, after-event and move-in/move-out cleaning across Sri Lanka.",
+    a: "For homes: regular, deep, move-in/move-out, post-renovation, sofa, carpet and mattress, kitchen and bathroom, after-event cleaning and disinfection. For businesses: contract office cleaning, housekeeping staff, floor care, periodic deep cleans and post-construction cleans. All across Colombo and Greater Colombo.",
   },
   {
     q: "How quickly can you respond to a booking?",
@@ -26,7 +26,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Is there a contract or long-term commitment?",
-    a: "No contracts and no lock-in. You can book a one-off session or arrange recurring visits - weekly, fortnightly or monthly - and cancel anytime without penalties.",
+    a: "Not for homes. You can book a one-off clean or regular visits (weekly, fortnightly or monthly) and stop whenever you like. Business cleaning runs on an agreed contract, and the terms are set out in your proposal.",
   },
   {
     q: "What payment methods do you accept?",

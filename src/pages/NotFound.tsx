@@ -9,7 +9,7 @@ const NotFound = () => {
   return (
     <div className="min-h-[80vh] bg-background flex items-center justify-center pt-24">
       <div className="text-center px-4">
-        <div className="font-display font-extrabold text-[8rem] leading-none text-yellow-brand select-none">
+        <div className="font-display font-extrabold text-[8rem] leading-none text-yellow-ink select-none">
           404
         </div>
         <h1 className="heading-md font-display text-navy mt-2">Page Not Found</h1>

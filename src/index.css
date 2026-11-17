@@ -23,7 +23,11 @@
     --navy-light: 222 55% 24%;
     --yellow: 49 100% 50%; /* #FFD500 */
     --yellow-soft: 49 100% 60%;
-    --whatsapp: 142 70% 45%;
+    /* Brand yellow for text and icons on light surfaces. Plain yellow on white
+       is 1.5:1; this is 5.1:1 (WCAG AA). Keep --yellow for navy surfaces. */
+    --yellow-ink: 46 100% 27%; /* #8A6A00 */
+    /* Dark enough for white text: 5.0:1 (#15803D). Was 142 70% 45% (2.3:1). */
+    --whatsapp: 142 72% 29%;
 
     --primary: 222 75% 15%;
     --primary-foreground: 0 0% 100%;
@@ -37,12 +41,15 @@
     --accent: 49 100% 50%;
     --accent-foreground: 222 75% 15%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* #DC2626: 4.8:1 on white, so error text and the required * pass AA. */
+    --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 20% 90%;
     --input: 220 20% 90%;
-    --ring: 49 100% 50%;
+    /* Navy ring + white offset is visible on both light and navy sections.
+       A yellow ring was 1.5:1 against white (fails WCAG 1.4.11). */
+    --ring: 222 75% 15%;
 
     --radius: 0.75rem;
 
@@ -113,7 +120,11 @@
     @apply py-14 sm:py-20 md:py-24;
   }
   .eyebrow {
-    @apply inline-block text-[11px] font-bold tracking-[0.22em] uppercase text-[hsl(var(--yellow))];
+    @apply inline-block text-[11px] font-bold tracking-[0.22em] uppercase text-yellow-ink;
+  }
+  /* Bright yellow only where the surface is navy. */
+  :is(.bg-navy, .bg-navy-deep, .gradient-hero) .eyebrow {
+    @apply text-yellow-brand;
   }
   .heading-xl {
     @apply text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05];
@@ -127,24 +138,8 @@
 }
 
 @layer utilities {
-  .bg-navy {
-    background-color: hsl(var(--navy));
-  }
-  .bg-navy-deep {
-    background-color: hsl(var(--navy-deep));
-  }
-  .bg-yellow-brand {
-    background-color: hsl(var(--yellow));
-  }
-  .text-yellow-brand {
-    color: hsl(var(--yellow));
-  }
-  .text-navy {
-    color: hsl(var(--navy));
-  }
-  .border-yellow-brand {
-    border-color: hsl(var(--yellow));
-  }
+  /* navy, navy-deep, yellow-brand, yellow-ink and whatsapp are theme colours
+     (tailwind.config.ts), so opacity modifiers like bg-navy/95 compile. */
   .gradient-hero {
     background: var(--gradient-hero);
   }

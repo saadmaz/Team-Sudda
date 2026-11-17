@@ -45,10 +45,10 @@ const Blog = () => {
             </div>
           </div>
           <div className="p-8 flex flex-col justify-center">
-            <span className="inline-block bg-yellow-brand/10 text-yellow-brand text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full w-fit mb-4">
+            <span className="inline-block bg-yellow-brand/10 text-yellow-ink text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full w-fit mb-4">
               {featured.category}
             </span>
-            <h2 className="heading-md font-display text-navy group-hover:text-yellow-brand transition-colors">
+            <h2 className="heading-md font-display text-navy group-hover:text-yellow-ink transition-colors">
               {featured.title}
             </h2>
             <p className="mt-3 text-muted-foreground leading-relaxed">{featured.excerpt}</p>
@@ -64,7 +64,7 @@ const Blog = () => {
                 })}
               </span>
             </div>
-            <div className="mt-6 flex items-center gap-2 text-navy font-semibold text-sm group-hover:text-yellow-brand transition-colors">
+            <div className="mt-6 flex items-center gap-2 text-navy font-semibold text-sm group-hover:text-yellow-ink transition-colors">
               Read Article <ArrowRight className="h-4 w-4" />
             </div>
           </div>
@@ -84,10 +84,10 @@ const Blog = () => {
                 </span>
               </div>
               <div className="p-5 flex flex-col flex-1">
-                <span className="inline-block bg-yellow-brand/10 text-yellow-brand text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full w-fit mb-3">
+                <span className="inline-block bg-yellow-brand/10 text-yellow-ink text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full w-fit mb-3">
                   {article.category}
                 </span>
-                <h3 className="font-display font-bold text-navy text-base leading-snug group-hover:text-yellow-brand transition-colors flex-1">
+                <h3 className="font-display font-bold text-navy text-base leading-snug group-hover:text-yellow-ink transition-colors flex-1">
                   {article.title}
                 </h3>
                 <p className="mt-2 text-xs text-muted-foreground line-clamp-2">{article.excerpt}</p>

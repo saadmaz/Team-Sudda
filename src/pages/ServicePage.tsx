@@ -128,7 +128,7 @@ const ServicePage = () => {
           <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PROCESS.map((p) => (
               <li key={p.n} className="rounded-2xl bg-background border border-border p-5">
-                <span className="font-display font-extrabold text-yellow-brand">{p.n}</span>
+                <span className="font-display font-extrabold text-yellow-ink">{p.n}</span>
                 <h3 className="mt-1 font-display font-bold text-navy">{p.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
               </li>

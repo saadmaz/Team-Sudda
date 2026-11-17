@@ -172,7 +172,7 @@ const GalleryPage = () => {
               </div>
             </div>
             <div className="p-6">
-              <span className="text-[10px] font-bold text-yellow-brand uppercase tracking-widest">
+              <span className="text-[10px] font-bold text-yellow-ink uppercase tracking-widest">
                 {lightbox.category} · {lightbox.location}
               </span>
               <h3 className="font-display font-bold text-xl text-navy mt-1">{lightbox.title}</h3>

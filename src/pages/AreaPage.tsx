@@ -29,7 +29,7 @@ export const AreasIndex = () => {
               to={areaPath(a)}
               className="group rounded-2xl border border-border p-6 hover:border-yellow-brand transition-colors"
             >
-              <MapPin className="h-6 w-6 text-navy group-hover:text-yellow-brand" />
+              <MapPin className="h-6 w-6 text-navy group-hover:text-yellow-ink" />
               <h2 className="mt-3 font-display font-bold text-lg text-navy">{a.name}</h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 {a.covers.slice(0, 4).join(", ")}

@@ -145,7 +145,7 @@ const Terms = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-navy hover:text-yellow-brand transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-navy hover:text-yellow-ink transition-colors font-medium"
           >
             <ArrowLeft className="h-4 w-4" /> Return to Home
           </Link>

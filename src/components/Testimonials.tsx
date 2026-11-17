@@ -11,8 +11,7 @@ export const Testimonials = () => {
         <div className="text-center max-w-2xl mx-auto">
           <span className="eyebrow">Testimonials</span>
           <h2 className="heading-lg font-display mt-3">
-            Trusted by Homes & Businesses{" "}
-            <span className="text-yellow-brand">Across Sri Lanka.</span>
+            Trusted by Homes & Businesses <span className="text-yellow-brand">Across Colombo.</span>
           </h2>
         </div>
 

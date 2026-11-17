@@ -91,7 +91,7 @@ const Index = () => {
                   <h3 className="font-display font-bold text-xl text-navy">{col.label}</h3>
                   <Link
                     to={col.all}
-                    className="text-sm font-semibold text-navy hover:text-yellow-brand inline-flex items-center gap-1"
+                    className="text-sm font-semibold text-navy hover:text-yellow-ink inline-flex items-center gap-1"
                   >
                     {col.cta} <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -204,7 +204,7 @@ const Index = () => {
                 to={industryPath({ slug })}
                 className="group flex items-center gap-3 rounded-2xl bg-background border border-border p-4 md:p-5 hover:border-yellow-brand transition-colors"
               >
-                <Icon className="h-6 w-6 text-navy shrink-0 group-hover:text-yellow-brand" />
+                <Icon className="h-6 w-6 text-navy shrink-0 group-hover:text-yellow-ink" />
                 <span className="font-semibold text-sm text-navy">{name}</span>
               </Link>
             ))}

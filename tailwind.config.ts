@@ -20,6 +20,14 @@ export default {
     },
     extend: {
       colors: {
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          deep: "hsl(var(--navy-deep))",
+          light: "hsl(var(--navy-light))",
+        },
+        "yellow-brand": "hsl(var(--yellow))",
+        "yellow-ink": "hsl(var(--yellow-ink))",
+        whatsapp: "hsl(var(--whatsapp))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

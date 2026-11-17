@@ -16,7 +16,7 @@ export const GalleryPreview = () => {
           <div>
             <span className="eyebrow">Our Work</span>
             <h2 className="heading-lg font-display text-navy mt-3">
-              Results That <span className="text-[hsl(var(--yellow))]">Speak for Themselves.</span>
+              Results That <span className="text-yellow-ink">Speak for Themselves.</span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-lg">
               From offices to homes, events to renovations - here's a glimpse of the spaces we've
