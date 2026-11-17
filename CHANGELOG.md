@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Favicon, Apple touch icon and theme colour, and the 1200x630 social preview image, which `index.html` referenced but were missing, so link previews and browser tabs now show the Team Sudda brand.
+
 ## [1.1.4] - 2026-11-17
 
 ### Removed
