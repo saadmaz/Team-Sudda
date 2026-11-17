@@ -2,6 +2,8 @@ import { Star, Quote } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants/testimonials";
 
 export const Testimonials = () => {
+  if (TESTIMONIALS.length === 0) return null;
+
   return (
     <section className="section bg-navy text-white relative overflow-hidden">
       <div className="absolute top-10 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-yellow-brand/10 blur-3xl" />

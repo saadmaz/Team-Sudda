@@ -1,4 +1,12 @@
-import { ArrowRight, MessageCircle, Star, ShieldCheck, Leaf, Users, Phone } from "lucide-react";
+import {
+  ArrowRight,
+  MessageCircle,
+  ShieldCheck,
+  ClipboardCheck,
+  MapPin,
+  RotateCcw,
+  Phone,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/constants/contact";
 import heroImg from "@/assets/hero-team.jpg";
@@ -13,7 +21,7 @@ export const Hero = () => {
       <div className="container-x relative grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pb-14 md:pb-24">
         <div className="text-white animate-fade-up lg:col-span-7">
           <span className="inline-flex items-center gap-2 rounded-full border border-yellow-brand/40 bg-yellow-brand/10 text-yellow-brand px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] backdrop-blur-sm">
-            <ShieldCheck className="h-3.5 w-3.5" /> Trusted Cleaning Partner · Sri Lanka
+            <ShieldCheck className="h-3.5 w-3.5" /> Home & Office Cleaning · Colombo
           </span>
 
           <h1 className="heading-xl font-display font-extrabold mt-6 text-balance">
@@ -22,8 +30,8 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
-            Trained, vetted specialists delivering reliable home, office and commercial cleaning
-            across Sri Lanka - with eco‑friendly products and dependable service.
+            Trained, supervised teams for home, office and commercial cleaning across Colombo and
+            Greater Colombo. A clear quotation before we start, and the job done properly.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -42,19 +50,6 @@ export const Hero = () => {
                 <MessageCircle className="h-5 w-5" /> WhatsApp
               </a>
             </Button>
-          </div>
-
-          <div className="mt-8 flex items-center gap-5 text-white/70 text-sm">
-            <div className="flex items-center gap-1.5" aria-label="5 out of 5 stars" role="img">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-4 w-4 fill-yellow-brand text-yellow-brand"
-                  aria-hidden="true"
-                />
-              ))}
-            </div>
-            <span>5-Star rated by our clients across Sri Lanka</span>
           </div>
         </div>
 
@@ -76,9 +71,9 @@ export const Hero = () => {
             </div>
             <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
-                Insured & Vetted
+                Quotation First
               </div>
-              <div className="font-bold text-sm">Background-Checked Staff</div>
+              <div className="font-bold text-sm">No surprise charges</div>
             </div>
           </div>
         </div>
@@ -88,9 +83,9 @@ export const Hero = () => {
       <div className="bg-navy-deep border-t border-white/10">
         <div className="container-x grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-yellow-brand/30">
           {[
-            { icon: Users, label: "Trusted by Clients Island-Wide" },
-            { icon: Star, label: "5-Star Rated Service" },
-            { icon: Leaf, label: "Eco-Friendly Products" },
+            { icon: MapPin, label: "Colombo & Greater Colombo" },
+            { icon: ClipboardCheck, label: "Clear Quotation Before Work" },
+            { icon: RotateCcw, label: "Free Re-Clean Within 24 Hours" },
           ].map(({ icon: Icon, label }) => (
             <div key={label} className="flex items-center justify-center gap-3 py-5 text-white">
               <Icon className="h-5 w-5 text-yellow-brand" />

@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { Button } from "@/components/ui/button";
+import { CONTACT } from "@/lib/constants/contact";
 import { useSEO } from "@/hooks/useSEO";
 import {
   GALLERY_PROJECTS,
@@ -16,7 +18,7 @@ const GalleryPage = () => {
   useSEO({
     title: "Project Gallery - Team Sudda",
     description:
-      "Browse our portfolio of completed cleaning projects - commercial offices, homes, post-renovation and event cleanups across Sri Lanka.",
+      "Browse our portfolio of completed cleaning projects - commercial offices, homes, post-renovation and event cleanups in Colombo.",
   });
 
   const [searchParams] = useSearchParams();
@@ -48,67 +50,89 @@ const GalleryPage = () => {
             Before & After - <span className="text-yellow-brand">Real Results.</span>
           </h1>
           <p className="mt-5 text-white/70 max-w-xl mx-auto">
-            Every project tells a story. Browse our completed jobs across Sri Lanka.
+            Every project tells a story. Browse completed Team Sudda jobs.
           </p>
         </div>
       </section>
 
-      <div className="container-x py-14">
-        {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-10 justify-center">
-          {(["All", ...GALLERY_CATEGORIES] as const).map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all ${
-                activeCategory === cat
-                  ? "bg-navy border-navy text-white"
-                  : "bg-background border-border text-navy hover:border-navy"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+      {GALLERY_PROJECTS.length === 0 ? (
+        <div className="container-x py-20 text-center max-w-xl">
+          <h2 className="heading-md font-display text-navy">Project photos are on the way.</h2>
+          <p className="mt-4 text-muted-foreground">
+            We only publish photos from real Team Sudda jobs, taken on site with the client's
+            permission. Want to see the kind of work we do? Ask us on WhatsApp.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button asChild variant="hero">
+              <Link to="/book">Book a Clean</Link>
+            </Button>
+            <Button asChild variant="whatsapp">
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
+                WhatsApp Us
+              </a>
+            </Button>
+          </div>
         </div>
+      ) : (
+        <div className="container-x py-14">
+          {/* Filter tabs */}
+          <div className="flex flex-wrap gap-2 mb-10 justify-center">
+            {(["All", ...GALLERY_CATEGORIES] as const).map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all ${
+                  activeCategory === cat
+                    ? "bg-navy border-navy text-white"
+                    : "bg-background border-border text-navy hover:border-navy"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project) => (
-            <article
-              key={project.id}
-              className="group bg-background rounded-2xl overflow-hidden border border-border shadow-card-soft hover:border-yellow-brand transition-all hover:-translate-y-1 cursor-pointer"
-              onClick={() => {
-                setLightbox(project);
-                setLightboxView("after");
-              }}
-            >
-              <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={project.after}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-yellow-brand text-navy text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                    {project.category}
-                  </span>
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((project) => (
+              <article
+                key={project.id}
+                className="group bg-background rounded-2xl overflow-hidden border border-border shadow-card-soft hover:border-yellow-brand transition-all hover:-translate-y-1 cursor-pointer"
+                onClick={() => {
+                  setLightbox(project);
+                  setLightboxView("after");
+                }}
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={project.after}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-yellow-brand text-navy text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                      {project.category}
+                    </span>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
+                      Click to expand
+                    </span>
+                  </div>
                 </div>
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
-                    Click to expand
-                  </span>
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-navy">{project.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{project.location}</p>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {project.desc}
+                  </p>
                 </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display font-bold text-navy">{project.title}</h3>
-                <p className="text-xs text-muted-foreground mt-1">{project.location}</p>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{project.desc}</p>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Lightbox */}
       {lightbox && (

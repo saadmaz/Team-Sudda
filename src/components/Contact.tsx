@@ -51,7 +51,7 @@ export const Contact = () => {
       await sendEmail(templateParams);
       toast({
         title: "Booking request sent!",
-        description: "Our team will confirm your booking within 1 hour.",
+        description: "Our team will contact you to confirm the quotation and date.",
       });
       form.reset();
       setService("");

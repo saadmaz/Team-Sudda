@@ -24,9 +24,9 @@ export const About = () => {
             Services
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Team Sudda is Sri Lanka's trusted name in professional cleaning. From cozy homes in
-            Colombo to corporate offices across the island, our trained, background-checked staff
-            use eco-friendly products to deliver spotless results - every single time.
+            Team Sudda provides home, office and commercial cleaning across Colombo. Our teams are
+            trained on a set process, supervised on the job and accountable for the result. We quote
+            clearly before we start and come back if something was missed.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             No lock-in contracts, no hidden fees. Just reliable, thorough cleaning you can count on.

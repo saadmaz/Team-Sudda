@@ -35,7 +35,7 @@ const About = () => {
   useSEO({
     title: "About Us - Team Sudda | Professional Cleaning Sri Lanka",
     description:
-      "Learn about Team Sudda - Sri Lanka's professional cleaning company. Our mission, values, and the team behind every spotless space.",
+      "Team Sudda is a home, office and commercial cleaning company in Colombo and part of the STTPS group. Our mission, values and the people behind the work.",
   });
 
   return (
@@ -47,11 +47,11 @@ const About = () => {
         <div className="container-x text-center text-white">
           <span className="eyebrow">About Team Sudda</span>
           <h1 className="heading-xl font-display font-extrabold mt-4 text-balance">
-            Sri Lanka's Trusted <span className="text-yellow-brand">Cleaning</span> Partner
+            Cleaning, <span className="text-yellow-brand">Done Properly.</span>
           </h1>
           <p className="mt-6 text-white/75 max-w-2xl mx-auto text-lg leading-relaxed">
-            Built on reliability, eco-friendly products and background-checked staff - here's the
-            story behind every spotless space.
+            A cleaning company built on clear quotations, trained teams and accountability for the
+            result.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="xl">
@@ -82,18 +82,17 @@ const About = () => {
           <div>
             <span className="eyebrow">Our Story</span>
             <h2 className="heading-lg font-display text-navy mt-3">
-              Built on Trust, <span className="text-[hsl(var(--yellow))]">Proven by Results.</span>
+              Built Around <span className="text-[hsl(var(--yellow))]">Doing It Properly.</span>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
               Team Sudda was founded in {STATS.foundedYear} with a simple belief: every home and
               workplace deserves to be genuinely clean - not just surface-wiped. We started with a
-              small team in Colombo and a commitment to three things: reliability, eco-friendly
-              products, and background-checked staff.
+              small team in Colombo and a commitment to three things: a clear quotation before every
+              job, a set way of working, and owning the result.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              That commitment drives every job we take on - from cozy homes in Colombo to corporate
-              offices across the island. Trained, vetted specialists. Eco-friendly products.
-              Dependable service, every time.
+              Team Sudda is part of the STTPS group, alongside Tank Sudda, STOPWASH and Polish
+              Station. We bring the same group standard to every home and workplace we clean.
             </p>
           </div>
         </div>

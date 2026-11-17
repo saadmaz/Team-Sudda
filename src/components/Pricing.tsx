@@ -13,8 +13,8 @@ export const Pricing = () => {
             Simple, Honest <span className="text-[hsl(var(--yellow))]">Pricing.</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            No hidden fees. No surprises. Every package includes eco-friendly products and insured,
-            vetted staff.
+            No hidden fees. No surprises. Every package includes products, equipment and a trained
+            team.
           </p>
         </div>
 

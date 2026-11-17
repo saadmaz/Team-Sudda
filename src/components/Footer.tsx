@@ -15,7 +15,6 @@ const socialLinks = [
 
 const usefulLinks = [
   { label: "About Us", href: "/about" },
-  { label: "Our Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Book a Clean", href: "/book" },
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -35,8 +34,8 @@ export const Footer = () => {
             Team Sudda
           </Link>
           <p className="mt-4 text-sm leading-relaxed">
-            Sri Lanka's trusted cleaning team - making homes and businesses sparkle since{" "}
-            {STATS.foundedYear} with eco-friendly products and a friendly smile.
+            Home, office and commercial cleaning across Colombo since {STATS.foundedYear}. Part of
+            the STTPS group.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {socialLinks.map(({ Icon, href, label }) => (

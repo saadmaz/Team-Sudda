@@ -33,8 +33,8 @@ const Terms = () => {
             <h2 className="heading-md font-display text-navy mb-3">2. Services</h2>
             <p>
               Team Sudda provides professional residential and commercial cleaning services across
-              Sri Lanka including Colombo, Gampaha, Kandy, Galle, and Negombo. The specific services
-              provided will be as agreed upon at the time of booking confirmation.
+              Sri Lanka, centred on Colombo and Greater Colombo. The specific services provided will
+              be as agreed upon at the time of booking confirmation.
             </p>
           </section>
 
@@ -46,7 +46,9 @@ const Terms = () => {
                 via phone, email, or WhatsApp.
               </li>
               <li>Submitting a booking form does not constitute a confirmed booking.</li>
-              <li>We will endeavour to confirm bookings within 1 hour during business hours.</li>
+              <li>
+                We will endeavour to respond to booking requests promptly during business hours.
+              </li>
               <li>We reserve the right to decline bookings at our discretion.</li>
             </ul>
           </section>
@@ -91,7 +93,7 @@ const Terms = () => {
           <section>
             <h2 className="heading-md font-display text-navy mb-3">7. Liability</h2>
             <ul className="list-disc pl-6 mt-3 space-y-2">
-              <li>All our staff are vetted, trained, and insured.</li>
+              <li>Our staff are trained in our cleaning process before working on site.</li>
               <li>
                 We take care in handling your belongings but accept no liability for pre-existing
                 damage or fragile items not disclosed at the time of booking.
