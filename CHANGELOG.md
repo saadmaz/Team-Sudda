@@ -31,6 +31,12 @@
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-11-17
+
+### Removed
+
+- 39 unused UI components, an unused hook, an unrendered Team section with its data, the unused stylesheet and placeholder image, and 36 unused dependencies. Installs and the repository are smaller; the production bundle and behaviour are unchanged.
+
 ## [1.1.3] - 2026-11-17
 
 ### Changed
@@ -80,7 +86,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.0...v1.1.1
