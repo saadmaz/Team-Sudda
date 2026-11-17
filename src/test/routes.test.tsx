@@ -3,43 +3,13 @@ import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { AppRoutes } from "@/App";
-import { SERVICES, servicePath } from "@/lib/content/services";
-import { INDUSTRIES, industryPath } from "@/lib/content/industries";
-import { AREAS, areaPath } from "@/lib/content/areas";
-import { BLOG_ARTICLES } from "@/lib/constants/blog";
-
-const STATIC_ROUTES = [
-  "/",
-  "/homes",
-  "/business",
-  "/services",
-  "/industries",
-  "/areas",
-  "/how-we-work",
-  "/pricing",
-  "/about",
-  "/careers",
-  "/faq",
-  "/quote",
-  "/book",
-  "/book?service=deep-cleaning",
-  "/business-quote",
-  "/business-quote?service=office-cleaning&industry=Schools%20%26%20Institutions",
-  "/contact",
-  "/feedback",
-  "/blog",
-  "/gallery",
-  "/privacy-policy",
-  "/terms",
-  "/this-page-does-not-exist",
-];
+import { ALL_ROUTES } from "@/lib/routes";
 
 const ROUTES = [
-  ...STATIC_ROUTES,
-  ...SERVICES.map(servicePath),
-  ...INDUSTRIES.map(industryPath),
-  ...AREAS.map(areaPath),
-  ...BLOG_ARTICLES.map((a) => `/blog/${a.slug}`),
+  ...ALL_ROUTES,
+  "/book?service=deep-cleaning",
+  "/business-quote?service=office-cleaning&industry=Schools%20%26%20Institutions",
+  "/this-page-does-not-exist",
 ];
 
 let root: Root | null = null;

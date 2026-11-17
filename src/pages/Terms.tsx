@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const Terms = () => {
+  usePageMeta({
+    title: "Terms & Conditions",
+    description: "The terms that apply to Team Sudda cleaning bookings and services.",
+    path: "/terms",
+  });
+
   return (
     <div className="bg-background">
       <div className="bg-navy pt-28 md:pt-36 pb-16">

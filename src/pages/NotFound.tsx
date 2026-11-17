@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSEO } from "@/hooks/useSEO";
 
 const NotFound = () => {
+  useSEO({ title: "Page Not Found | Team Sudda", description: "This page does not exist." });
+
   return (
     <div className="min-h-[80vh] bg-background flex items-center justify-center pt-24">
       <div className="text-center px-4">

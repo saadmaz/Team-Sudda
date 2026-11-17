@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/constants/contact";
-import { useSEO } from "@/hooks/useSEO";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import {
   GALLERY_PROJECTS,
   GALLERY_CATEGORIES,
@@ -12,8 +12,9 @@ import {
 } from "@/lib/constants/gallery";
 
 const GalleryPage = () => {
-  useSEO({
-    title: "Project Gallery - Team Sudda",
+  usePageMeta({
+    path: "/gallery",
+    title: "Project Gallery",
     description:
       "Browse our portfolio of completed cleaning projects - commercial offices, homes, post-renovation and event cleanups in Colombo.",
   });

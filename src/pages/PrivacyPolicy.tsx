@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT } from "@/lib/constants/contact";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const PrivacyPolicy = () => {
+  usePageMeta({
+    title: "Privacy Policy",
+    description: "How Team Sudda collects, uses and protects the information you share with us.",
+    path: "/privacy-policy",
+  });
+
   return (
     <div className="bg-background">
       <div className="bg-navy pt-28 md:pt-36 pb-16">
