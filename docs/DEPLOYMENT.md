@@ -10,33 +10,45 @@
 
 | Environment   | Branch    | Worker                   | URL                                                      | Deploys                                                                      |
 | ------------- | --------- | ------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `development` | `develop` | `team-sudda-website-dev` | [dev.teamsudda.lk](https://dev.teamsudda.lk)             | Automatically on every merge into `develop`, once enabled                    |
+| `development` | `develop` | `team-sudda-website-dev` | [dev.teamsudda.lk](https://dev.teamsudda.lk)             | Automatically on every merge into `develop`, once set up                     |
 | `production`  | `main`    | `team-sudda-website`     | [teamsudda.lk](https://teamsudda.lk), `www.teamsudda.lk` | Automatically when `develop` is promoted to `main` by a release pull request |
 
-The site is hosted on **Cloudflare Workers** as static assets. The [Deploy workflow](../.github/workflows/deploy.yml) builds the branch, uploads `dist/` with `wrangler deploy`, then smoke-tests the live URL. Each environment is a GitHub Environment with its own variables, so one workflow serves both. Production accepts deployments from `main` only; development from `develop` only.
+The site is hosted on **Cloudflare Workers** as static assets. **Cloudflare Workers Builds** is connected to this repository. On every push it runs `npm run build` and deploys `dist/` with wrangler. The [Deploy workflow](../.github/workflows/deploy.yml) waits for that Cloudflare build, records the deploy in the matching GitHub environment and smoke-tests the live URL.
 
 [`wrangler.jsonc`](../wrangler.jsonc) defines both Workers and their custom domains. On deploy, wrangler attaches the domains and creates their DNS records in the `teamsudda.lk` zone. `/about` serves `about.html`, and any URL without a file gets `404.html` with a 404 status. [`public/_headers`](../public/_headers) sets the security headers and long-term caching for hashed assets, and [`public/_redirects`](../public/_redirects) holds permanent redirects.
 
-## First-time setup
+## First-time setup (production)
 
-1. **Cloudflare API token.** In the Cloudflare dashboard go to My Profile → API Tokens → Create Token, and start from the **Edit Cloudflare Workers** template. Add the zone permissions **Zone → DNS → Edit** and **Zone → Workers Routes → Edit**, limited to the `teamsudda.lk` zone. Copy the token.
-2. **Account ID.** It's shown on the Workers & Pages overview page in the Cloudflare dashboard.
-3. **GitHub secrets** (repository settings → Secrets and variables → Actions):
-   - `CLOUDFLARE_API_TOKEN`: the token from step 1
-   - `CLOUDFLARE_ACCOUNT_ID`: the account ID from step 2
-4. **GitHub environment variables.** Set these on both the `production` and `development` environments. They're compiled into the site at build time:
-   - `APP_URL`: `https://www.teamsudda.lk` (production) or `https://dev.teamsudda.lk` (development)
-   - `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`
-   - `VITE_GA_MEASUREMENT_ID`: optional, production only
-5. **Clear old DNS records.** Delete any existing `A`, `AAAA` or `CNAME` records for `teamsudda.lk`, `www` and `dev` in the Cloudflare DNS tab. Wrangler can't attach a custom domain while a conflicting record exists.
-6. **Deploy.** Run the Deploy workflow on `main` (Actions → Deploy → Run workflow), or merge a release.
-7. **Redirect apex to www** (recommended, because canonical URLs use `www`). Go to Rules → Redirect Rules → Create rule → template **Redirect from root to WWW**. Use a 301 status and keep the query string.
-8. **EmailJS.** Add `teamsudda.lk` and `www.teamsudda.lk` to the allowed domains in the EmailJS dashboard.
+1. **Clear old DNS records.** In the Cloudflare dashboard, open the `teamsudda.lk` DNS tab and delete any existing `A`, `AAAA` or `CNAME` records for `teamsudda.lk` and `www`. Wrangler can't attach a custom domain while a conflicting record exists.
+2. **Connect the repository.** Go to Workers & Pages → Create → Import a repository, then choose `saadmaz/Team-Sudda-Website`.
+
+   | Setting                      | Value                          |
+   | ---------------------------- | ------------------------------ |
+   | Project (Worker) name        | `team-sudda-website`           |
+   | Production branch            | `main`                         |
+   | Build command                | `npm run build`                |
+   | Deploy command               | `npx wrangler deploy`          |
+   | Non-production branch deploy | `npx wrangler versions upload` |
+   | Root directory               | `/`                            |
+   | Build variable               | `NODE_VERSION` = `22`          |
+
+   The Worker name must match `name` in `wrangler.jsonc`.
+
+3. **Build variables.** Under the Worker's Settings → Build → Variables and secrets, add the values that get compiled into the site. Then trigger a new build.
+   - `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`: the forms show a WhatsApp fallback until these are set
+   - `VITE_GA_MEASUREMENT_ID`: optional
+4. **Check the domains.** After the first successful build, Settings → Domains & Routes should list `teamsudda.lk` and `www.teamsudda.lk`. If the build log says it couldn't add them, add both there as **Custom domains** by hand.
+5. **Redirect apex to www** (recommended, because canonical URLs use `www`). Go to Rules → Redirect Rules → Create rule → template **Redirect from root to WWW**. Use a 301 status and keep the query string.
+6. **EmailJS.** Add `teamsudda.lk` and `www.teamsudda.lk` to the allowed domains in the EmailJS dashboard.
+
+The GitHub `production` environment variable `APP_URL` is `https://www.teamsudda.lk`; the Deploy workflow smoke-tests it.
 
 ### Setting up development
 
-Set the `DEVELOPMENT_ENABLED` repository variable to `true`. The next push to `develop` creates the `team-sudda-website-dev` Worker on `dev.teamsudda.lk`. Then replace the grey development badge in the README Deployment table with the live status badge:
-`https://img.shields.io/github/deployments/saadmaz/Team-Sudda/development?style=flat-square&label=development&labelColor=111827`.
+1. Import the same repository again as a second Worker named `team-sudda-website-dev`. Use `develop` as the production branch and the deploy command `npx wrangler deploy --env development`. Add the same build variables.
+2. Set the GitHub repository variable `DEVELOPMENT_ENABLED` to `true`, so the Deploy workflow checks `dev.teamsudda.lk`.
+3. Replace the grey development badge in the README Deployment table with the live status badge:
+   `https://img.shields.io/github/deployments/saadmaz/Team-Sudda/development?style=flat-square&label=development&labelColor=111827`.
 
 ### Promotion
 
@@ -44,21 +56,20 @@ Set the `DEVELOPMENT_ENABLED` repository variable to `true`. The next push to `d
 2. When development is verified, open a release pull request from `develop` into `main` (see [runbooks/release.md](runbooks/release.md)).
 3. Merging it deploys to production.
 
-### Deploying by hand
+### Previewing and deploying by hand
 
 ```sh
 npm run build
+npx wrangler@4 dev                        # serve dist/ locally with Cloudflare's routing
 npx wrangler@4 login
-npx wrangler@4 deploy                    # production
-npx wrangler@4 deploy --env development  # development
+npx wrangler@4 deploy                     # production
+npx wrangler@4 deploy --env development   # development
 ```
-
-To preview the production build locally with Cloudflare's routing, run `npx wrangler@4 dev` after `npm run build`.
 
 ## Post-deployment checks
 
 The Deploy workflow checks the homepage, a service page, the sitemap and the 404 status automatically. After a release, also:
 
 1. Open https://www.teamsudda.lk, then refresh on an inner page such as `/services/office-cleaning`.
-2. Submit a test booking and confirm it arrives at hello@teamsudda.lk.
+2. Submit a test booking and confirm it arrives at hello@teamsudda.lk (once EmailJS is configured).
 3. Check the response headers include `Strict-Transport-Security`.
