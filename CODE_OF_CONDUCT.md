@@ -1,5 +1,8 @@
 # Code of Conduct
 
+<!-- nav -->
+<p align="center"><a href="README.md">README</a> · <a href="CONTRIBUTING.md">Contributing</a> · <strong>Code of Conduct</strong> · <a href="SECURITY.md">Security</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+
 ## Our commitment
 
 Everyone who works on this project, including staff, partners and invited collaborators, deserves a professional, respectful and harassment-free environment, regardless of background, identity or experience.
@@ -26,7 +29,8 @@ This code applies to all project spaces, including this repository and its issue
 
 ## Reporting
 
-Report concerns to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)**. All reports are reviewed promptly and handled in confidence.
+> [!NOTE]
+> Report concerns to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)**. All reports are reviewed promptly and handled in confidence.
 
 ## Enforcement
 

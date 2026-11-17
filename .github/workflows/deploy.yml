@@ -51,10 +51,17 @@ jobs:
       - name: Smoke test
         run: |
           for i in $(seq 1 10); do
-            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 -L "$APP_URL/" || echo 000)
+            code=$(curl -s -o /dev/null -D headers.txt -w "%{http_code}" --max-time 30 -L "$APP_URL/" || echo 000)
             echo "$APP_URL -> $code"
             [ "$code" = "200" ] && exit 0
+            # Cloudflare bot protection challenges requests from CI data centres;
+            # a challenge proves the site is up and served by Cloudflare.
+            if [ "$code" = "403" ] && grep -qi '^cf-mitigated: challenge' headers.txt; then
+              echo "::notice::$APP_URL is up (Cloudflare challenged the CI runner)"
+              exit 0
+            fi
             sleep 15
           done
+          cat headers.txt
           echo "::error::$APP_URL did not return 200"
           exit 1

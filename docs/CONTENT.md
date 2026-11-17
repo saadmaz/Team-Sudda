@@ -1,5 +1,9 @@
 # Content
 
+<!-- nav -->
+
+<sub><a href="../README.md">Project README</a> · <a href="README.md">Documentation index</a></sub>
+
 > How to update copy, services, pricing and the blog on teamsudda.lk. Part of the [project documentation](README.md).
 
 All copy and business data lives in [`src/lib/constants/`](../src/lib/constants), so routine updates don't touch page code.

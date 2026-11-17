@@ -1,8 +1,12 @@
 # Contributing
 
+<!-- nav -->
+<p align="center"><a href="README.md">README</a> · <strong>Contributing</strong> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <a href="SECURITY.md">Security</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+
 Thanks for helping build Team Sudda Website. This guide covers how changes move from an idea to production.
 
-This is a private, proprietary repository: see [LICENSE](LICENSE). Access is limited to Team Sudda team members and invited collaborators.
+> [!NOTE]
+> This is a private, proprietary repository: see [LICENSE](LICENSE). Access is limited to Team Sudda team members and invited collaborators.
 
 ## Workflow
 
@@ -36,7 +40,8 @@ This is a private, proprietary repository: see [LICENSE](LICENSE). Access is lim
 | `main`                 | Production  | Released code only; every merge deploys to production  |
 | `feat/*`, `fix/*`, ... | None        | Short-lived work branches, merged into `develop`       |
 
-Never push directly to `develop` or `main`, and never force-push to either.
+> [!IMPORTANT]
+> Never push directly to `develop` or `main`, and never force-push to either.
 
 ## Commit messages
 

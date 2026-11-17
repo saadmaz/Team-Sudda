@@ -1,13 +1,18 @@
 # Release
 
-Releases follow [Semantic Versioning](https://semver.org) and are recorded in [CHANGELOG.md](../../CHANGELOG.md).
+<!-- nav -->
+
+<sub><a href="../../README.md">Project README</a> · <a href="../README.md">Documentation index</a></sub>
+
+> [!NOTE]
+> Releases follow [Semantic Versioning](https://semver.org) and are recorded in [CHANGELOG.md](../../CHANGELOG.md).
 
 ## Steps
 
 1. Confirm `develop` is green in CI and verified in the development environment.
 2. From `develop`, create a branch: `git switch develop && git pull && git switch -c release/vX.Y.Z`.
 3. In `CHANGELOG.md`, move the `Unreleased` entries under a new `## [X.Y.Z] - YYYY-MM-DD` heading and update the comparison links at the bottom.
-4. Set `version` to `X.Y.Z` in `package.json`, and update the version badge at the top of `README.md`.
+4. Set `version` to `X.Y.Z` in `package.json`. The README release badge updates automatically.
 5. Run the checks locally (see [CONTRIBUTING.md](../../CONTRIBUTING.md)).
 6. Merge the branch into `develop`, then open a pull request from `develop` into `main` titled `chore(release): vX.Y.Z`. Merging it deploys to production.
 7. Tag the merge commit on `main` and push the tag:
