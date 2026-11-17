@@ -1,5 +1,9 @@
 # Documentation
 
+<!-- nav -->
+
+<sub><a href="../README.md">← Back to the project README</a></sub>
+
 Every STTPS repository uses the same documentation layout. Start with the core documents, then the decision records and runbooks.
 
 ## Core
