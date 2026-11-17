@@ -14,6 +14,7 @@ Every STTPS repository uses the same documentation layout. Start with the core d
 | [CONFIGURATION.md](CONFIGURATION.md) | Environment variables, configuration files and where each value lives       |
 | [DEPLOYMENT.md](DEPLOYMENT.md)       | Hosting, the delivery pipeline, first-time setup and post-deployment checks |
 | [CONTENT.md](CONTENT.md)             | How to update copy, business data, imagery and articles                     |
+| [PHOTO-BRIEF.md](PHOTO-BRIEF.md)     | The photos the site needs and how to shoot them                             |
 
 ## Decisions and operations
 

@@ -19,6 +19,9 @@ export function useSEO({
   canonical,
   jsonLd,
 }: SEOConfig) {
+  // Compare by value so a new object literal each render does not re-run the effect.
+  const jsonLdText = jsonLd ? JSON.stringify(jsonLd) : "";
+
   useEffect(() => {
     document.title = title;
 
@@ -37,6 +40,7 @@ export function useSEO({
     setMeta("og:title", ogTitle ?? title, "property");
     setMeta("og:description", ogDescription ?? description, "property");
     setMeta("og:type", "website", "property");
+    if (canonical) setMeta("og:url", canonical, "property");
 
     if (canonical !== undefined) {
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -48,14 +52,15 @@ export function useSEO({
       link.href = canonical || window.location.href;
     }
 
-    if (jsonLd) {
-      const id = "site-jsonld";
-      document.getElementById(id)?.remove();
+    // Replace the previous page's structured data, or clear it if this page has none.
+    const id = "site-jsonld";
+    document.getElementById(id)?.remove();
+    if (jsonLdText) {
       const script = document.createElement("script");
       script.type = "application/ld+json";
       script.id = id;
-      script.text = JSON.stringify(jsonLd);
+      script.text = jsonLdText;
       document.head.appendChild(script);
     }
-  }, [title, description, keywords, ogTitle, ogDescription, canonical, jsonLd]);
+  }, [title, description, keywords, ogTitle, ogDescription, canonical, jsonLdText]);
 }

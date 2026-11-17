@@ -1,10 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { useSEO } from "@/hooks/useSEO";
+import { usePageMeta, SITE_URL } from "@/hooks/usePageMeta";
 import { BLOG_ARTICLES } from "@/lib/constants/blog";
 import { CONTACT } from "@/lib/constants/contact";
 
@@ -13,17 +10,29 @@ const BlogPost = () => {
   const article = BLOG_ARTICLES.find((a) => a.slug === slug);
   const related = BLOG_ARTICLES.filter((a) => a.slug !== slug).slice(0, 2);
 
-  const seoTitle = article ? `${article.title} - Team Sudda Blog` : "Article Not Found";
+  const seoTitle = article ? `${article.title} | Team Sudda Guides` : "Article Not Found";
   const seoDesc = article?.excerpt ?? "";
 
-  useSEO({ title: seoTitle, description: seoDesc });
+  usePageMeta({
+    title: seoTitle,
+    description: seoDesc,
+    path: article ? `/blog/${article.slug}` : "/blog",
+    jsonLd: article && {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.excerpt,
+      datePublished: article.date,
+      author: { "@type": "Organization", name: "Team Sudda" },
+      publisher: { "@type": "Organization", name: "Team Sudda", url: SITE_URL },
+      mainEntityOfPage: `${SITE_URL}/blog/${article.slug}`,
+    },
+  });
 
   if (!article) return <Navigate to="/blog" replace />;
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <div className="bg-background">
       {/* Article header */}
       <section className="gradient-hero pt-28 pb-16">
         <div className="container-x max-w-3xl">
@@ -109,9 +118,6 @@ const BlogPost = () => {
           </div>
         )}
       </div>
-
-      <Footer />
-      <WhatsAppFab />
     </div>
   );
 };

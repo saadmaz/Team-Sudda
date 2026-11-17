@@ -14,7 +14,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Do you bring your own products and equipment?",
-    a: "Yes. Our teams arrive fully equipped with eco-friendly, non-toxic cleaning products, vacuums, mops and microfiber tools. You don't need to provide anything.",
+    a: "Yes. Our teams arrive with cleaning products, vacuums, mops and microfibre cloths. You don't need to provide anything.",
   },
   {
     q: "How do you price your services?",

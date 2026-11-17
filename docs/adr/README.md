@@ -19,3 +19,4 @@ An architecture decision record (ADR) captures one significant technical decisio
 | ------------------------------------------------- | --------------------------------- | -------- |
 | [0001](0001-single-page-application-on-vercel.md) | Single-page application on Vercel | Accepted |
 | [0002](0002-form-delivery-through-emailjs.md)     | Form delivery through EmailJS     | Accepted |
+| [0003](0003-pre-render-every-route.md)            | Pre-render every route            | Accepted |
