@@ -4,8 +4,8 @@ import { CONTACT } from "@/lib/constants/contact";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="bg-navy py-16">
+    <div className="bg-background">
+      <div className="bg-navy pt-28 md:pt-36 pb-16">
         <div className="container-x">
           <Link
             to="/"

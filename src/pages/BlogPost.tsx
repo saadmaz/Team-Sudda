@@ -1,9 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { useSEO } from "@/hooks/useSEO";
 import { BLOG_ARTICLES } from "@/lib/constants/blog";
 import { CONTACT } from "@/lib/constants/contact";
@@ -21,9 +18,7 @@ const BlogPost = () => {
   if (!article) return <Navigate to="/blog" replace />;
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <div className="bg-background">
       {/* Article header */}
       <section className="gradient-hero pt-28 pb-16">
         <div className="container-x max-w-3xl">
@@ -109,9 +104,6 @@ const BlogPost = () => {
           </div>
         )}
       </div>
-
-      <Footer />
-      <WhatsAppFab />
     </div>
   );
 };

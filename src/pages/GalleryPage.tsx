@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/lib/constants/contact";
 import { useSEO } from "@/hooks/useSEO";
@@ -39,9 +36,7 @@ const GalleryPage = () => {
       : GALLERY_PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <div className="bg-background">
       {/* Header */}
       <section className="gradient-hero pt-28 pb-16">
         <div className="container-x text-center text-white">
@@ -185,9 +180,6 @@ const GalleryPage = () => {
           </div>
         </div>
       )}
-
-      <Footer />
-      <WhatsAppFab />
     </div>
   );
 };

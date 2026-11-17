@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { useSEO } from "@/hooks/useSEO";
 import { BLOG_ARTICLES } from "@/lib/constants/blog";
 
@@ -17,9 +14,7 @@ const Blog = () => {
   const rest = BLOG_ARTICLES.slice(1);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <div className="bg-background">
       {/* Header */}
       <section className="gradient-hero pt-28 pb-16">
         <div className="container-x text-center text-white">
@@ -111,9 +106,6 @@ const Blog = () => {
           ))}
         </div>
       </div>
-
-      <Footer />
-      <WhatsAppFab />
     </div>
   );
 };
