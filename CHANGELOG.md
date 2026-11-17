@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Removed
+
+- 39 unused UI components, an unused hook, an unrendered Team section with its data, the unused stylesheet and placeholder image, and 36 unused dependencies. Installs and the repository are smaller; the production bundle and behaviour are unchanged.
+
 ## [1.1.3] - 2026-11-17
 
 ### Changed
