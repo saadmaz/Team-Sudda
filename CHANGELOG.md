@@ -31,6 +31,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Canonical, Open Graph and preview-image URLs now use `www.teamsudda.lk`, the address the site is served from, so search engines and social platforms no longer hit a redirect.
+
 ## [1.2.0] - 2026-11-17
 
 ### Added
