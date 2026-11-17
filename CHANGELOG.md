@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-17
+
 ### Added
 
 - A multi-page site: separate For Homes and For Business sections, a page for each of 13 services (checklist, exclusions, frequency and FAQs), 8 industry pages, 8 service-area pages, How We Work (the Team Sudda Standard), Pricing, Careers, FAQ and a quote chooser.
@@ -47,20 +49,14 @@
 - The footer lists every service, industry and area.
 - The privacy policy now names the service providers the site uses and covers job applications.
 - The main JavaScript bundle is smaller (460 kB to 288 kB) because pages load on demand.
-
-### Removed
-
-- The eco-friendly cleaning article and product claims that could not be confirmed.
-- Unused toast, tooltip, select and data-fetching code and their dependencies.
-
-### Changed
-
 - The client section now shows the STTPS group companies Team Sudda cleans for (Tank Sudda, STOPWASH and Polish Station), replacing a list of organisations that were not Team Sudda clients.
 - Service area copy now says Colombo and Greater Colombo, and booking messages no longer promise confirmation within one hour.
 - The sanitisation article now explains how disinfection works, without unverifiable kill-rate claims.
 
 ### Removed
 
+- The eco-friendly cleaning article and product claims that could not be confirmed.
+- Unused toast, tooltip, select and data-fetching code and their dependencies.
 - Unverified claims: 99.9%, EPA-approved and hospital-grade disinfection, 5-star rating, insured and background-checked staff, "Sri Lanka's #1" and the feature percentages.
 - Placeholder testimonials and gallery projects that reused stock photos. Both sections stay hidden until real reviews and on-site photos are added.
 
@@ -131,7 +127,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...v1.1.4
