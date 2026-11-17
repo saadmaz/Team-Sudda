@@ -1,5 +1,9 @@
 # Configuration
 
+<!-- nav -->
+
+<sub><a href="../README.md">Project README</a> · <a href="README.md">Documentation index</a></sub>
+
 > Environment variables and settings for teamsudda.lk. Part of the [project documentation](README.md).
 
 The booking and contact forms send email through [EmailJS](https://www.emailjs.com). Copy `.env.example` to `.env` and set:

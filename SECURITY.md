@@ -1,5 +1,8 @@
 # Security Policy
 
+<!-- nav -->
+<p align="center"><a href="README.md">README</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="CODE_OF_CONDUCT.md">Code of Conduct</a> · <strong>Security</strong> · <a href="CHANGELOG.md">Changelog</a> · <a href="LICENSE">License</a></p>
+
 ## Supported versions
 
 Only the version currently deployed to production, built from the `main` branch, receives security fixes.
@@ -11,7 +14,8 @@ Only the version currently deployed to production, built from the `main` branch,
 
 ## Reporting a vulnerability
 
-Please **do not** open a public issue, pull request or discussion for a security problem.
+> [!CAUTION]
+> Never report a security problem in a public issue, pull request or discussion.
 
 Report it privately by email to **[hello@teamsudda.lk](mailto:hello@teamsudda.lk)** with the subject line `Security report`. Include:
 
@@ -47,7 +51,8 @@ Out of scope:
 
 ## Handling secrets
 
-Credentials, API keys and service-account files are never committed to this repository. They live in the hosting provider's secret store or in GitHub Actions secrets. If you find a secret in the code or its history, report it as a vulnerability.
+> [!IMPORTANT]
+> Credentials, API keys and service-account files are never committed to this repository. They live in the hosting provider's secret store or in GitHub Actions secrets. If you find a secret in the code or its history, report it as a vulnerability.
 
 ## Safe harbour
 

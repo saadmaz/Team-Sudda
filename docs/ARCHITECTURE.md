@@ -1,5 +1,9 @@
 # Architecture
 
+<!-- nav -->
+
+<sub><a href="../README.md">Project README</a> · <a href="README.md">Documentation index</a></sub>
+
 > How teamsudda.lk is built and served. Part of the [project documentation](README.md).
 
 ## Overview
