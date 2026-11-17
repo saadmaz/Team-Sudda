@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Development and production environments: `develop` deploys to development and `main` to production, through one Deploy workflow and GitHub Environments with per-environment settings.
+
 ## [1.0.0] - 2026-11-16
 
 First versioned release of [teamsudda.lk](https://teamsudda.lk).
