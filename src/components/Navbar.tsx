@@ -24,7 +24,9 @@ export const Navbar = () => {
   }, []);
 
   // Close mobile menu on route change
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
     <header
@@ -33,7 +35,10 @@ export const Navbar = () => {
       }`}
     >
       <div className="container-x flex h-16 md:h-20 items-center justify-between">
-        <Link to="/" className="font-display font-extrabold text-white text-lg tracking-tight hover:text-yellow-brand transition-colors">
+        <Link
+          to="/"
+          className="font-display font-extrabold text-white text-lg tracking-tight hover:text-yellow-brand transition-colors"
+        >
           Team Sudda
         </Link>
 
@@ -44,7 +49,9 @@ export const Navbar = () => {
                 key={l.href}
                 to={l.href}
                 className={`text-sm font-medium transition-colors ${
-                  location.pathname === l.href ? "text-yellow-brand" : "text-white/85 hover:text-yellow-brand"
+                  location.pathname === l.href
+                    ? "text-yellow-brand"
+                    : "text-white/85 hover:text-yellow-brand"
                 }`}
               >
                 {l.label}
@@ -57,7 +64,7 @@ export const Navbar = () => {
               >
                 {l.label}
               </a>
-            )
+            ),
           )}
         </nav>
 
@@ -96,7 +103,7 @@ export const Navbar = () => {
                 >
                   {l.label}
                 </a>
-              )
+              ),
             )}
             <Button asChild variant="hero" className="mt-3">
               <Link to="/book">Get Free Quote</Link>

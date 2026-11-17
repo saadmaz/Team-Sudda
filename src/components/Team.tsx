@@ -21,7 +21,14 @@ export const Team = () => {
               className="group relative bg-background rounded-3xl overflow-hidden shadow-card-soft border-t-4 border-transparent hover:border-yellow-brand transition-all duration-300 hover:-translate-y-2"
             >
               <div className="relative aspect-[4/5] bg-muted overflow-hidden">
-                <img src={m.img} alt={`${m.name} - ${m.role} at Team Sudda`} width={640} height={800} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img
+                  src={m.img}
+                  alt={`${m.name} - ${m.role} at Team Sudda`}
+                  width={640}
+                  height={800}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
               <div className="p-5 text-center bg-navy text-white">
                 <h3 className="font-display font-bold text-lg">{m.name}</h3>

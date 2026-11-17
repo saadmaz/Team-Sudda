@@ -42,7 +42,8 @@ const STEPS = ["Choose Service", "Property Details", "Your Info", "Review & Book
 const Book = () => {
   useSEO({
     title: "Book a Clean - Team Sudda",
-    description: "Book your professional cleaning service in 4 easy steps. Team Sudda serves Colombo, Kandy, Gampaha, Galle and Negombo.",
+    description:
+      "Book your professional cleaning service in 4 easy steps. Team Sudda serves Colombo, Kandy, Gampaha, Galle and Negombo.",
   });
 
   const { toast } = useToast();
@@ -57,7 +58,7 @@ const Book = () => {
   const today = new Date().toISOString().split("T")[0];
 
   const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const isValidPhone = (v: string) => /^[\d\s\+\-\(\)]{7,15}$/.test(v.trim());
+  const isValidPhone = (v: string) => /^[\d\s+\-()]{7,15}$/.test(v.trim());
 
   const canNext = () => {
     if (step === 1) return data.service !== "";
@@ -70,7 +71,11 @@ const Book = () => {
     setLoading(true);
 
     if (!isEmailJSConfigured()) {
-      toast({ title: "Configuration error", description: "Email service not configured. Please contact us via WhatsApp.", variant: "destructive" });
+      toast({
+        title: "Configuration error",
+        description: "Email service not configured. Please contact us via WhatsApp.",
+        variant: "destructive",
+      });
       setLoading(false);
       return;
     }
@@ -86,7 +91,11 @@ const Book = () => {
       });
       setSubmitted(true);
     } catch {
-      toast({ title: "Something went wrong", description: "Please try WhatsApp or call us directly.", variant: "destructive" });
+      toast({
+        title: "Something went wrong",
+        description: "Please try WhatsApp or call us directly.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -105,7 +114,9 @@ const Book = () => {
             <p className="mt-4 text-muted-foreground">
               Thanks {data.name}! Our team will confirm your {data.service} booking within 1 hour.
             </p>
-            <p className="mt-2 text-muted-foreground text-sm">We'll reach you at <strong>{data.email}</strong> or <strong>{data.phone}</strong>.</p>
+            <p className="mt-2 text-muted-foreground text-sm">
+              We'll reach you at <strong>{data.email}</strong> or <strong>{data.phone}</strong>.
+            </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button asChild variant="hero">
                 <Link to="/">Back to Home</Link>
@@ -131,7 +142,10 @@ const Book = () => {
         <div className="container-x max-w-2xl">
           {/* Header */}
           <div className="mb-8">
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-navy transition-colors text-sm mb-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-navy transition-colors text-sm mb-4"
+            >
               <ArrowLeft className="h-4 w-4" /> Back to Home
             </Link>
             <span className="eyebrow">Book a Clean</span>
@@ -148,13 +162,15 @@ const Book = () => {
                       i + 1 < step
                         ? "bg-yellow-brand border-yellow-brand text-navy"
                         : i + 1 === step
-                        ? "bg-navy border-navy text-white"
-                        : "bg-background border-border text-muted-foreground"
+                          ? "bg-navy border-navy text-white"
+                          : "bg-background border-border text-muted-foreground"
                     }`}
                   >
                     {i + 1 < step ? <Check className="h-4 w-4" /> : i + 1}
                   </div>
-                  <span className={`text-[10px] font-medium hidden sm:block ${i + 1 === step ? "text-navy" : "text-muted-foreground"}`}>
+                  <span
+                    className={`text-[10px] font-medium hidden sm:block ${i + 1 === step ? "text-navy" : "text-muted-foreground"}`}
+                  >
                     {label}
                   </span>
                 </div>
@@ -170,11 +186,12 @@ const Book = () => {
 
           {/* Step content */}
           <div className="bg-background border border-border rounded-3xl p-6 md:p-8 shadow-card-soft">
-
             {/* Step 1 - Choose Service */}
             {step === 1 && (
               <div>
-                <h2 className="font-display font-bold text-xl text-navy mb-6">What service do you need?</h2>
+                <h2 className="font-display font-bold text-xl text-navy mb-6">
+                  What service do you need?
+                </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {SERVICES.map(({ icon: Icon, title }) => (
                     <button
@@ -197,24 +214,53 @@ const Book = () => {
             {/* Step 2 - Property Details */}
             {step === 2 && (
               <div className="space-y-4">
-                <h2 className="font-display font-bold text-xl text-navy mb-6">Tell us about the property</h2>
+                <h2 className="font-display font-bold text-xl text-navy mb-6">
+                  Tell us about the property
+                </h2>
                 <div>
                   <Label htmlFor="address">Property Address *</Label>
-                  <Input id="address" value={data.address} onChange={(e) => update("address", e.target.value)} placeholder="12 Main Street, Colombo 03" className="mt-1.5" required />
+                  <Input
+                    id="address"
+                    value={data.address}
+                    onChange={(e) => update("address", e.target.value)}
+                    placeholder="12 Main Street, Colombo 03"
+                    className="mt-1.5"
+                    required
+                  />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="size">Approximate Size</Label>
-                    <Input id="size" value={data.propertySize} onChange={(e) => update("propertySize", e.target.value)} placeholder="e.g. 1,200 sq ft" className="mt-1.5" />
+                    <Input
+                      id="size"
+                      value={data.propertySize}
+                      onChange={(e) => update("propertySize", e.target.value)}
+                      placeholder="e.g. 1,200 sq ft"
+                      className="mt-1.5"
+                    />
                   </div>
                   <div>
                     <Label htmlFor="rooms">Number of Rooms</Label>
-                    <Input id="rooms" value={data.rooms} onChange={(e) => update("rooms", e.target.value)} placeholder="e.g. 3 bedrooms, 2 bathrooms" className="mt-1.5" />
+                    <Input
+                      id="rooms"
+                      value={data.rooms}
+                      onChange={(e) => update("rooms", e.target.value)}
+                      placeholder="e.g. 3 bedrooms, 2 bathrooms"
+                      className="mt-1.5"
+                    />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="date">Preferred Date *</Label>
-                  <Input id="date" type="date" value={data.date} min={today} onChange={(e) => update("date", e.target.value)} className="mt-1.5" required />
+                  <Input
+                    id="date"
+                    type="date"
+                    value={data.date}
+                    min={today}
+                    onChange={(e) => update("date", e.target.value)}
+                    className="mt-1.5"
+                    required
+                  />
                 </div>
               </div>
             )}
@@ -222,24 +268,58 @@ const Book = () => {
             {/* Step 3 - Contact Info */}
             {step === 3 && (
               <div className="space-y-4">
-                <h2 className="font-display font-bold text-xl text-navy mb-6">Your contact details</h2>
+                <h2 className="font-display font-bold text-xl text-navy mb-6">
+                  Your contact details
+                </h2>
                 <div>
                   <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name" className="mt-1.5" required />
+                  <Input
+                    id="name"
+                    value={data.name}
+                    onChange={(e) => update("name", e.target.value)}
+                    placeholder="Your name"
+                    className="mt-1.5"
+                    required
+                  />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="email">Email *</Label>
-                    <Input id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" className="mt-1.5" required />
+                    <Input
+                      id="email"
+                      type="email"
+                      value={data.email}
+                      onChange={(e) => update("email", e.target.value)}
+                      placeholder="you@example.com"
+                      pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                      className="mt-1.5"
+                      required
+                    />
                   </div>
                   <div>
                     <Label htmlFor="phone">Phone *</Label>
-                    <Input id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder={CONTACT.phoneFormatted} pattern="[\d\s\+\-\(\)]{7,15}" className="mt-1.5" required />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={data.phone}
+                      onChange={(e) => update("phone", e.target.value)}
+                      placeholder={CONTACT.phoneFormatted}
+                      pattern="[\d\s\+\-\(\)]{7,15}"
+                      className="mt-1.5"
+                      required
+                    />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="message">Anything else we should know?</Label>
-                  <Textarea id="message" value={data.message} onChange={(e) => update("message", e.target.value)} placeholder="Special instructions, allergies, access notes..." rows={3} className="mt-1.5" />
+                  <Textarea
+                    id="message"
+                    value={data.message}
+                    onChange={(e) => update("message", e.target.value)}
+                    placeholder="Special instructions, allergies, access notes..."
+                    rows={3}
+                    className="mt-1.5"
+                  />
                 </div>
               </div>
             )}
@@ -247,19 +327,27 @@ const Book = () => {
             {/* Step 4 - Review */}
             {step === 4 && (
               <div>
-                <h2 className="font-display font-bold text-xl text-navy mb-6">Review your booking</h2>
+                <h2 className="font-display font-bold text-xl text-navy mb-6">
+                  Review your booking
+                </h2>
                 <dl className="space-y-3 text-sm">
                   {[
                     { label: "Service", value: data.service },
                     { label: "Date", value: data.date },
                     { label: "Address", value: data.address },
-                    { label: "Property", value: [data.propertySize, data.rooms].filter(Boolean).join(" · ") || "-" },
+                    {
+                      label: "Property",
+                      value: [data.propertySize, data.rooms].filter(Boolean).join(" · ") || "-",
+                    },
                     { label: "Name", value: data.name },
                     { label: "Email", value: data.email },
                     { label: "Phone", value: data.phone },
                     { label: "Notes", value: data.message || "-" },
                   ].map(({ label, value }) => (
-                    <div key={label} className="flex gap-4 py-2 border-b border-border last:border-0">
+                    <div
+                      key={label}
+                      className="flex gap-4 py-2 border-b border-border last:border-0"
+                    >
                       <dt className="w-24 shrink-0 font-semibold text-navy">{label}</dt>
                       <dd className="text-muted-foreground break-all">{value}</dd>
                     </div>
@@ -267,8 +355,10 @@ const Book = () => {
                 </dl>
                 <p className="mt-6 text-sm text-muted-foreground bg-muted/50 rounded-xl p-4">
                   By submitting, you agree to our{" "}
-                  <Link to="/terms" className="underline hover:text-navy">Terms & Conditions</Link>.
-                  We'll confirm your booking within 1 hour.
+                  <Link to="/terms" className="underline hover:text-navy">
+                    Terms & Conditions
+                  </Link>
+                  . We'll confirm your booking within 1 hour.
                 </p>
               </div>
             )}
@@ -284,7 +374,12 @@ const Book = () => {
               <div />
             )}
             {step < 4 ? (
-              <Button variant="hero" size="lg" disabled={!canNext()} onClick={() => setStep((s) => s + 1)}>
+              <Button
+                variant="hero"
+                size="lg"
+                disabled={!canNext()}
+                onClick={() => setStep((s) => s + 1)}
+              >
                 Next <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             ) : (

@@ -17,19 +17,25 @@ export const Hero = () => {
           </span>
 
           <h1 className="heading-xl font-display font-extrabold mt-6 text-balance">
-            Professional <span className="text-yellow-brand">Cleaning</span> Services for Homes & Workplaces
+            Professional <span className="text-yellow-brand">Cleaning</span> Services for Homes &
+            Workplaces
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
-            Trained, vetted specialists delivering reliable home, office and commercial cleaning across Sri Lanka - with eco‑friendly products and dependable service.
+            Trained, vetted specialists delivering reliable home, office and commercial cleaning
+            across Sri Lanka - with eco‑friendly products and dependable service.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="xl">
-              <a href="#contact">Get a Free Quote <ArrowRight className="ml-1 h-5 w-5" /></a>
+              <a href="#contact">
+                Get a Free Quote <ArrowRight className="ml-1 h-5 w-5" />
+              </a>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <a href={`tel:${CONTACT.phone}`}><Phone className="h-5 w-5" /> Call Us</a>
+              <a href={`tel:${CONTACT.phone}`}>
+                <Phone className="h-5 w-5" /> Call Us
+              </a>
             </Button>
             <Button asChild variant="whatsapp" size="xl">
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
@@ -41,7 +47,11 @@ export const Hero = () => {
           <div className="mt-8 flex items-center gap-5 text-white/70 text-sm">
             <div className="flex items-center gap-1.5" aria-label="5 out of 5 stars" role="img">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-yellow-brand text-yellow-brand" aria-hidden="true" />
+                <Star
+                  key={i}
+                  className="h-4 w-4 fill-yellow-brand text-yellow-brand"
+                  aria-hidden="true"
+                />
               ))}
             </div>
             <span>5-Star rated by our clients across Sri Lanka</span>
@@ -65,7 +75,9 @@ export const Hero = () => {
               <ShieldCheck className="h-5 w-5 text-navy" />
             </div>
             <div>
-              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Insured & Vetted</div>
+              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                Insured & Vetted
+              </div>
               <div className="font-bold text-sm">Background-Checked Staff</div>
             </div>
           </div>

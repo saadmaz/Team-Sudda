@@ -2,11 +2,31 @@ import { ShieldCheck, Leaf, Clock, BadgeCheck, Smile } from "lucide-react";
 import whyImg from "@/assets/why-choose.jpg";
 
 const FEATURES = [
-  { icon: ShieldCheck, title: "Trained & Vetted Staff", desc: "Every cleaner is background-checked and professionally trained before their first job." },
-  { icon: Leaf, title: "Eco-Friendly Products", desc: "We use non-toxic, environmentally safe products that are gentle on your space and your family." },
-  { icon: Clock, title: "Punctual Service", desc: "We show up on time, every time. No waiting around - your schedule is respected." },
-  { icon: BadgeCheck, title: "Transparent Pricing", desc: "Clear quotes upfront with no hidden fees. You know exactly what you're paying for." },
-  { icon: Smile, title: "Satisfaction Guaranteed", desc: "Not happy with any area? We'll return to re-clean it at no extra charge within 24 hours." },
+  {
+    icon: ShieldCheck,
+    title: "Trained & Vetted Staff",
+    desc: "Every cleaner is background-checked and professionally trained before their first job.",
+  },
+  {
+    icon: Leaf,
+    title: "Eco-Friendly Products",
+    desc: "We use non-toxic, environmentally safe products that are gentle on your space and your family.",
+  },
+  {
+    icon: Clock,
+    title: "Punctual Service",
+    desc: "We show up on time, every time. No waiting around - your schedule is respected.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Transparent Pricing",
+    desc: "Clear quotes upfront with no hidden fees. You know exactly what you're paying for.",
+  },
+  {
+    icon: Smile,
+    title: "Satisfaction Guaranteed",
+    desc: "Not happy with any area? We'll return to re-clean it at no extra charge within 24 hours.",
+  },
 ];
 
 export const WhyUs = () => {
@@ -17,7 +37,14 @@ export const WhyUs = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="rounded-3xl overflow-hidden border-4 border-yellow-brand shadow-yellow-glow">
-              <img src={whyImg} alt="Trained Team Sudda staff member" width={800} height={1024} loading="lazy" className="w-full h-full object-cover" />
+              <img
+                src={whyImg}
+                alt="Trained Team Sudda staff member"
+                width={800}
+                height={1024}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           <div>
@@ -26,7 +53,8 @@ export const WhyUs = () => {
               The Right Choice for a <span className="text-yellow-brand">Cleaner Space.</span>
             </h2>
             <p className="mt-4 text-white/70">
-              We combine reliability, eco-friendly products and meticulous attention to detail to deliver an unmatched cleaning experience.
+              We combine reliability, eco-friendly products and meticulous attention to detail to
+              deliver an unmatched cleaning experience.
             </p>
 
             <ul className="mt-8 space-y-4">

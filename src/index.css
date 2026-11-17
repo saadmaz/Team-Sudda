@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -18,10 +18,10 @@
     --popover-foreground: 222 60% 14%;
 
     /* Brand */
-    --navy: 222 75% 15%;          /* #0A1F44 */
+    --navy: 222 75% 15%; /* #0A1F44 */
     --navy-deep: 222 80% 10%;
     --navy-light: 222 55% 24%;
-    --yellow: 49 100% 50%;        /* #FFD500 */
+    --yellow: 49 100% 50%; /* #FFD500 */
     --yellow-soft: 49 100% 60%;
     --whatsapp: 142 70% 45%;
 
@@ -47,9 +47,18 @@
     --radius: 0.75rem;
 
     /* Gradients & shadows */
-    --gradient-hero: linear-gradient(135deg, hsl(222 80% 10%) 0%, hsl(222 75% 18%) 50%, hsl(222 70% 22%) 100%);
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(222 80% 10%) 0%,
+      hsl(222 75% 18%) 50%,
+      hsl(222 70% 22%) 100%
+    );
     --gradient-yellow: linear-gradient(135deg, hsl(49 100% 50%), hsl(45 100% 55%));
-    --gradient-overlay: linear-gradient(180deg, hsla(222,80%,10%,0) 0%, hsla(222,80%,10%,0.85) 100%);
+    --gradient-overlay: linear-gradient(
+      180deg,
+      hsla(222, 80%, 10%, 0) 0%,
+      hsla(222, 80%, 10%, 0.85) 100%
+    );
 
     --shadow-card: 0 10px 30px -12px hsla(222, 75%, 15%, 0.18);
     --shadow-yellow: 0 12px 30px -10px hsla(49, 100%, 50%, 0.55);
@@ -74,40 +83,81 @@
 }
 
 @layer base {
-  * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     @apply font-bold tracking-tight;
     letter-spacing: -0.02em;
   }
 }
 
 @layer components {
-  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
-  .section { @apply py-14 sm:py-20 md:py-24; }
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-14 sm:py-20 md:py-24;
+  }
   .eyebrow {
     @apply inline-block text-[11px] font-bold tracking-[0.22em] uppercase text-[hsl(var(--yellow))];
   }
-  .heading-xl { @apply text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05]; }
-  .heading-lg { @apply text-3xl sm:text-4xl md:text-[2.75rem] leading-tight; }
-  .heading-md { @apply text-2xl sm:text-3xl md:text-4xl leading-tight; }
+  .heading-xl {
+    @apply text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.05];
+  }
+  .heading-lg {
+    @apply text-3xl sm:text-4xl md:text-[2.75rem] leading-tight;
+  }
+  .heading-md {
+    @apply text-2xl sm:text-3xl md:text-4xl leading-tight;
+  }
 }
 
 @layer utilities {
-  .bg-navy { background-color: hsl(var(--navy)); }
-  .bg-navy-deep { background-color: hsl(var(--navy-deep)); }
-  .bg-yellow-brand { background-color: hsl(var(--yellow)); }
-  .text-yellow-brand { color: hsl(var(--yellow)); }
-  .text-navy { color: hsl(var(--navy)); }
-  .border-yellow-brand { border-color: hsl(var(--yellow)); }
-  .gradient-hero { background: var(--gradient-hero); }
-  .gradient-yellow { background: var(--gradient-yellow); }
-  .shadow-card-soft { box-shadow: var(--shadow-card); }
-  .shadow-yellow-glow { box-shadow: var(--shadow-yellow); }
-  .shadow-navy-glow { box-shadow: var(--shadow-navy); }
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+  .bg-navy-deep {
+    background-color: hsl(var(--navy-deep));
+  }
+  .bg-yellow-brand {
+    background-color: hsl(var(--yellow));
+  }
+  .text-yellow-brand {
+    color: hsl(var(--yellow));
+  }
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+  .border-yellow-brand {
+    border-color: hsl(var(--yellow));
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-yellow {
+    background: var(--gradient-yellow);
+  }
+  .shadow-card-soft {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-yellow-glow {
+    box-shadow: var(--shadow-yellow);
+  }
+  .shadow-navy-glow {
+    box-shadow: var(--shadow-navy);
+  }
 }

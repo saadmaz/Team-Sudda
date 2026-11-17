@@ -5,7 +5,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { useSEO } from "@/hooks/useSEO";
-import { GALLERY_PROJECTS, GALLERY_CATEGORIES, type GalleryCategory, type GalleryProject } from "@/lib/constants/gallery";
+import {
+  GALLERY_PROJECTS,
+  GALLERY_CATEGORIES,
+  type GalleryCategory,
+  type GalleryProject,
+} from "@/lib/constants/gallery";
 
 const GalleryPage = () => {
   useSEO({
@@ -17,7 +22,8 @@ const GalleryPage = () => {
   const [searchParams] = useSearchParams();
   const initialCategory = (() => {
     const param = searchParams.get("category");
-    if (param && (GALLERY_CATEGORIES as readonly string[]).includes(param)) return param as GalleryCategory;
+    if (param && (GALLERY_CATEGORIES as readonly string[]).includes(param))
+      return param as GalleryCategory;
     return "All";
   })();
 
@@ -71,7 +77,10 @@ const GalleryPage = () => {
             <article
               key={project.id}
               className="group bg-background rounded-2xl overflow-hidden border border-border shadow-card-soft hover:border-yellow-brand transition-all hover:-translate-y-1 cursor-pointer"
-              onClick={() => { setLightbox(project); setLightboxView("after"); }}
+              onClick={() => {
+                setLightbox(project);
+                setLightboxView("after");
+              }}
             >
               <div className="relative aspect-video overflow-hidden">
                 <img
@@ -132,7 +141,9 @@ const GalleryPage = () => {
                     aria-pressed={lightboxView === v}
                     onClick={() => setLightboxView(v)}
                     className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors ${
-                      lightboxView === v ? "bg-yellow-brand text-navy" : "text-white hover:text-yellow-brand"
+                      lightboxView === v
+                        ? "bg-yellow-brand text-navy"
+                        : "text-white hover:text-yellow-brand"
                     }`}
                   >
                     {v}
@@ -141,7 +152,9 @@ const GalleryPage = () => {
               </div>
             </div>
             <div className="p-6">
-              <span className="text-[10px] font-bold text-yellow-brand uppercase tracking-widest">{lightbox.category} · {lightbox.location}</span>
+              <span className="text-[10px] font-bold text-yellow-brand uppercase tracking-widest">
+                {lightbox.category} · {lightbox.location}
+              </span>
               <h3 className="font-display font-bold text-xl text-navy mt-1">{lightbox.title}</h3>
               <p className="mt-2 text-muted-foreground text-sm">{lightbox.desc}</p>
             </div>

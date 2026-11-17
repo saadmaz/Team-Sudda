@@ -16,7 +16,9 @@ export const CtaBanner = () => {
           No mess too big. No space too small. Book your clean today.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild variant="hero" size="xl"><a href="#contact">Get a Free Quote</a></Button>
+          <Button asChild variant="hero" size="xl">
+            <a href="#contact">Get a Free Quote</a>
+          </Button>
           <Button asChild variant="whatsapp" size="xl">
             <a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer">
               <MessageCircle className="h-5 w-5" /> WhatsApp Us

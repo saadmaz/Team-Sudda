@@ -30,7 +30,7 @@ const App = () => (
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Keep the catch-all route last. */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
