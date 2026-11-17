@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-17
+
 ### Added
 
 - Favicon, Apple touch icon and theme colour, and the 1200x630 social preview image, which `index.html` referenced but were missing, so link previews and browser tabs now show the Team Sudda brand.
@@ -90,7 +92,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.1...v1.1.2
