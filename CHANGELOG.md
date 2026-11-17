@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-11-17
+
 ### Changed
 
 - README shows the development environment as awaiting host setup until development deploys are enabled.
@@ -51,7 +53,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/saadmaz/Team-Sudda/releases/tag/v1.0.0
