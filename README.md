@@ -88,7 +88,7 @@ A React application built with Vite and hosted on Cloudflare Workers as static a
 flowchart LR
   Visitor((Visitor)) --> CF["Cloudflare edge<br/>pre-rendered HTML + hashed assets"]
   Visitor -- booking / contact --> EmailJS["EmailJS"] --> Inbox["hello@teamsudda.lk"]
-  Repo["GitHub main"] -- Deploy workflow (wrangler) --> CF
+  Repo["GitHub main"] -- Cloudflare Workers Builds --> CF
 ```
 
 > [!TIP]
@@ -238,7 +238,7 @@ flowchart LR
   M -- auto deploy --> PROD(["Production"])
 ```
 
-The Deploy workflow builds each branch and deploys it to Cloudflare with wrangler, then smoke-tests the live URL. Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Cloudflare Workers Builds builds and deploys each branch; the Deploy workflow waits for that build and smoke-tests the live URL. Environments, setup, secrets and post-deployment checks are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 > [!TIP]
 > To ship or undo a release, follow the [release](docs/runbooks/release.md) and [rollback](docs/runbooks/rollback.md) runbooks.

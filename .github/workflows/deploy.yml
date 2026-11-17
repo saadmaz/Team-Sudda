@@ -1,7 +1,7 @@
-# Builds the site and deploys it to Cloudflare Workers (static assets):
-# main -> production (teamsudda.lk, www.teamsudda.lk),
-# develop -> development (dev.teamsudda.lk), once the DEVELOPMENT_ENABLED
-# repository variable is "true". Then smoke-tests the live URL.
+# Cloudflare Workers Builds deploys this repository directly: main -> production,
+# develop -> development (once the DEVELOPMENT_ENABLED repository variable is "true").
+# This workflow records each deploy to its GitHub environment: it waits for the
+# Cloudflare build of the exact commit, fails if it fails, then smoke-tests the live URL.
 name: Deploy
 
 on:
@@ -15,48 +15,38 @@ concurrency:
 
 permissions:
   contents: read
+  checks: read
 
 jobs:
   deploy:
     if: github.ref_name == 'main' || vars.DEVELOPMENT_ENABLED == 'true'
     name: ${{ github.ref_name == 'main' && 'Production' || 'Development' }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     environment:
       name: ${{ github.ref_name == 'main' && 'production' || 'development' }}
       url: ${{ vars.APP_URL }}
     env:
       APP_URL: ${{ vars.APP_URL }}
-      TZ: Asia/Colombo
+      GH_TOKEN: ${{ github.token }}
 
     steps:
-      - name: Check out
-        uses: actions/checkout@v5
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-        env:
-          VITE_EMAILJS_SERVICE_ID: ${{ vars.VITE_EMAILJS_SERVICE_ID }}
-          VITE_EMAILJS_TEMPLATE_ID: ${{ vars.VITE_EMAILJS_TEMPLATE_ID }}
-          VITE_EMAILJS_PUBLIC_KEY: ${{ vars.VITE_EMAILJS_PUBLIC_KEY }}
-          VITE_GA_MEASUREMENT_ID: ${{ vars.VITE_GA_MEASUREMENT_ID }}
-
-      - name: Deploy to Cloudflare
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4"
-          command: ${{ github.ref_name == 'main' && 'deploy' || 'deploy --env development' }}
+      - name: Wait for the Cloudflare build
+        run: |
+          for i in $(seq 1 80); do
+            result=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/check-runs" \
+              --jq '[.check_runs[] | select(.app.slug | test("cloudflare"; "i"))] | (map(.status) | join(",")) + "|" + (map(.conclusion // "") | join(","))')
+            statuses=${result%%|*}; conclusions=${result#*|}
+            if [ -n "$statuses" ] && ! echo "$statuses" | grep -qv completed; then
+              if echo "$conclusions" | grep -qE 'failure|cancelled|timed_out|action_required'; then
+                echo "::error::Cloudflare build finished with: $conclusions"; exit 1
+              fi
+              echo "Cloudflare build succeeded."; exit 0
+            fi
+            echo "Waiting for Cloudflare (${statuses:-not started})..."
+            sleep 15
+          done
+          echo "::warning::No completed Cloudflare build found for this commit; smoke-testing the live site anyway."
 
       - name: Smoke test
         run: |
