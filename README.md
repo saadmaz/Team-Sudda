@@ -8,7 +8,7 @@ The official website of Team Sudda: home, office and deep-cleaning services acro
 
 [![Website](https://img.shields.io/badge/website-teamsudda.lk-374151?style=flat-square&labelColor=111827)](https://teamsudda.lk)
 [![CI](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml/badge.svg)](https://github.com/saadmaz/Team-Sudda/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.0.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Team-Sudda/releases)
+[![Version](https://img.shields.io/badge/version-v1.1.0-374151?style=flat-square&labelColor=111827)](https://github.com/saadmaz/Team-Sudda/releases)
 ![License](https://img.shields.io/badge/license-proprietary-374151?style=flat-square&labelColor=111827)
 
 [**teamsudda.lk**](https://teamsudda.lk) · [Documentation](docs/README.md) · [Report a bug](https://github.com/saadmaz/Team-Sudda/issues/new?template=bug_report.yml) · [Request a change](https://github.com/saadmaz/Team-Sudda/issues/new?template=feature_request.yml)
