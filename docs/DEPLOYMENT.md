@@ -10,7 +10,7 @@
 
 | Environment   | Branch    | Worker                   | URL                                                      | Deploys                                                                      |
 | ------------- | --------- | ------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `development` | `develop` | `team-sudda-website-dev` | [dev.teamsudda.lk](https://dev.teamsudda.lk)             | Automatically on every merge into `develop`, once set up                     |
+| `development` | `develop` | `team-sudda-website-dev` | [dev.teamsudda.lk](https://dev.teamsudda.lk)             | Automatically on every merge into `develop`                                  |
 | `production`  | `main`    | `team-sudda-website`     | [teamsudda.lk](https://teamsudda.lk), `www.teamsudda.lk` | Automatically when `develop` is promoted to `main` by a release pull request |
 
 The site is hosted on **Cloudflare Workers** as static assets. **Cloudflare Workers Builds** is connected to this repository. On every push it runs `npm run build` and deploys `dist/` with wrangler. The [Deploy workflow](../.github/workflows/deploy.yml) waits for that Cloudflare build, records the deploy in the matching GitHub environment and smoke-tests the live URL.
