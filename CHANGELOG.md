@@ -31,6 +31,8 @@
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-11-18
+
 ### Changed
 
 - Deploys now run through Cloudflare Workers Builds connected to the repository. The GitHub Deploy workflow waits for the Cloudflare build and smoke-tests the live site instead of deploying.
@@ -142,7 +144,8 @@ First versioned release of [teamsudda.lk](https://teamsudda.lk).
 
 - Lint errors in UI primitives, the booking form phone validation pattern and the Tailwind configuration.
 
-[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.2...HEAD
+[1.3.2]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/saadmaz/Team-Sudda/compare/v1.2.0...v1.2.1
